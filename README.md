@@ -1,4 +1,4 @@
-1 - Venta de juegos digitales. Juegos digitales para PS3, PS4, PS5, PC con excelente servicio al cliente. 
+1 - Venta de juegos. Juegos digitales para PS3, PS4, PS5, PC con excelente servicio al cliente. 
 Precios bajos y gran variedad de productos disponibles.
 
 2 - Cualquier persona que pueda utilizar un joystick, teclado y mouse para pasar al siguiente nivel.
