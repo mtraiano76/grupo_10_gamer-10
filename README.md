@@ -6,3 +6,6 @@ Nuestros juegos estan orientados a un publico con diferentes gustos y edades. De
 
 3 - Nuestro equipo se conforma por Matias, Juan Pablo, Jhoan y Miguel. Nuestra mision es poder brindar asistencia a todas las inquietudes y necesidades que tengas en cuanto al mundo gamer! No solo estamos al tanto de todas las novedades del mercado, tambien somos usuarios!
 
+4 -  Link del tablero de Trello donde distribuimos las tareas y en qué estado se encuentran: 
+https://trello.com/b/88S1f9e7/gamer-10
+
