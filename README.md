@@ -9,3 +9,10 @@ Nuestros juegos estan orientados a un publico con diferentes gustos y edades. De
 4 -  Link del tablero de Trello donde distribuimos las tareas y en qué estado se encuentran: 
 https://trello.com/b/88S1f9e7/gamer-10
 
+5 - Sitios web de referencia
+    * https://dixgamer.com/
+    * https://estacionplay.com/juegos-digitales/
+    * https://www.soygamerargentina.com/
+    * https://www.epicgames.com/store/es-ES/
+    * https://store.ubi.com/ofertas/home?lang=es_AR
+
