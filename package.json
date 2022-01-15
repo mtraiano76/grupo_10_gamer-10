@@ -2,7 +2,7 @@
   "name": "grupo_10_gamer-10",
   "version": "1.0.0",
   "description": "1 - Venta de juegos digitales. Juegos digitales para PS3, PS4, PS5, PC con excelente servicio al cliente. \r Precios bajos y gran variedad de productos disponibles.",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
