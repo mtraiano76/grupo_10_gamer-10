@@ -1,0 +1,60 @@
+body{
+    background-color: #2c2c2c !important;
+}
+
+/* div{
+    color: white;    
+} */
+
+.login-content{
+    margin: 20px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+div{
+    margin: 10px;
+}
+
+a{
+    text-decoration: underline;
+}
+
+#email{
+    width: 400px;
+}
+#password{
+    width: 400px;
+}
+
+@media (max-width: 500px){
+    div{
+        margin: 5px;
+    }
+
+    .register{
+        margin: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .logo{
+        flex-wrap: wrap;
+    }
+
+    .img-logo{
+        width: 100px;
+    }
+
+    #email{
+        width: 200px;
+    }
+    #password{
+        width: 200px;
+    }
+}
