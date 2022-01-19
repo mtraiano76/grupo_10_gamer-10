@@ -1,16 +1,38 @@
 *{
     color: white;
 }
-
 body{
     color: white;
-    font-family: 'Roboto', sans-serif;;
+    font-family: 'Roboto', sans-serif;
     background-color: #2c2c2c !important;
-    margin-top: 2%;
-    
+    margin-top: 2%;    
 }
 div{
     margin-top: 2%;
-    
+}
+h4{
+    color: white;
+}
+.products {
+    display: flex;
+    text-align: center;
+}
 
+h3{
+    font-size: 24px;
+}
+.logo{
+    display: flex;
+    width: 350px;
+    margin-left: 1%;
+    font-size: 25px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+
+}
+p{
+    margin-left: 5%;
+}
+ul{
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
 }
