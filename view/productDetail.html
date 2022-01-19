@@ -13,12 +13,12 @@
         <div class="logo"> 
             <img class="img-logo" src="image/logo/Logo.png" alt="G10-Games">
         </div>
-        <div class="form" action="#" method="GET">
-            <div class="input">Buscar productos, marcas y más</div>
-            <div class="submit"><i class="fa fa-search"></i></div>
-        </div>
-        <p><i class="fas fa-hand-holding-usd"></i>Comprá en cuotas y sin tarjeta de crédito</p>
-    </div>
+        <div>
+            <form action="resultado.html" method="POST">
+            <label for="nombre">Buscar Juego:</label>
+            <input type="text" name="nombre" id="nombre">
+            <a href="productDetail.html"></a> 
+            </div>
     <nav>
         <ul>
             <li><a href="#">Ofertas</a></li>
@@ -31,11 +31,38 @@
             <li><a href="/register">Creá tu cuenta <i class="far fa-id-card"></i></a></li>
             <li><a href="/login">Ingresá <i class="fas fa-sign-in-alt"></i></a></li>
             <li><a href="/productCart">Mis compras <i class="fas fa-shopping-basket"></i></a></li>
+            <li><a href="./.">Home <i class="fas fa-shopping-basket"></i></a></li>
         </ul>
     </nav>
     <div class="burger-menu">
         <i class="fa fa-bars burger"></i>
     </div>
+
+    <main>
+        <section class="last-visit">
+            <h3>Listado de Juegos</h3>
+            <div class="products">
+                <article>
+                    <img src="image/Imágenes de Juegos PS4/Assassin’s Creed Valhalla.jpg" alt="Valhalla" class="product_img">
+                    <div class="main-article">
+                        <h4 class="description">Assassin’s Creed Valhalla</h4>
+                        <i class="fas fa-truck"></i>
+                        <p class="price">$3.900</p>
+                        <p class="discount">40% off</p>
+                        
+                    </div>
+                </article>
+                <article>
+                    <img src="image/Imágenes de Juegos PS4/Call of Duty Black Ops Cold War.jpg" alt="Call of Duty" class="product_img">
+                    <div class="main-article">
+                        <h4 class="description">Call of Duty Black Ops Cold War</h4>
+                        <i class="fas fa-truck"></i>
+                        <p class="price">$4250</p>
+                        <p class="discount">15% off</p>
+                        
+                    </div>
+                </article>
+
 </header>
 
 <body>

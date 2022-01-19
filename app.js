@@ -13,7 +13,7 @@ app.get('/', (req, res) =>{
     res.sendFile(path.resolve(__dirname, './view/index.html'));
 })
 
-app.get('/compras', (req, res) =>{
+app.get('/productCart', (req, res) =>{
     res.sendFile(path.resolve(__dirname, './view/productCart.html'));
 })
 
@@ -21,7 +21,7 @@ app.get('/login', function(req, res){
     res.sendFile(path.resolve(__dirname, './view/login.html'));
 })
 
-app.get('/producto', function(req, res){
+app.get('/productDetail', function(req, res){
     res.sendFile(path.resolve(__dirname, './view/productDetail.html'));
 })
 
