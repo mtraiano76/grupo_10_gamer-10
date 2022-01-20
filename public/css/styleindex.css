@@ -22,3 +22,11 @@ h1 {
     align-items: center;
     
 }
+.login-content{
+    margin: 20px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
