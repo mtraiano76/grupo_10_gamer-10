@@ -81,6 +81,18 @@ input{
     align-items: center;
 }
 
+.btn-submit:hover {
+    cursor:pointer
+}
+
+.email i #email{
+    margin: 10px;
+}
+
+.password i #password{
+    margin: 10px;
+}
+
 @media (max-width: 500px){
     div{
         margin: 5px;
@@ -107,11 +119,5 @@ input{
     }
     #password{
         width: 200px;
-    }
-}
-
-@media (min-width: 501px){
-    .btn-submit:hover {
-        cursor:pointer
     }
 }
