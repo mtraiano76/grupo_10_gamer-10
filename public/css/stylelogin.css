@@ -65,7 +65,8 @@ input{
 
 .btn-submit:hover {
     background-color: #3c91ff;
-    color: #fff
+    color: #fff;
+    cursor:pointer;
 }
 
 
@@ -79,10 +80,6 @@ input{
     display: flex;
     flex-direction: row;
     align-items: center;
-}
-
-.btn-submit:hover {
-    cursor:pointer
 }
 
 .email i #email{
@@ -105,11 +102,7 @@ input{
         justify-content: center;
         align-items: center;
     }
-
-    .logo{
-        flex-wrap: wrap;
-    }
-
+    
     .img-logo{
         width: 100px;
     }
