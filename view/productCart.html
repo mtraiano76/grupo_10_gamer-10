@@ -6,28 +6,61 @@
     <title>Carrito de Compras</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/stylelogin.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
     
 </head>
 
 <body>
-   
-    <div class="logo"> 
-    <img class="img-logo" src="image/logo/Logo.png" alt="G10-Games">
-    </div>
+    <form action="resultado.html" method="POST"></form>
+        <div class="login-content">
+            
+            <div class="logo"> 
+                <img class="img-logo" src="image/logo/Logo.png" alt="G10-Games">
+            </div>
 
-    <div>
-    <form action="resultado.html" method="POST">
-    <label for="nombre">Buscar Juego:</label>
-    <input type="text" name="nombre" id="nombre">
-    <a href="productDetail.html"></a> 
-    </div>
+            <div class="login-button">
+                <button class="btn-submit" id="login-button" type="submit" >Iniciar sesión</button> 
+                <a href="view\login.html" > </a> 
+            </div>
+  
+            
+            <div class="register">
+                <label for="register">¿Aun no tienes una cuenta?</label> 
+                <a href="view\register.html" id="forgot-password">Regístrate</a>    
+            </div>
+            
+            <div class="buscar-juego">    
+                <label for="nombre">Buscar Juego:</label>
+                <input type="button" name="nombre" id="nombre">
+                <a href="view\productDetail.html"></a> 
+             </div>
+
+             <div class="seccion-compra-general">
+
+                        <div class="carrito-de-compra-1"> 1 </div>
+                        <a href="view\productCart.html" class="Carrito-de-compras-1">Carrito de compras</a>
+                        
+
+                        <div class="detalle-de-compra-2"> 2 </div>
+                        <a href="" class="detalle-de-compra-2">Detalle de compra</a>
+
+                        <div class="orden-completada-3"> 3 </div>
+                        <a href="#" class="orden-completada-3">Orden de completada</a>
+              </div>
+
+            <div class="extra">
+                <label id="extra">© 2021-2022</label> 
+            </div>
+        </div>
+    </form>
+    
+    
 
     
-    <div class="register">
-    <label for="register">¿Aun no tienes una cuenta?</label> 
-    <a href="register.html" id="forgot-password">Regístrate</a>    
-    </div>
-    
+        
     LISTADO DE CATEGORIAS => DEPORTE // AUTOS // ACCION // AVENTURA 
     INICIAR SESION/REGISTRARSE
     CARRITO DE COMPRAS    
