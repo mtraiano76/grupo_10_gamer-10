@@ -5,6 +5,8 @@
         <title>Incio de sesión</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/styleregister.css" type="text/css">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
     </head>
     <body>
          <div class="register-content"> 
@@ -19,45 +21,33 @@
                 </p>                
                 <div>
                     <form>
-                        <div>
-                            <label for="name"> Nombres </label>
+                        
+                        <div class="field">
+                            <i class="fas fa-id-card"><input id="name" name="Nombre" placeholder="Nombre"></i>
                         </div>
-                        <div>
-                            <input id="name" name="Nombre">
+                        
+                        <div class="field">
+                            <i class="fas fa-id-card"><input id="lastname" name="Apellido" placeholder="Apellido"></i>
+                        </div class="field">
+                        
+                        <div class="field">
+                            <i class="fas fa-user-alt"><input id="email" name="Correo Electronico" type="email" placeholder="Correo electronico"></i>
                         </div>
-                        <div>
-                            <label for="lastname"> Apellidos </label>
-                        </div>
-                        <div>
-                            <input id="lastname" name="Apellido" >
-                        </div>
-                        <div>
-                            <label for="email"> Correo Electronico </label>
-                        </div>
-                        <div>
-                            <input id="email" name="Correo Electronico" type="email" >
-                        </div>
-                        <div>
-                            <label for="emailconfirmation"> Confirma el Correo Electronico </label>
-                        </div>
-                        <div>
-                            <input id="emailconfirmation" name="Correo Electronico" type="email" >
+                        
+                        <div class="field">
+                            <i class="fas fa-user-alt"><input id="emailconfirmation" name="Correo Electronico" type="email" placeholder="Confirmar correo electronico"></i>
                         </div>       
-                        <div>
-                            <label for="password"> Ingresa tu contraseña </label>
-                        </div>
-                        <div>
-                            <input id="password" name="Contraseña" type="password" >
+                        
+                        <div class="field">
+                            <i class="fas fa-key"><input id="password" name="Contraseña" type="password" placeholder="Contraseña"></i>
                         </div>             
-                        <div>
-                            <label for="passwordconfirm"> Confirma tu contraseña </label>
-                        </div>
-                        <div>
-                            <input id="passwordconfirm" name="Contraseña" type="password" >
+                        
+                        <div class="field">
+                            <i class="fas fa-key"><input id="passwordconfirm" name="Contraseña" type="password" placeholder="Confirmar contraseña"></i>
                         </div>             
                     </div>
-                    <div class="login-button">
-                        <button class="btn-submit" id="login-button" name="login-button" type="submit" >Registrate </button> 
+                    <div class="register-button">
+                        <button class="btn-submit" id="register-button" name="register-button" type="submit" >Registrate </button> 
                     </div>
 
                     </form>

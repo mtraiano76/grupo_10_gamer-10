@@ -23,6 +23,8 @@ input{
         height: 20px;
         border-radius: 3px;
         border: 0px;
+        width: 400px;
+        height: 20px;
     }
 
 .btn-submit{
@@ -33,4 +35,38 @@ input{
         height: 30px;
         border-radius: 3px;
         border: 0px;
+
+        transition-property: background-color;
+	    transition-duration: 0.5s;
     }
+
+.btn-submit:hover {
+        background-color: #3c91ff;
+        color: #fff;
+        cursor:pointer;
+    }
+
+.field{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-items: center;
+}
+
+i input{
+    margin: 10px;
+}
+
+@media (max-width: 500px){
+    h1{
+        font-size: x-large;
+    }    
+
+    .img-logo{
+        width: 100px;
+    }
+
+    input{
+        width: 200px;
+    }
+}
