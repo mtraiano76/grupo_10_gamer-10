@@ -1,9 +1,10 @@
 *{
     color: white;
+    font-family: 'Fredoka One', cursive;
 }
 body{
     color: white;
-    font-family: 'Roboto', sans-serif;
+    
     background-color: #2c2c2c !important;
     margin-top: 2%;    
 }
@@ -12,6 +13,7 @@ div{
 }
 h4{
     color: white;
+    font-family: 'Roboto', sans-serif;
 }
 .products {
     display: flex;
@@ -19,25 +21,29 @@ h4{
 }
 
 h3{
-    font-size: 24px;
+    font-size: 40px;
+    font-family: 'Bangers', cursive;
 }
 .logo{
     display: flex;
     width: 350px;
-    margin-left: 1%;
-    font-size: 25px;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
-
 }
 p{
     margin-left: 5%;
+    font-family: 'Roboto', sans-serif;
 }
 ul{
     font-size: 18px;
-    font-family: 'Roboto', sans-serif;
+    
 }
 label{
     font-size: 20px;
-    font-family: 'Roboto', sans-serif;
+    
     margin-left: 2%;
 }
+span {
+    margin-left: 15%;
+    font-size: 40px;
+    font-family: 'Bangers', cursive;
+}
+
