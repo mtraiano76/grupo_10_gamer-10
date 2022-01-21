@@ -46,8 +46,8 @@ a:hover {
 .email i{
     color: #626262;
     position: absolute;
-    right: 5px;
-    bottom: 10px;
+    right: 10px;
+    bottom: 12px;
 }
 
 #password{
@@ -61,15 +61,23 @@ a:hover {
 .password i{
     color: #626262;
     position: absolute;
-    right: 5px;
-    bottom: 10px;
+    right: 10px;
+    bottom: 12px;
 }
 
 .register{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
+}
+
+.register label{
+    padding-right: 5px;
+}
+
+.register a{
+    padding-left: 5px;
 }
 
 input{
@@ -91,7 +99,7 @@ input{
     border: 0px;
     
 	transition-property: background-color;
-	transition-duration: 0.5s;
+    transition-duration: 0.5s;
 }
 
 .btn-submit:hover {
@@ -100,6 +108,12 @@ input{
     cursor:pointer;
 }
 
+/* .btn-submit:active {
+    border-radius: 5px;
+    border:2px;
+    border-style: inset;
+    border-color: #0069d9;
+} */
 
 .radio{
     display: flex;
@@ -111,14 +125,6 @@ input{
     display: flex;
     flex-direction: row;
     align-items: center;
-}
-
-.email i #email{
-    margin: 10px;
-}
-
-.password i #password{
-    margin: 10px;
 }
 
 ul {
