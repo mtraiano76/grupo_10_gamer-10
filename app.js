@@ -33,6 +33,12 @@ app.get('/detailCart', function(req, res){
     res.sendFile(path.resolve(__dirname, './view/detailCart.html'));
 })
 
+app.get('/detailCart', function(req, res){
+    res.sendFile(path.resolve(__dirname, './view/ordenCompleta.html'));
+})
+
+
+
 
 
 
