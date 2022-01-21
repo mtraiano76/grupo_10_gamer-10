@@ -1,6 +1,6 @@
 *{
     color: white;
-    font-family: 'Fredoka One', cursive;
+    font-family: 'Roboto', sans-serif;
 }
 body{
     color: white;
@@ -11,10 +11,7 @@ body{
 div{
     margin-top: 2%;
 }
-h4{
-    color: white;
-    font-family: 'Roboto', sans-serif;
-}
+
 .products {
     
     text-align: center;
@@ -26,6 +23,11 @@ h3{
     font-size: 40px;
     font-family: 'Bangers', cursive;
     color: aqua;
+}
+
+h4{
+    color: white;
+    font-family: 'Roboto', sans-serif;
 }
 .logo{
     display: flex;
@@ -42,7 +44,6 @@ ul{
 }
 label{
     font-size: 20px;
-    
     margin-left: 2%;
 }
 span {
@@ -50,6 +51,12 @@ span {
     font-size: 40px;
     font-family: 'Bangers', cursive;
     color: aqua;
+}
+.busca{
+    margin: 20px;
+    color: white;
+    
+ 
 }
 
 
