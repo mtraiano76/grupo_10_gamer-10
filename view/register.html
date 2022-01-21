@@ -2,9 +2,11 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Incio de sesión</title>
+        <title>Registro</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/styleregister.css" type="text/css">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
     </head>
     <body>
          <div class="register-content"> 
@@ -18,52 +20,56 @@
                     Registrate y accede a nuestro E-Commerce!
                 </p>                
                 <div>
-                    <form>
-                        <div>
-                            <label for="name"> Nombres </label>
+                    <form method="post">
+                        
+                        <div class="field">
+                            <i class="fas fa-id-card"></i>
+                            <input id="name" name="Nombre" placeholder="Nombre">
                         </div>
-                        <div>
-                            <input id="name" name="Nombre">
+                        
+                        <div class="field">
+                            <i class="fas fa-id-card"></i>
+                            <input id="lastname" name="Apellido" placeholder="Apellido">
+                        </div class="field">
+                        
+                        <div class="field">
+                            <i class="fas fa-user-alt"></i>
+                            <input id="email" name="Correo Electronico" type="email" placeholder="Correo electronico">
                         </div>
-                        <div>
-                            <label for="lastname"> Apellidos </label>
-                        </div>
-                        <div>
-                            <input id="lastname" name="Apellido" >
-                        </div>
-                        <div>
-                            <label for="email"> Correo Electronico </label>
-                        </div>
-                        <div>
-                            <input id="email" name="Correo Electronico" type="email" >
-                        </div>
-                        <div>
-                            <label for="emailconfirmation"> Confirma el Correo Electronico </label>
-                        </div>
-                        <div>
-                            <input id="emailconfirmation" name="Correo Electronico" type="email" >
+                        
+                        <div class="field">
+                            <i class="fas fa-user-alt"></i>
+                            <input id="emailconfirmation" name="Correo Electronico" type="email" placeholder="Confirmar correo electronico">
                         </div>       
-                        <div>
-                            <label for="password"> Ingresa tu contraseña </label>
-                        </div>
-                        <div>
-                            <input id="password" name="Contraseña" type="password" >
+                        
+                        <div class="field">
+                            <i class="fas fa-key"></i>
+                            <input id="password" name="Contraseña" type="password" placeholder="Contraseña">
                         </div>             
-                        <div>
-                            <label for="passwordconfirm"> Confirma tu contraseña </label>
-                        </div>
-                        <div>
-                            <input id="passwordconfirm" name="Contraseña" type="password" >
+                        
+                        <div class="field">
+                            <i class="fas fa-key"></i>
+                            <input id="passwordconfirm" name="Contraseña" type="password" placeholder="Confirmar contraseña">
                         </div>             
                     </div>
-                    <div class="login-button">
-                        <button class="btn-submit" id="login-button" name="login-button" type="submit" >Registrate </button> 
+                    <div class="register-button">
+                        <button class="btn-submit" id="register-button" type="submit" >Registrate </button> 
                     </div>
 
                     </form>
 
                 </div>
-
+                <div class="login">
+                    <label for="login">¿Ya estas registrado?</label> 
+                    <a href="login" id="login">Inicia sesión</a>    
+                </div>
 
             </div>
+            <footer>
+                <ul> 
+                    <li><a href=""><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href=""><i class="fab fa-instagram"></i></i></a></li>
+                    <li><a href=""><i class="fab fa-twitter"></i></a></li>
+                </ul>
+            </footer>
         </body>
