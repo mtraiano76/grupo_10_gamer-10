@@ -12,13 +12,15 @@
         <form >
             <div class="login-content">
                 <div class="logo"> 
-                    <img class="img-logo" src="image/logo/Logo.png" alt="G10-Games">
+                    <a href="/"><img href="index" class="img-logo" src="image/logo/Logo.png" alt="G10-Games"></a>
                 </div>
                 <div class="email">
-                    <i class="fas fa-user-alt"><input id="email" name="email" type="email" placeholder="Ej: correo@gamer.com"/></i>
+                    <i class="fas fa-user-alt"></i>
+                    <input id="email" name="email" type="email" placeholder="Ej: correo@gamer.com" required/>
                 </div>
                 <div class="password">
-                    <i class="fas fa-key"><input id="password" name="password" type="password" placeholder="Contraseña"/></i>
+                    <i class="fas fa-key"></i>
+                    <input id="password" name="password" type="password" placeholder="Contraseña" required/>
                 </div>
                 <div class="login-button">
                     <button class="btn-submit" id="login-button" type="submit" >Iniciar sesión</button> 
@@ -28,7 +30,7 @@
                 </div>
                 <div class="register">
                     <label for="register">¿Aun no tienes una cuenta?</label> 
-                    <a href="register" id="forgot-password">Regístrate</a>    
+                    <a href="register" id="register">Regístrate</a>    
                 </div>
 
                 <div class="extra">
@@ -36,5 +38,12 @@
                 </div>
             </div>
         </form>
+        <footer>
+            <ul> 
+                <li><a href=""><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href=""><i class="fab fa-instagram"></i></i></a></li>
+                <li><a href=""><i class="fab fa-twitter"></i></a></li>
+            </ul>
+        </footer>
     </body>
 </html>

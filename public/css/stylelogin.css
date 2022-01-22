@@ -23,22 +23,61 @@ div{
 }
 
 a{
-    text-decoration: underline;
+    text-decoration: none;
     color: #0069d9;
+
+    transition-property: color;
+	transition-duration: 0.5s;
+}
+
+a:hover {
+    color: #3c91ff;
+    cursor:pointer;
 }
 
 #email{
     width: 400px;
 }
+
+.email{
+    position: relative;
+}
+
+.email i{
+    color: #626262;
+    position: absolute;
+    right: 10px;
+    bottom: 12px;
+}
+
 #password{
     width: 400px;
 }
 
+.password{
+    position: relative;
+}
+
+.password i{
+    color: #626262;
+    position: absolute;
+    right: 10px;
+    bottom: 12px;
+}
+
 .register{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
+}
+
+.register label{
+    padding-right: 5px;
+}
+
+.register a{
+    padding-left: 5px;
 }
 
 input{
@@ -60,7 +99,7 @@ input{
     border: 0px;
     
 	transition-property: background-color;
-	transition-duration: 0.5s;
+    transition-duration: 0.5s;
 }
 
 .btn-submit:hover {
@@ -69,6 +108,12 @@ input{
     cursor:pointer;
 }
 
+/* .btn-submit:active {
+    border-radius: 5px;
+    border:2px;
+    border-style: inset;
+    border-color: #0069d9;
+} */
 
 .radio{
     display: flex;
@@ -82,12 +127,29 @@ input{
     align-items: center;
 }
 
-.email i #email{
-    margin: 10px;
+ul {
+    list-style-type: none;
 }
 
-.password i #password{
+footer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+footer ul{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0px;
+}
+
+footer ul li{
     margin: 10px;
+    padding: 10px;
+    font-size: 2em;
 }
 
 @media (max-width: 500px){
