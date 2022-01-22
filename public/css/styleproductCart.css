@@ -29,21 +29,17 @@ div{
 
 a{
     text-decoration: underline;
-    color: #0069d9;
+    color: white;
 }
 
-#email{
-    width: 400px;
-}
-#password{
-    width: 400px;
-}
+
 
 .register{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
 }
 
 input{
@@ -63,8 +59,7 @@ input{
     height: 30px;
     border-radius: 3px;
     border: 0px;
-    
-	transition-property: background-color;
+    transition-property: background-color;
 	transition-duration: 0.5s;
 }
 
@@ -74,29 +69,9 @@ input{
 }
 
 
-.radio{
-    display: flex;
-    flex-direction: row;
-    align-items: flex-end;
-}
 
-.check{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
 
-.btn-submit:hover {
-    cursor:pointer
-}
 
-.email i #email{
-    margin: 10px;
-}
-
-.password i #password{
-    margin: 10px;
-}
 
 @media (max-width: 500px){
     div{
@@ -118,7 +93,7 @@ input{
     .img-logo{
         width: 100px;
     }
-
+    
 }
 
 .buscador{
@@ -144,5 +119,16 @@ input{
 }
 
 .detalle-de-compra-general{
-    flex-direction: column;
+    display: flex;
+}
+
+.img-juego-detalle{
+    width: 300px;
+    height: 150;
+}
+
+.basura{
+    width: 50px;
+    height: 50px;
+    color: #fff;
 }
