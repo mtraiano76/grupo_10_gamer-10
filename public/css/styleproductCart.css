@@ -128,3 +128,21 @@ input{
     justify-content: center;
     align-items: center;
 }
+
+.product-quantity{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding: 0.5em;
+    text-align: left;
+    border-bottom: 1px solid #ececec;
+    line-height: 100px;
+    font-size: 100px;
+    box-sizing: border-box;
+    display: table-cell;
+    vertical-align: inherit;
+    width: 50px;
+}
+
+.detalle-de-compra-general{
+    flex-direction: column;
+}
