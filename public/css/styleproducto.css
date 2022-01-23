@@ -168,6 +168,7 @@ b{
     border: solid rgb(53, 53, 53) 5px;
     background-color: grey;
     margin: 2%;
+    
    
 }
     
@@ -187,7 +188,46 @@ b{
     background-color: grey;
     margin: 2%;
     width: 30%;
+  
 }
+
+.button{
+    border-radius: 50px;
+    color:black;
+    width:50%;
+    height: 10%;
+    
+
+}
+
 h3{
-    margin:2%
+    margin:2%;
 }
+footer
+{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+footer ul
+{
+    padding: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+footer ul li{
+    font-size: 50px;
+    padding: 15px;
+}
+
+footer ul li a{
+    color: white;
+}
+
