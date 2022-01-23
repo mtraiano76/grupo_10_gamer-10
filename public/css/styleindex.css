@@ -74,14 +74,13 @@ header{
    padding: 0px 10px;
 
 }
+
 .content {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
-
-
 
 header a{
     text-decoration: none;
@@ -123,6 +122,7 @@ ul {
 }
 
 .games .games-list li{
+    box-shadow: 5px 5px 5px 3px black;
     position: relative;
     width: 270px;
     height: 400px;
@@ -140,29 +140,38 @@ ul {
     position: absolute;
     background-color: #1d1d1dad;
     color: white;
-    height: 50%;
+    height: 60%;
     right: 0px;
     bottom: 0px;
     width: inherit;
     transform: translate(0%, 100%);
     transition: transform;
-    transition-duration: 0.5s;
-
-}
-
-.games .games-list li:hover .game-description{
-    transform: translate(0%, 0%);
-}
-
-.games .games-list li .game-description 
-{
+    transition-duration: .75s;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-.games .games-list li .game-description .deatil-buton a{
+.games .games-list li:hover .game-description{
+    transform: translate(0%, 0%);
+}
+
+.games .games-list li .game-description .game-descrition-items{
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 10px;
+}
+
+.games .games-list li .game-description .game-descrition-items h2{
+    text-align: center;
+    font-size: medium;
+}
+
+.games .games-list li .game-description .deatil-buttons a{
     text-decoration: none;
     padding: 10px;
     color: white;
@@ -171,9 +180,15 @@ ul {
     height: 15px;
     border: 0px;
     text-align: center;
+    margin: 5px;
     
 	transition-property: background-color;
     transition-duration: 0.5s;
+}
+
+.games .games-list li .game-description .deatil-buttons {
+    display: flex;
+    flex-direction: column;
 }
 
 .games .games-list li .game-description .deatil-buton a:hover {
