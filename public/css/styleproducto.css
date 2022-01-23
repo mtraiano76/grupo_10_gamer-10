@@ -167,8 +167,7 @@ b{
     border: solid rgb(53, 53, 53) 5px;
     background-color: grey;
     margin: 1%;
-    
-   
+     
 }
     
 .caja-2{
@@ -178,6 +177,7 @@ b{
     background-color: grey;
     margin: 2%;
     width: 30%;
+    border-radius:5%;
 
 }
 .caja-3{
@@ -187,6 +187,7 @@ b{
     background-color: grey;
     margin: 2%;
     width: 30%;
+    border-radius:5%;
   
 }
 
@@ -195,7 +196,10 @@ b{
     color:black;
     width:50%;
     height: 10%;
-    
+    background-color: aqua;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    align-self:flex-end;
 
 }
 
