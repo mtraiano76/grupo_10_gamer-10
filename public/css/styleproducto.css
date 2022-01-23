@@ -1,7 +1,7 @@
 
 *{
     color: white;
-    font-family: 'Roboto', sans-serif;;
+    font-family: 'Roboto', sans-serif;
 }
 
 body{
@@ -150,4 +150,44 @@ b{
         padding: 5px;
         
     }
+}
+.contenedor { 
+    width: 100%;
+    border: solid rgb(53, 53, 53) 5px;
+    background-color: rgb(0, 0, 0);
+    padding: 5px;
+    margin: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+.caja-1{
+    box-sizing: border-box;  
+    color: black;
+    border: solid rgb(53, 53, 53) 5px;
+    background-color: grey;
+    margin: 2%;
+   
+}
+    
+.caja-2{
+    box-sizing: border-box;  
+    color: black;
+    border: solid rgb(53, 53, 53) 5px;
+    background-color: grey;
+    margin: 2%;
+    width: 30%;
+
+}
+.caja-3{
+    box-sizing: border-box;  
+    color: black;
+    border: solid rgb(53, 53, 53) 5px;
+    background-color: grey;
+    margin: 2%;
+    width: 30%;
+}
+h3{
+    margin:2%
 }
