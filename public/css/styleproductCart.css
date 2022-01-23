@@ -42,13 +42,7 @@ a{
     
 }
 
-input{
-    margin-top: 10px;
-    padding: 10px;
-    height: 20px;
-    border-radius: 3px;
-    border: 0px;
-}
+
 
 
 .btn-submit{
@@ -118,7 +112,7 @@ input{
     width: 50px;
 }
 
-.detalle-de-compra-general{
+.detalle-compra-general{
     display: flex;
 }
 
