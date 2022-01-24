@@ -4,39 +4,13 @@
         <meta charset="UTF-8">
         <title>Detalle de compra</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-        <link rel="stylesheet" href="css/styleindex.css" type="text/css">
-        <link rel="stylesheet" href="css/styleproductCart.css" type="text/css"> 
-        <link rel="stylesheet" href="css/detalleCompra.css" type="text/css">
-
-
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
-     
+        <link rel="stylesheet" href="css/detalleCompra.css" type="text/css">
     </head>
 
     <body>
-        <div class="detalle-compra-general">
         <header>
-            <div class="logo"> 
-                <img class="img-logo" src="image/logo/Logo.png" alt="G10-Games">
-            </div>
-
-            <div class="basura">
-                <div>
-                    <button type="reset"><i class="far fa-trash-alt"></i></button>
-                </div>  
-            </div>
-
-            <td class="product-quantity" data-title="Cantidad">
-                <div class="quantity buttons_added">
-                <input type="number" id="quantity_61ec5989318ff" class="input-text qty text" step="1" min="0" max="91" name="contador" value="2" title="Cantidad" size="4" placeholder="" inputmode="numeric">
-            </td>
-
-            <div class="img-juego-detalle">
-                <img class="img-juego-detalle" src="image\Imágenes de Juegos PS4\Assassin’s Creed Valhalla.jpg" alt="Assassin’s-creed">
-            </div>
-
             <div class="mobile-menu">
                 <div class="burger-menu">
                     <i class="fas fa-ellipsis-v"></i>
@@ -49,20 +23,192 @@
                         <li><a href="index">Ayuda</a></li>
                     </ul>
                 </div>
-        </header>
-
-                <footer>
-                    <div class="social-media-menu">
+                <div class="logo"> 
+                    <img class="img-logo" src="image/logo/Logo.png" alt="G10-Games">
+                </div>
+                <div class="account-menu">
+                    <i class="far fa-user"></i>
+                    <ul> 
+                        <li><a href="login">Inciar sesión</a></li>
+                        <li><a href="register">Registrarse</a></li>
+                        <li><a href="perfil">Perfil</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="desktop-menu">
+                <div class="logo"> 
+                    <img class="img-logo" src="image/logo/Logo.png" alt="G10-Games">
+                </div>
+                <div class="menus">
+                    <div class="menu">
                         <ul> 
-                            <li><a href=""><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href=""><i class="fab fa-instagram"></i></a></li>
-                            <li><a href=""><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="index">Catalogo</a></li>
+                            <li><a href="index">Ofertas</a></li>
+                            <li><a href="index">Juegos</a></li>
+                            <li><a href="index">Consolas</a></li>
+                            <li><a href="index">Accesorios</a></li>
+                            <li><a href="index">Consultas</a></li>
+                            <li><a href="index">Conocenos</a></li>
                         </ul>
                     </div>
-                    <div class="extra">
-                        <label id="extra">© 2021-2022</label> 
+                    <div class="account-menu">
+                        <ul> 
+                            <li><a href="login">Inciar sesión</a></li>
+                            <li><a href="register">Registrarse</a></li>
+                        </ul>
                     </div>
-                </footer>
+                </div>
             </div>
-            </body>
-        </html>
+        </header>
+            
+        <div class="detalle-compra-general">
+            <table>
+                <tr>
+                  <th>Juego</th>
+                  <th>Precio</th>
+                  <th>Cantidad</th>
+                  <th>Subtotal</th>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="game">
+                            <div class="basura">
+                                <button><i class="far fa-trash-alt"></i></button>
+                            </div>
+                            <div class="img-juego-detalle">
+                                <img class="img-juego-detalle" src="image\Imágenes de Juegos PS4\Assassin’s Creed Valhalla.jpg" alt="Assassin’s-creed">
+                            </div>
+                            <p>Nombre del juego</p>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="price">
+                            <p>$20.000</p>
+                        </div>
+                    </td>
+                    <td> 
+                      <form class="product-quantity" data-title="Cantidad">
+                            <div>
+                                <button><i class="fas fa-minus"></i></button>
+                            </div>
+                            <input type="number"/>
+                            <div>
+                                <button><i class="fas fa-plus"></i></button>
+                            </div>
+                        </form>
+                    </td>
+                    <td>
+                        <div class="subtotal">
+                            <p>$20.000</p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="game">
+                            <div class="basura">
+                                <button type="reset"><i class="far fa-trash-alt"></i></button>
+                            </div>
+                            <div class="img-juego-detalle">
+                                <img class="img-juego-detalle" src="image/Imágenes de Juegos PS4/Call of Duty Black Ops Cold War.jpg" alt="Assassin’s-creed">
+                            </div>
+                            <p>Nombre del juego</p>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="price">
+                            <p>$20.000</p>
+                        </div>
+                    </td>
+                    <td> 
+                      <form class="product-quantity" data-title="Cantidad">
+                            <div>
+                                <button><i class="fas fa-minus"></i></button>
+                            </div>
+                            <input type="number"/>
+                            <div>
+                                <button><i class="fas fa-plus"></i></button>
+                            </div>
+                        </form>
+                    </td>
+                    <td>
+                        <div class="subtotal">
+                            <p>$20.000</p>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <div class="seccion-comprar">
+                <h4>Total Carrito</h4>
+                <div class="total-venta">
+                    <p>Total venta</p>
+                    <p>$200.000</p>
+                </div>
+                <a href="#">Finalizar compra</a>
+                <img src="image/Banner/pinpng.com-mercado-png-4241166.png"/>
+            </div>
+        </div>
+
+        <div class="suggested-games">
+            <h3>Sugerencias</h3>
+            <ul class="games-list">
+                <li >
+                    <img src="image/Imágenes de Juegos PS4/Call of Duty Black Ops Cold War.jpg" alt="Black Ops Cold War">
+                    
+                    <div class="game-description">
+                        <div class="game-descrition-items">
+                            <h2 class="game-name">Black Ops Cold War</h2>
+                            <p class="game-price">$20.000</p>
+                        </div>
+                        <div class="deatil-buttons">
+                            <a href="productDetail">Detalle</a > 
+                            <a href="detalleCompra">Agregar <i class="fas fa-shopping-cart"></i></a > 
+                        </div>
+                    </div>  
+                </li>
+                <li >
+                    <img src="image/Imágenes de Juegos PS4/Dragon Ball Fighterz.jpg" alt="Dragon Ball Fighterz">
+                    
+                    <div class="game-description">
+                        <div class="game-descrition-items">
+                            <h2 class="game-name">Dragon Ball Fighterz</h2>
+                        <p class="game-price">$20.000</p>
+                        </div>
+                        <div class="deatil-buttons">
+                            <a href="productDetail">Detalle</a > 
+                            <a href="detalleCompra">Agregar <i class="fas fa-shopping-cart"></i></a > 
+                        </div>
+                    </div>  
+                </li>
+                <li >
+                    <img src="image/Imágenes de Juegos PS4/FIFA-22.jpg" alt="FIFA-22">
+                    
+                    <div class="game-description">
+                        <div class="game-descrition-items">
+                            <h2 class="game-name">FIFA-22</h2>
+                            <p class="game-price">$20.000</p>
+                        </div>
+                        <div class="deatil-buttons">
+                            <a href="productDetail">Detalle</a > 
+                            <a href="detalleCompra">Agregar <i class="fas fa-shopping-cart"></i></a > 
+                        </div>
+                    </div>  
+                </li>
+        </div>
+        <div class="fixed-wp">
+            <a href="https://wa.me/+573216715629" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        <footer>
+            <div class="social-media-menu">
+                <ul> 
+                    <li><a href=""><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href=""><i class="fab fa-instagram"></i></a></li>
+                    <li><a href=""><i class="fab fa-twitter"></i></a></li>
+                </ul>
+            </div>
+            <div class="extra">
+                <label id="extra">© 2021-2022</label> 
+            </div>
+        </footer>
+    </body>
+</html>

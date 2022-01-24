@@ -4,7 +4,6 @@ body{
     display: flex;
     flex-direction: column;
     margin: 0px;
-    
 }
 
 header{
@@ -66,6 +65,10 @@ header{
 }
 .slider-menu li a{
     color: #1d1d1d;
+}
+
+.slider-menu li a:target{
+    color: #c4c4c4;
 
 }
 
@@ -130,6 +133,9 @@ ul {
     overflow: hidden;
     
 }
+ #slide1{
+     opacity: 0.5;
+ }
 
 .games .games-list li img{
     height: inherit;
@@ -171,6 +177,11 @@ ul {
     font-size: medium;
 }
 
+.games .games-list li .game-description .deatil-buttons {
+    display: flex;
+    flex-direction: column;
+}
+
 .games .games-list li .game-description .deatil-buttons a{
     text-decoration: none;
     padding: 10px;
@@ -186,12 +197,7 @@ ul {
     transition-duration: 0.5s;
 }
 
-.games .games-list li .game-description .deatil-buttons {
-    display: flex;
-    flex-direction: column;
-}
-
-.games .games-list li .game-description .deatil-buton a:hover {
+.games .games-list li .game-description .deatil-buttons a:hover {
     background-color: #3c91ff;
     color: #fff;
     cursor:pointer;
@@ -239,7 +245,7 @@ footer ul li a{
     color: white;
 }
 
-@media (max-width: 900px){
+@media (max-width: 1024px){
     .fixed-wp{
         padding: 10px;
     }
@@ -298,7 +304,7 @@ footer ul li a{
 }
 
 
-@media (min-width: 900px){
+@media (min-width: 1024px){
 
 
     .slider{
@@ -353,6 +359,6 @@ footer ul li a{
     }
     .menus ul li{
         padding: 5px;
-        
+        text-align: center;
     }
 }

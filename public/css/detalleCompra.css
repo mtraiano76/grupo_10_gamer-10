@@ -4,7 +4,6 @@ body{
     display: flex;
     flex-direction: column;
     margin: 0px;
-    
 }
 
 header{
@@ -19,58 +18,292 @@ header{
     z-index: 1;
 }
 
-.logo{
-    flex-wrap: wrap;
-    margin-top: 10px;
-    margin-left: auto;
+header a{
+    text-decoration: none;
+    color: #ffffff;
+    padding: 10px;
+    transition-property: background-color;
+	transition-duration: 0.5s;
+    border-radius: 5px;
+    margin: 5px;
 }
 
-.img-logo{
-    width: 300px;
+header a:hover {
+    background-color : #1d1d1d;
+    cursor:pointer;
 }
 
-.buscador{
-flex-direction: row;
-margin: 20px;
-display: flex;
-justify-content: center;
-align-items: center;
+footer
+{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
 }
 
-.product-quantity{
-padding-top: 15px;
-padding-bottom: 15px;
-padding: 0.5em;
-text-align: left;
-border-bottom: 1px solid #ececec;
-line-height: 100px;
-font-size: 100px;
-box-sizing: border-box;
-display: table-cell;
-vertical-align: inherit;
-width: 50px;
+footer ul
+{
+    padding: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+footer ul li{
+    font-size: 50px;
+    padding: 15px;
+}
+
+footer ul li a{
+    color: white;
+}
+
+.fixed-wp {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    padding: 15px;
+    background-color: #1d1d1d91;
+    border-radius: 100%;
+}
+
+.fixed-wp a i{
+    font-size: 50px;
+    color: white;
+}
+
+ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    margin: 0px;
+    padding: 0px;
 }
 
 .detalle-compra-general{
-display: flex;
+    display: flex;
+    padding: 15px;
+    justify-content: space-between;
 }
 
-.img-juego-detalle{
-width: 150px;
-
+.detalle-compra-general *{
+    color: white;
 }
 
-.basura{
-width: 50px;
-height: 50px;
-color: #fff;
-}
-
-input{
-    margin-top: 10px;
+.detalle-compra-general .seccion-comprar{
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    border-left: grey;
+    border-left-style: solid;
     padding: 10px;
-    height: 20px;
-    width: 30px;
-    border-radius: 3px;
+}
+
+.detalle-compra-general table{
+    width: 100%;
+}
+
+.detalle-compra-general table td img{
+    width: 60px;
+}
+
+.detalle-compra-general table td > *{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.detalle-compra-general .game{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.detalle-compra-general .product-quantity{
+    display: flex;
+}
+
+.detalle-compra-general .product-quantity input{
+    width: 25px;
+}
+
+
+.total-venta{
+    display: flex;
+}
+
+.seccion-comprar img{
+    width: 200px;
+    margin: 10px;
+}
+
+.basura button{
+    background-color: #d95000;
+    border-radius: 4px;
+    height: 30px;
     border: 0px;
+    
+	transition-property: background-color;
+    transition-duration: 0.5s;
+}
+
+.basura button:hover {
+    background-color: #b34100;
+    cursor:pointer;
+}
+
+form button{
+    background-color: #0069d9;
+    border-radius: 4px;
+    height: 30px;
+    border: 0px;
+    
+	transition-property: background-color;
+    transition-duration: 0.5s;
+}
+
+form button:hover {
+    background-color: #3c91ff;
+    cursor:pointer;
+}
+
+form input{
+    height: 28px;
+    border: 0;
+    border-radius: 4px;
+
+}
+
+.seccion-comprar a{
+    text-decoration: none;
+    padding: 10px;
+    color: white;
+    background-color: #3ca123;
+    border-radius: 4px;
+    height: 15px;
+    border: 0px;
+    text-align: center;
+    margin: 5px;
+    
+	transition-property: background-color color;
+    transition-duration: 0.5s;
+}
+
+.seccion-comprar a:hover {
+    background-color: white;
+    color: #3ca123;
+    cursor:pointer;
+}
+
+@media (max-width: 1024px){
+    .fixed-wp{
+        padding: 10px;
+    }
+
+    .fixed-wp a i{
+        font-size: 30px;
+    }
+
+    .mobile-menu{
+        padding: 10px 25px;
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .mobile-menu i{
+        font-size: 25px;
+    }
+
+    .mobile-menu ul{
+        margin: 5px;
+        padding: 5px;
+        background-color: #1d1d1d91;
+        display: none;
+        position: absolute;
+        transition-duration: 0.5s;
+        border-radius: 5px;
+    }
+
+    .mobile-menu :hover ul{
+        display: flex;
+        flex-direction: column;
+        font-size: 1em;
+    }
+
+    .mobile-menu .account-menu ul{
+        transform: translate(-100%, 0);
+        width: max-content;
+    }
+
+    .mobile-menu ul li{
+        padding: 10px;
+    }
+
+    .desktop-menu{
+        display: none;
+    }
+
+    .img-logo{
+        width: 100px;
+    }
+}
+
+
+@media (min-width: 1024px){
+
+    .mobile-menu{
+        display: none;
+    }
+
+    .desktop-menu{
+        display: flex;
+        font-size: 1em;
+        flex-direction: column;
+        width: 100%;
+        padding: 15px,15px,15px,0px;
+        max-width: 1900px;
+    }
+
+    .desktop-menu .logo{
+        display: flex;
+        color: white;
+        font-size: 2em;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .desktop-menu .logo img{
+        width: 150px;
+    }
+
+    .menus{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .menus .menu ul{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 0px;
+    }
+
+    .menus ul{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+    .menus ul li{
+        padding: 5px;
+        text-align: center;
+    }
 }
