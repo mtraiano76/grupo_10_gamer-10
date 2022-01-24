@@ -341,3 +341,31 @@ main{
 .video {
     margin: 2%;
 }
+
+.fixed-wp {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    padding: 15px;
+    background-color: #1d1d1d91;
+    border-radius: 100%;
+}
+
+.fixed-wp a i{
+    font-size: 50px;
+    color: white;
+}
+
+@media (max-width: 1024px){
+    .fixed-wp{
+        padding: 10px;
+    }
+
+    .fixed-wp a i{
+        font-size: 30px;
+    }
+    
+    .slider{
+        height: 200px;
+    }
+}
