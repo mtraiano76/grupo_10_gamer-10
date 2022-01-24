@@ -236,6 +236,100 @@ input[type=number]::-webkit-outer-spin-button {
     cursor:pointer;
 }
 
+.suggested-games{
+
+    border-top: solid 1px grey ;
+    display: flex;
+    padding: 10px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.suggested-games ul{
+    display: flex;
+    flex-direction: row ;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.suggested-games ul li{
+    box-shadow: 5px 5px 5px 3px black;
+    position: relative;
+    width: 270px;
+    height: 400px;
+    margin: 20px;
+    overflow: hidden;
+}
+
+.suggested-games ul li img{
+    height: inherit;
+    width: inherit;
+}
+
+.suggested-games ul li .game-description{
+    position: absolute;
+    background-color: #1d1d1dad;
+    color: white;
+    height: 60%;
+    right: 0px;
+    bottom: 0px;
+    width: inherit;
+    transform: translate(0%, 100%);
+    transition: transform;
+    transition-duration: .75s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.suggested-games ul li:hover .game-description{
+    transform: translate(0%, 0%);
+}
+
+.suggested-games ul li .game-description .game-descrition-items{
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 10px;
+}
+
+.suggested-games ul li .game-description .game-descrition-items h2{
+    text-align: center;
+    font-size: medium;
+}
+
+.suggested-games ul li .game-description .deatil-buttons {
+    display: flex;
+    flex-direction: column;
+}
+
+.suggested-games ul li .game-description .deatil-buttons a{
+    text-decoration: none;
+    padding: 10px;
+    color: white;
+    background-color: #0069d9;
+    border-radius: 4px;
+    height: 15px;
+    border: 0px;
+    text-align: center;
+    margin: 5px;
+    
+	transition-property: background-color;
+    transition-duration: 0.5s;
+}
+
+.suggested-games ul li .game-description .deatil-buttons a:hover {
+    background-color: #3c91ff;
+    color: #fff;
+    cursor:pointer;
+}
+
 @media (max-width: 800px){
     .detalle-compra-general{
         flex-direction: column;
