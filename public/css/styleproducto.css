@@ -160,6 +160,7 @@ b{
     display: flex;
     flex-wrap: wrap;
     
+    
 }
 .caja-1{
     box-sizing: border-box;  
@@ -167,6 +168,7 @@ b{
     border: solid rgb(53, 53, 53) 5px;
     background-color: grey;
     margin: 1%;
+    
      
 }
     
@@ -178,6 +180,7 @@ b{
     margin: 2%;
     width: 30%;
     border-radius:5%;
+    
 
 }
 .caja-3{
@@ -199,15 +202,12 @@ b{
     background-color: aqua;
     font-family: 'Roboto', sans-serif;
     font-size: 20px;
-    align-self:flex-end;
-
 }
 
 h3{
-    margin:2%;
+    margin:4%;
 }
-footer
-{
+footer{
     color: white;
     display: flex;
     flex-direction: column;
@@ -216,8 +216,7 @@ footer
     margin-bottom: 15px;
 }
 
-footer ul
-{
+footer ul{
     padding: 0px;
     display: flex;
     flex-direction: row;
@@ -233,4 +232,30 @@ footer ul li{
 footer ul li a{
     color: white;
 }
-
+main{
+    background-color: grey;
+}
+.fotos{
+    display: flex;
+    width: 99%;
+    border: solid aqua 2px;
+    padding: 5px;
+    margin: 0%;
+    box-sizing: border-box;
+}
+.foto1{
+    margin-left: 1%;
+    max-width: 10%;
+}
+.foto2{
+    margin-left: 1%;
+    max-width: 10%;
+}
+.foto3{
+    margin-left: 1%;
+    max-width: 10%;
+}
+.foto4{
+    margin-left: 1%;
+    max-width: 10%;
+}
