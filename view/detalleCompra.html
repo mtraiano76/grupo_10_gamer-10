@@ -14,6 +14,7 @@
             <div class="mobile-menu">
                 <div class="burger-menu">
                     <i class="fas fa-ellipsis-v"></i>
+                    <input type="checkbox">
                     <ul> 
                         <li><a href="index">Ofertas</a></li>
                         <li><a href="index">Juegos</a></li>
@@ -28,6 +29,7 @@
                 </div>
                 <div class="account-menu">
                     <i class="far fa-user"></i>
+                    <input type="checkbox">
                     <ul> 
                         <li><a href="login">Inciar sesión</a></li>
                         <li><a href="register">Registrarse</a></li>
@@ -51,11 +53,26 @@
                             <li><a href="index">Conocenos</a></li>
                         </ul>
                     </div>
-                    <div class="account-menu">
-                        <ul> 
-                            <li><a href="login">Inciar sesión</a></li>
-                            <li><a href="register">Registrarse</a></li>
-                        </ul>
+                    <form class="search-bar" method="get" action="search">
+                        <input type="text" name="search-text" placeholder="Buscar...">
+                        <button type="submit"><i class="fas fa-search"></i></button>
+                    </form>
+                    <div class="menu-icons">
+                        <div class="shopping-cart">
+                            <a href="detalleCompra">
+                                <i class="fas fa-shopping-cart"></i>
+                                <h4>2</h4>
+                            </a>
+                        </div>
+                        <div class="account-menu">
+                            <i class="far fa-user"></i>
+                            <input type="checkbox">
+                            <ul> 
+                                <li><a href="login">Inciar sesión</a></li>
+                                <li><a href="register">Registrarse</a></li>
+                                <li><a href="perfil">Perfil</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
