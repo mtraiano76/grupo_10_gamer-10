@@ -265,6 +265,10 @@ footer ul li a{
         color: white;
     }
 
+    .search-bar button i{
+        font-size: 15px;
+    }
+
     .mobile-menu i{
         font-size: 25px;
     }
@@ -279,11 +283,45 @@ footer ul li a{
         border-radius: 5px;
     }
 
+    .left-menu {
+        position: relative;
+        display: flex;
+    }
+
+    .left-menu > *{
+        margin:3px;
+        padding: 10px;
+    }
+
+    .left-menu .search-bar{
+        position: absolute;
+        display: none;
+        height: 20px;
+        min-width: 100px;
+        margin: 10px;
+    }
+
+    .left-menu .search-bar input{
+        height: 20px;
+        width: inherit;
+        min-width: 100px;
+    }
+
+    .left-menu .search-bar button{
+        position: absolute;
+        right: 0;
+        top:0;
+        height: 21px;
+        width: 21px;
+        border: none;
+        background-color: rgba(255, 255, 255, 0);
+    }
+
     .mobile-menu .burger-menu{
         position: relative;
     }
 
-    .mobile-menu .burger-menu input[type="checkbox"]{
+    .mobile-menu .left-menu input[type="checkbox"]{
         position: absolute;
         box-sizing: border-box;
         margin: 0;
@@ -295,11 +333,51 @@ footer ul li a{
         opacity: 0;
     }
 
-    .mobile-menu .account-menu{
+    .mobile-menu .right-menu{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        position: relative;
+    }
+
+    .mobile-menu .right-menu{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        position: relative;
+    }
+
+    .mobile-menu .right-menu > *{
+        margin:2px;
+        padding: 2px;
+    }
+
+    .mobile-menu .right-menu .account-menu{
+        position: relative;
+    }
+
+    .mobile-menu .right-menu .shopping-cart a h4{
+        position: absolute;
+        font-size: medium;
+        right: -5px;
+        top: -25px;
+        border-radius: 100%;
+        background-color: rgb(161, 0, 0);
+        width: 25px;
+        height: 25px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .mobile-menu .right-menu .shopping-cart a{
         position: relative;
     }
     
-    .mobile-menu .account-menu input[type="checkbox"]{
+    .mobile-menu .right-menu .account-menu input[type="checkbox"]{
         position: absolute;
         box-sizing: border-box;
         margin: 0;
@@ -317,7 +395,12 @@ footer ul li a{
         font-size: 1em;
       }
 
-    .mobile-menu .account-menu ul{
+      .mobile-menu input:checked ~ form {
+        display: flex;
+        flex-direction: column;
+      }
+
+    .mobile-menu .right-menu .account-menu ul{
         transform: translate(-100%, 0);
         width: max-content;
     }
@@ -332,6 +415,30 @@ footer ul li a{
 
     .img-logo{
         width: 100px;
+    }
+
+    .mobile-menu .left-menu .burger-menu input[type="checkbox"] {
+        position: absolute;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        right: 9px;
+        top: 9px;
+        width: 10px;
+        height: 28px;
+        opacity: 0;
+    }
+
+    .mobile-menu .left-menu .search input[type="checkbox"] {
+        position: absolute;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        right: 13px;
+        top: 13px;
+        width: 25px;
+        height: 25px;
+        opacity: 0;
     }
 }
 
