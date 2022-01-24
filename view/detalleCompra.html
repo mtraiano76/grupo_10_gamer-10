@@ -14,6 +14,7 @@
             <div class="mobile-menu">
                 <div class="burger-menu">
                     <i class="fas fa-ellipsis-v"></i>
+                    <input type="checkbox">
                     <ul> 
                         <li><a href="index">Ofertas</a></li>
                         <li><a href="index">Juegos</a></li>
@@ -24,10 +25,11 @@
                     </ul>
                 </div>
                 <div class="logo"> 
-                    <img class="img-logo" src="image/logo/Logo.png" alt="G10-Games">
+                    <a href="/"><img class="img-logo" src="image/logo/Logo.png" alt="G10-Games"></a>
                 </div>
                 <div class="account-menu">
                     <i class="far fa-user"></i>
+                    <input type="checkbox">
                     <ul> 
                         <li><a href="login">Inciar sesión</a></li>
                         <li><a href="register">Registrarse</a></li>
@@ -37,7 +39,7 @@
             </div>
             <div class="desktop-menu">
                 <div class="logo"> 
-                    <img class="img-logo" src="image/logo/Logo.png" alt="G10-Games">
+                    <a href="/"><img class="img-logo" src="image/logo/Logo.png" alt="G10-Games"></a>
                 </div>
                 <div class="menus">
                     <div class="menu">
@@ -51,16 +53,27 @@
                             <li><a href="index">Conocenos</a></li>
                         </ul>
                     </div>
-                    <div class="account-menu">
-                        <ul> 
-                            <li><a href="login">Inciar sesión</a></li>
-                            <li><a href="register">Registrarse</a></li>
-                        </ul>
+                    <form class="search-bar" method="get" action="search">
+                        <input type="text" name="search-text" placeholder="Buscar...">
+                        <button type="submit"><i class="fas fa-search"></i></button>
+                    </form>
+                    <div class="menu-icons">
+                        
+                        <div class="account-menu">
+                            <i class="far fa-user"></i>
+                            <input type="checkbox">
+                            <ul> 
+                                <li><a href="login">Inciar sesión</a></li>
+                                <li><a href="register">Registrarse</a></li>
+                                <li><a href="perfil">Perfil</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </header>
         <div class="content">
+            <h1>Tu compra</h1>
             <div class="detalle-compra-general">
                 <table>
                     <tr>
@@ -153,18 +166,18 @@
                 <h3>Sugerencias</h3>
                 <ul class="games-list">
                     <li >
-                        <img src="image/Imágenes de Juegos PS4/Call of Duty Black Ops Cold War.jpg" alt="Black Ops Cold War">
+                        <img src="image/Imágenes de Juegos PS4/Metal gear solid V the phantom pain.jpg" alt="Metal gear solid V the phantom pain">
                         
                         <div class="game-description">
                             <div class="game-descrition-items">
-                                <h2 class="game-name">Black Ops Cold War</h2>
+                                <h2 class="game-name">Metal gear solid V the phantom pain</h2>
                                 <p class="game-price">$20.000</p>
                             </div>
                             <div class="deatil-buttons">
                                 <a href="productDetail">Detalle</a > 
                                 <a href="detalleCompra">Agregar <i class="fas fa-shopping-cart"></i></a > 
                             </div>
-                        </div>  
+                        </div>   
                     </li>
                     <li >
                         <img src="image/Imágenes de Juegos PS4/Dragon Ball Fighterz.jpg" alt="Dragon Ball Fighterz">
