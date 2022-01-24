@@ -501,13 +501,8 @@ input[type=number]::-webkit-outer-spin-button {
 
 @media (min-width: 1024px){
 
-<<<<<<< HEAD:public/css/detalleCompra.css
     .slider{
         height: 500px;
-=======
-    .logo a{
-
->>>>>>> 6d068567dc9a28b19d13f5144a3bdc6e7d5399d8:public/css/styleproductcart.css
     }
 
     .mobile-menu{
@@ -540,7 +535,6 @@ input[type=number]::-webkit-outer-spin-button {
         padding: 10px;
     }
 
-<<<<<<< HEAD:public/css/detalleCompra.css
     .desktop-menu .menu-icons .shopping-cart a h4{
         position: absolute;
         font-size: medium;
@@ -560,8 +554,6 @@ input[type=number]::-webkit-outer-spin-button {
         position: relative;
     }
 
-=======
->>>>>>> 6d068567dc9a28b19d13f5144a3bdc6e7d5399d8:public/css/styleproductcart.css
     .desktop-menu .menu-icons .account-menu ul{
         margin: 5px;
         padding: 5px;
@@ -654,11 +646,7 @@ input[type=number]::-webkit-outer-spin-button {
         background-color: rgba(255, 255, 255, 0);
     }
 
-<<<<<<< HEAD:public/css/detalleCompra.css
     .menus ul{
-=======
-    .menus menu ul{
->>>>>>> 6d068567dc9a28b19d13f5144a3bdc6e7d5399d8:public/css/styleproductcart.css
         display: flex;
         flex-direction: row;
         align-items: center;
