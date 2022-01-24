@@ -247,7 +247,7 @@ input[type=number]::-webkit-outer-spin-button {
 
     border-top: solid 1px grey ;
     display: flex;
-    padding: 10px;
+    padding: 10px 0px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
