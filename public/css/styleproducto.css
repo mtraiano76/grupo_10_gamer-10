@@ -166,33 +166,37 @@ b{
     box-sizing: border-box;  
     color: black;
     border: solid aqua (53, 53, 53) 5px;
-    background-color: grey;
+    background-color: rgb(78, 78, 78);
     margin: 1%;
     width: 30%;
     border-radius:5%;
-    
-     
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 4px 5px 6px 8px #9e9e9e;  
 }
-    
+   
 .caja-2{
     box-sizing: border-box;  
     color: black;
     border: solid aqua (53, 53, 53) 5px;
-    background-color: grey;
+    background-color: rgb(78, 78, 78);
     margin: 1%;
     width: 30%;
     border-radius:5%;
-    
+    box-shadow: 4px 5px 6px 8px #9e9e9e;
 
 }
 .caja-3{
     box-sizing: border-box;  
     color: black;
     border: solid aqua (53, 53, 53) 5px;
-    background-color: grey;
+    background-color: rgb(78, 78, 78);
     margin: 1%;
     width: 30%;
     border-radius:5%;
+    box-shadow: 4px 5px 6px 8px #9e9e9e;
   
 }
 
@@ -206,8 +210,13 @@ b{
     font-size: 20px;
 }
 
-h3{
+p{
     margin:4%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  
 }
 footer{
     color: white;
@@ -261,13 +270,7 @@ main{
     margin-left: 1%;
     max-width: 10%;
 }
-.portada{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    
-}
+
 .slider-container{
     display: flex;
     flex-direction: column;
@@ -326,4 +329,15 @@ main{
    margin: 0px 5px;
    padding: 0px 10px;
 
+}
+.caja-video{
+    background-color: rgb(78, 78, 78);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.video {
+    margin: 2%;
 }
