@@ -192,6 +192,7 @@ b{
     display: flex;
     flex-direction: row;
     max-width: 280px; /*La max-widthpropiedad define el ancho máximo de un elemento*/
+    width: 500px;
 
 }
    
@@ -214,20 +215,18 @@ b{
     box-shadow: 4px 5px 6px 8px #000000;  
     margin: 1%;
     max-width: 280px;
-    
-  
+    width: 500px;  
 }
 
 .button{
     border-radius: 50px;
     color:black;
-    width:50%;
+    width:60%;
     height: 10%;
     background-color: rgb(59, 59, 59);
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
-    margin-bottom: 1%;
-    
+    margin-bottom: 1%;    
 }
 
 p{
@@ -397,13 +396,11 @@ main{
     justify-content: center;
     width: 100%;
     align-self: flex-end;
-
 }
 h2{
     text-align: center;
 }
-h3{
-    
+h3{   
     font-weight: bold;
     font-size:20px;
 }
