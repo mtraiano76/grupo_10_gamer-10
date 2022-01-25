@@ -179,45 +179,42 @@ b{
 .contenedor main{ 
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly; /*genera espacio entre las cajas*/
+    flex-wrap: wrap; /*logramos que al achicar la pantalla, las cajas se pasen para la lina inferior*/
+    
 }
 
 .caja-1{
     box-sizing: border-box;  
     color: black;
-    border: solid aqua (53, 53, 53) 5px;
     background-color: #2c2c2c;
-    margin: 1%;
-    width: 30%;
-    border-radius:5%;
+    box-shadow: 4px 5px 6px 8px #000000;  
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 4px 5px 6px 8px #000000;  
+    max-width: 280px; /*La max-widthpropiedad define el ancho máximo de un elemento*/
+
 }
    
 .caja-2{
     box-sizing: border-box;  
     color: black;
-    border: solid aqua (53, 53, 53) 5px;
     background-color: #2c2c2c;
-    margin: 1%;
-    width: 90%;
+    box-shadow: 4px 5px 6px 8px #000000; 
+    margin: 0%;
+    width: 100%;
     max-width: 1800px;
-    border-radius:5%;
-    box-shadow: 4px 5px 6px 8px #000000;  
+    margin-bottom: 2%;
+     
 
 }
 .caja-3{
     box-sizing: border-box;  
     color: black;
-    border: solid aqua (53, 53, 53) 5px;
     background-color: #2c2c2c;
-    margin: 1%;
-    width: 30%;
-    border-radius:5%;
     box-shadow: 4px 5px 6px 8px #000000;  
+    margin: 1%;
+    max-width: 280px;
+    
   
 }
 
