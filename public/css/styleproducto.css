@@ -45,6 +45,21 @@ b{
     text-align: left
 }
 
+.caja-video{
+    overflow:hidden;
+    padding-bottom:400px;
+    position:relative;
+    height:0;
+    max-width: 960px;
+}
+.caja-video *{
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
+}
+
 
 @media (max-width: 900px){
     .slider{
@@ -152,6 +167,7 @@ b{
         
     }
 }
+
 .contenedor { 
     width: 100%;
     border: solid rgb(53, 53, 53) 5px;
@@ -159,10 +175,15 @@ b{
     padding: 5px;
     box-sizing: border-box;
     display: flex;
-    flex-wrap: wrap;
-    
-    
+    flex-direction: column;
 }
+
+.contenedor main{ 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .caja-1{
     box-sizing: border-box;  
     color: black;
@@ -184,7 +205,8 @@ b{
     border: solid aqua (53, 53, 53) 5px;
     background-color: #2c2c2c;
     margin: 1%;
-    width: 30%;
+    width: 90%;
+    max-width: 1800px;
     border-radius:5%;
     box-shadow: 4px 5px 6px 8px #000000;  
 
