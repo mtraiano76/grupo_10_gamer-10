@@ -180,6 +180,7 @@ b{
     display: flex;
     align-items: center;
     justify-content: center;
+    
 }
 
 .caja-1{
@@ -194,7 +195,8 @@ b{
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    box-shadow: 4px 5px 6px 8px #000000;  
+    box-shadow: 4px 5px 6px 8px #000000;
+    min-width: 280px;  
 }
    
 .caja-2{
@@ -217,7 +219,8 @@ b{
     margin: 1%;
     width: 30%;
     border-radius:5%;
-    box-shadow: 4px 5px 6px 8px #000000;  
+    box-shadow: 4px 5px 6px 8px #000000;
+    min-width: 280px;  
   
 }
 
