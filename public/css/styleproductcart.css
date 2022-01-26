@@ -61,6 +61,7 @@ footer ul li a{
     color: white;
 }
 
+
 .fixed-wp {
     position: fixed;
     bottom: 15px;
@@ -479,25 +480,6 @@ input[type=number]::-webkit-outer-spin-button {
     .mobile-menu .right-menu .account-menu{
         position: relative;
     }
-
-    .mobile-menu .right-menu .shopping-cart a h4{
-        position: absolute;
-        font-size: medium;
-        right: -5px;
-        top: -25px;
-        border-radius: 100%;
-        background-color: rgb(161, 0, 0);
-        width: 25px;
-        height: 25px;
-        text-align: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .mobile-menu .right-menu .shopping-cart a{
-        position: relative;
-    }
     
     .mobile-menu .right-menu .account-menu input[type="checkbox"]{
         position: absolute;
@@ -599,25 +581,6 @@ input[type=number]::-webkit-outer-spin-button {
     .desktop-menu .menu-icons > *{
         margin:10px;
         padding: 10px;
-    }
-
-    .desktop-menu .menu-icons .shopping-cart a h4{
-        position: absolute;
-        font-size: medium;
-        right: -5px;
-        top: -25px;
-        border-radius: 100%;
-        background-color: rgb(161, 0, 0);
-        width: 25px;
-        height: 25px;
-        text-align: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .desktop-menu .menu-icons .shopping-cart a{
-        position: relative;
     }
 
     .desktop-menu .menu-icons .account-menu ul{
