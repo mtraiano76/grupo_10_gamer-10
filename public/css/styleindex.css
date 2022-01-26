@@ -512,6 +512,10 @@ footer ul li a{
         position: relative;
         color: white;
     }
+
+    .desktop-menu .account-menu input[type="checkbox"]:hover{
+        cursor: pointer;
+    }
     
     .desktop-menu .account-menu input[type="checkbox"]{
         position: absolute;

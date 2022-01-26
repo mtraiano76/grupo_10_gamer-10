@@ -9,4 +9,4 @@ La retrospectiva se centra en mejorar como equipo.
 2. Hacer más: Ser mas especificos en cuanto a los items a trabajar y hacerlo en orden (1,2,3,etc)
 3. Continuar haciendo: Apoyo entre nosotros como equipo, fundamental a la hora de resolver requisitos y seguir aprendiendo
 4. Hacer menos: 
-5. Dejar de hacer: 
+5. Dejar de hacer: Se estan creando hojas de estilo por pagina
