@@ -428,6 +428,11 @@ h3{
         color: white;
     }
 
+    .logo a{
+        margin: 5px 0px;
+        padding: 10px 0px;
+    }
+
     .search-bar button i{
         font-size: 15px;
     }
