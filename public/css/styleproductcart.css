@@ -572,9 +572,9 @@ input[type=number]::-webkit-outer-spin-button {
         display: flex;
         font-size: 2em;
         flex-direction: row;
-        right: 25%;
-        top: 50%;
-        transform: translate(25%, -50%);
+        right: 0;
+        top: 0;
+        transform: translate(-25%, 9%);
         width: max-content;
     }
 
@@ -641,7 +641,7 @@ input[type=number]::-webkit-outer-spin-button {
         display: flex;
         flex-direction: row;
         align-items: center;
-        justify-content: space-between;
+        justify-content: center;
     }
 
     .menus .menu ul{
