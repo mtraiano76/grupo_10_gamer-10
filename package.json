@@ -1,24 +1,16 @@
 {
-  "name": "grupo_10_gamer-10",
-  "version": "1.0.0",
-  "description": "1 - Venta de juegos digitales. Juegos digitales para PS3, PS4, PS5, PC con excelente servicio al cliente. \r Precios bajos y gran variedad de productos disponibles.",
-  "main": "app.js",
+  "name": "gamer10",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./bin/www"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mtraiano76/grupo_10_gamer-10.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/mtraiano76/grupo_10_gamer-10/issues"
-  },
-  "homepage": "https://github.com/mtraiano76/grupo_10_gamer-10#readme",
   "dependencies": {
-    "bootstrap": "^5.1.3",
-    "express": "^4.17.2",
-    "normalize.css": "^8.0.1"
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "ejs": "~2.6.1",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "morgan": "~1.9.1"
   }
 }
