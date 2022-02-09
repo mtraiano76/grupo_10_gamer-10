@@ -416,7 +416,6 @@ transition-property: background-color;
 .register-content input{
   margin-top: 10px;
   padding: 10px;
-  height: 20px;
   border-radius: 3px;
   border: 0px;
   width: 400px;
@@ -425,6 +424,25 @@ transition-property: background-color;
 
 
 .register-content input:focus{
+  box-shadow: 0px 0px 5px 3px #0069d9;
+  border:none;
+  outline: none;
+}
+
+.register-content .field label{
+  text-align: left;
+}
+
+.register-content select{
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 3px;
+  border: 0px;
+  width: 420px;
+  height: 40px;
+}
+
+.register-content select:focus{
   box-shadow: 0px 0px 5px 3px #0069d9;
   border:none;
   outline: none;
@@ -521,6 +539,7 @@ transition-property: background-color;
   flex-direction: column;
   width: 400px;
   margin: 15px;
+  align-items: flex-start;
 }
 
 .register-content form .fields .field img{
@@ -894,6 +913,10 @@ transition-property: background-color;
   .register-content input{
       width: 200px;
   }
+
+  .register-content select{
+    width: 220px;
+}
 
   /* CARRITO DE COMPRAS */
   .detalle-compra-general table .game > p{

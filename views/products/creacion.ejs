@@ -22,6 +22,18 @@
                                 <div class="field">
                                     <input type="number" id="cantidad" name="quenatity" placeholder="Cantidad">
                                 </div>
+
+                                <div class="field">
+                                    <label for="category">Categoria:</label>
+                                    <select name="category" id="category">
+                                        <option value="Accion">Accion</option>
+                                        <option value="Rol">Rol</option>
+                                        <option value="Deporte">Deporte</option>
+                                        <option value="Carreras">Carreras</option>
+                                        <option value="Peleas">Peleas</option>
+                                        <option value="Guerra">Guerra</option>
+                                    </select>
+                                </div>
                             </div>
 
                             <div class="field image">
@@ -45,8 +57,8 @@
                                         var reader = new FileReader();
                                         reader.readAsDataURL(primerArchivo);
                                         reader.onload = function (){
-                                            $imgPreview.src = reader.result;;
-                                            $inputUrl.value = reader.result;;
+                                            $imgPreview.src = reader.result;
+                                            $inputUrl.value = reader.result;
                                         };
                                         reader.onerror = function (error) {
                                             console.log('Error convirtiendo imagen: ', error);
