@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <%- include('../partials/head') %>	
+  <body>
+    <%- include('../partials/header') %>	
+    <div class="content">
+        <div class="product-list-options">
+            <a href="../products/create">Crear juego <i class="fas fa-shopping-cart"></i></a > 
+        </div>
+        <div class="games">
+            <ul class="games-list">
+
+                <!-- <li ><img src="images/Imágenes de Juegos PS4/A Way Out.jpg" alt="A Way Out"></li> -->
+                <!-- <li ><img src="images/Imágenes de Juegos PS4/DiRT 4.jpg" alt="DiRT 4"></li> -->
+                <!-- <li ><img src="images/Imágenes de Juegos PS4/Battlefield 4.jpg" alt="Battlefield 4"></li> -->
+                <!-- <li ><img src="images/Imágenes de Juegos PS4/Little nightmares.jpg" alt="Little nightmares"></li> -->
+                <!-- <li ><img src="images/Imágenes de Juegos PS4/Naruto Shippuden Ultimate Ninja Storm 4.jpg" alt="Naruto Shippuden Ultimate Ninja Storm 4"></li> -->
+                <!-- <li ><img src="images/Imágenes de Juegos PS4/Naruto to Boruto Shinobi Striker.jpg" alt="Naruto to Boruto Shinobi Striker"></li> -->
+                <!-- <li ><img src="images/Imágenes de Juegos PS4/PES 2021.jpg" alt="PES 2021"></li> -->
+                <!-- <li ><img src="images/Imágenes de Juegos PS4/Resident Evil 7 Biohazard.jpg" alt="Resident Evil 7"></li> -->
+                <% for(let product of products){ %>
+                <li >
+                    <img src="<%= product.url %> " alt="Assassin’s Creed Valhalla">
+                    
+                    <div class="game-description">
+                        <div class="game-descrition-items">
+                            <h2 class="game-name"><%= product.name %></h2>
+                            <p class="game-price"><%= product.price %></p>
+                        </div>
+                        <div class="deatil-buttons">
+                            <a href="../products/productDetail/<%=product.id%>">Detalle</a > 
+                            <a href="../products/productCart">Agregar <i class="fas fa-shopping-cart"></i></a > 
+                            <a href="../products/edit?id=<%=product.id%>">Editar</a > 
+                        </div>
+                    </div>  
+                </li>
+                <% } %> 
+            </ul>
+        </div>
+    </div>
+    <%- include('../partials/contacto') %>	 
+    <%- include('../partials/footer') %>	
+  </body>
+</html>

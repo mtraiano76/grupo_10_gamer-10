@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <%- include('../partials/head') %>	
+    <body>
+        <form >
+            <div class="login-content">
+                <div class="logo"> 
+                    <a href="/"><img href="index" class="img-logo" src="../images/logo/Logo.png" alt="G10-Games"></a>
+                </div>
+                <div class="email">
+                    <i class="fas fa-user-alt"></i>
+                    <input id="email" name="email" type="email" placeholder="Ej: correo@gamer.com" required/>
+                </div>
+                <div class="password">
+                    <i class="fas fa-key"></i>
+                    <input id="password" name="password" type="password" placeholder="Contraseña" required/>
+                </div>
+                <div class="check-remember">
+                    <label for="terminos">Recuerdame</label>
+                    <input type="checkbox" name="remember">
+                </div>
+                <div class="login-button">
+                    <button class="btn-submit" id="login-button" type="submit" >Iniciar sesión</button> 
+                </div>
+                <div class="forgot-password">
+                    <a href="forgot-password" id="forgot-password">Olvide mi contraseña</a>    
+                </div>
+                <div class="register">
+                    <label for="register">¿Aun no tienes una cuenta?</label> 
+                    <a href="register" id="register">Regístrate</a>    
+                </div>
+            </div>
+        </form>
+        <%- include('../partials/contacto') %>	
+        <%- include('../partials/footer') %>	
+    </body>
+</html>
