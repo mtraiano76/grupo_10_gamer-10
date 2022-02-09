@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var methodOverride = require('method-override');
 var bodyParser = require('body-parser');
-
+var favicon = require('serve-favicon')
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var productsRouter = require('./routes/products');
@@ -24,6 +24,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+let faviconPath = path.join(__dirname, 'public', 'images', 'logo', 'favicon.ico');
+console.log(faviconPath);
+app.use(favicon(faviconPath));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

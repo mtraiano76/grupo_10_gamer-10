@@ -80,14 +80,16 @@ let cartProducts = [
         'url':'../images/Imágenes de Juegos PS4/Assassin’s Creed Valhalla.jpg',
         'name':'Assassin’s Creed Valhalla',
         'price':20000,
-        'category':'Acción'
+        'category':'Acción',
+        'quantity':2
     },
     {
         'id':2,
         'url':'../images/Imágenes de Juegos PS4/Call of Duty Black Ops Cold War.jpg',
         'name':'Black Ops Cold War',
         'price':30000,
-        'category':'Guerra'
+        'category':'Guerra',
+        'quantity':1
     },
 ]
 
@@ -184,6 +186,14 @@ let productsController = {
         product.category = request.category
         
         res.redirect("/products");
+    },
+
+    deatil: function(req, res)
+    {
+        console.log("detalle");
+        let id = req.query.id;
+        let product = products.find(product => product.id == id);
+        res.render('products/detalle', {'product':product});
     },
 
  };
