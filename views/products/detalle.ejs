@@ -36,14 +36,9 @@
         </main>
             <div class="slider-container">
                 <ul class="slider">
-
-                    <li id="slide1"><img src="../images/Imágenes de Juegos PS4/detalle/assa/assa1.jpg"></li>
-                    <li id="slide2"><img src="../images/Imágenes de Juegos PS4/detalle/assa/assa2.jpg"/></li>
-                    <li id="slide3"><img src="../images/Imágenes de Juegos PS4/detalle/assa/assa3.jpg"/></li>
-                    <li id="slide4"><img src="../images/Imágenes de Juegos PS4/detalle/assa/assa4.jpg"/></li>
-                    <li id="slide5"><img src="../images/Imágenes de Juegos PS4/detalle/assa/assa5.jpg"/></li>
-                    <li id="slide6"><img src="../images/Imágenes de Juegos PS4/detalle/assa/assa6.jpg"/></li>
-
+                    <%for(let i=0; i<product.previews.length; i++ ){%>
+                        <li id="slide<%=i+1%>"><img src="<%=product.previews[i]%>"></li>
+                    <%}%>
                 </ul>
                 <ul class="slider-menu">
 

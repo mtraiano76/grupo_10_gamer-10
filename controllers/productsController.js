@@ -5,9 +5,27 @@ let products = [
    {
        'id':1,
        'url':'../images/Imágenes de Juegos PS4/Assassin’s Creed Valhalla.jpg',
+       'previews': [
+            '../images/Imágenes de Juegos PS4/assa/assa1.jpg',
+            '../images/Imágenes de Juegos PS4/assa/assa2.jpg',
+            '../images/Imágenes de Juegos PS4/assa/assa3.jpg',
+            '../images/Imágenes de Juegos PS4/assa/assa4.jpg',
+            '../images/Imágenes de Juegos PS4/assa/assa5.jpg',
+            '../images/Imágenes de Juegos PS4/assa/assa6.jpg',
+       ],
        'name':'Assassin’s Creed Valhalla',
        'price':20000,
-       'category':'Acción'
+       'category':'Acción',
+       'date':'',
+       'videoUrl':'',
+       'desarrolladora':'',
+       'productora':'',
+       'juagdores':'',
+       'distribuidora':'',
+       'formato':'',
+       'idioma':'',
+       'descripcion':'',
+       'discount':0,
    },
    {
        'id':2,
