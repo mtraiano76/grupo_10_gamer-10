@@ -5,7 +5,7 @@ dinámica de estrella de mar que mencionamos anteriormente.
 
 La retrospectiva se centra en mejorar como equipo. 
 
-1. Comenzar a hacer: Dayli / Scrum / Meet, Se deben mejorar las descripciones de los commit
+1. Comenzar a hacer: Dayli / Scrum / Meet
 2. Hacer más: Ser mas especificos en cuanto a los items a trabajar y hacerlo en orden (1,2,3,etc)
 3. Continuar haciendo: Apoyo entre nosotros como equipo, fundamental a la hora de resolver requisitos y seguir aprendiendo
 4. Hacer menos: 

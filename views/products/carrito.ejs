@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <%- include('../partials/head') %>	
+    <body>
+        <%- include('../partials/header') %>	
+        <div class="content-carrito">
+            <h1>Tu compra</h1>
+            <div class="detalle-compra-general">
+                <table>
+                    <tr>
+                    <th>Juego</th>
+                    <th>Precio</th>
+                    <th>Cantidad</th>
+                    <th>Subtotal</th>
+                    </tr>
+                    <% for(let cartProduct of cartProducts){%>
+                    <tr>
+                        <td>
+                            <div class="game">
+                                <div class="basura">
+                                    <button><i class="far fa-trash-alt"></i></button>
+                                </div>
+                                <div class="img-juego-detalle">
+                                    <img class="img-juego-detalle" src="<%= cartProduct.url %>" alt="<%= cartProduct.name %>">
+                                </div>
+                                <p><%= cartProduct.name %></p>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="price">
+                                <p>$<%= cartProduct.price %></p>
+                            </div>
+                        </td>
+                        <td> 
+                            <form class="product-quantity" data-title="Cantidad">
+                                <div>
+                                    <button><i class="fas fa-minus"></i></button>
+                                </div>
+                                <input type="number" min="1" max="5" value="<%= cartProduct.quantity %>"/>
+                                <div>
+                                    <button><i class="fas fa-plus"></i></button>
+                                </div>
+                            </form>
+                        </td>
+                        <td>
+                            <div class="subtotal">
+                                <p>$<%= cartProduct.price * cartProduct.quantity%></p>
+                            </div>
+                        </td>
+                    </tr>
+                    <%}%>
+                </table>
+                <div class="seccion-comprar">
+                    <h4>Total Carrito</h4>
+                    <div class="total-venta">
+                        <p>Total venta</p>
+                        <p>$<%= totalPrice%></p>
+                    </div>
+                    <a href="#">Finalizar compra</a>
+                    <img src="../images/Banner/pinpng.com-mercado-png-4241166.png"/>
+                </div>
+            </div>
+
+            <div class="suggested-games">
+                <h3>Sugerencias</h3>
+                <ul class="games-list">
+                    <%for(let suggestedProduct of suggestedProducts){%>
+                        <li >
+                            <img src="<%= suggestedProduct.url %>" alt="<%= suggestedProduct.name %>">
+                            
+                            <div class="game-description">
+                                <div class="game-descrition-items">
+                                    <h2 class="game-name"><%= suggestedProduct.name %></h2>
+                                    <p class="game-price">$<%= suggestedProduct.price %></p>
+                                </div>
+                                <div class="deatil-buttons">
+                                    <a href="../products/productDetail?id=<%=suggestedProduct.id%>">Detalle</a > 
+                                    <a href="detalleCompra">Agregar <i class="fas fa-shopping-cart"></i></a > 
+                                </div>
+                            </div>   
+                        </li>
+                    <%}%>
+            </div>
+        </div>
+        <%- include('../partials/contacto') %>	 
+        <%- include('../partials/footer') %>	
+    </body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <%- include('../partials/head') %>
+    <body>
+        <%- include('../partials/header') %>	
+         <div class="register-content"> 
+                <h1 class="titulo">
+                    Editar juego
+                </h1>
+                <div>
+                    <form method="post" action="../products?_method=PUT">
+                        <div class="fields">
+                            <div>
+
+                                <input type="text" id="id" name="id" value="<%= product.id %>" style="display: none;">
+
+                                <div class="field">
+                                    <input type="text" id="name" name="name" placeholder="Nombre del juego" value="<%= product.name %>" readonly> 
+                                </div>
+                                
+                                <div class="field">
+                                    <input type="number" id="precio" name="price" placeholder="Precio" value="<%= product.price %>">
+                                </div >
+                                
+                                <div class="field">
+                                    <input type="number" id="cantidad" name="quenatity" placeholder="Cantidad" value="<%= product.quantity %>">
+                                </div>
+
+                                <div class="field">
+                                    <label for="category">Categoria:</label>
+                                    <select name="category" id="category">
+                                        <option value="Accion">Accion</option>
+                                        <option value="Rol">Rol</option>
+                                        <option value="Deporte">Deporte</option>
+                                        <option value="Carreras">Carreras</option>
+                                        <option value="Peleas">Peleas</option>
+                                        <option value="Guerra">Guerra</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="field image">
+                                <input type="file" id="caratula" accept=".jpg" style="width: 50%">
+                                <img id="imgPreview" src="<%= product.url %>">
+                                <input type="text" id="url" style="display: none;" name="url"/>
+                                <script>
+                                    const $caratula = document.querySelector("#caratula"),
+                                    $imgPreview = document.querySelector("#imgPreview"),
+                                    $inputUrl = document.querySelector("#url");
+
+                                    $caratula.addEventListener("change", () => {
+                                        const archivos = $caratula.files;
+                                        if (!archivos || !archivos.length) {
+                                            $imgPreview.src = "";
+                                            return;
+                                        }
+
+                                        $caratula.style.display = 'none';
+                                        const primerArchivo = archivos[0];
+                                        var reader = new FileReader();
+                                        reader.readAsDataURL(primerArchivo);
+                                        reader.onload = function (){
+                                            $imgPreview.src = reader.result;;
+                                            $inputUrl.value = reader.result;;
+                                        };
+                                        reader.onerror = function (error) {
+                                            console.log('Error convirtiendo imagen: ', error);
+                                        };
+                                    });
+                                </script>
+                            </div>
+                        </div>
+
+                        <div class="register-button">
+                            <button class="btn-submit" id="register-button" type="submit" >Editar juego</button> 
+                        </div>
+                    </form>
+
+                </div>
+
+            </div>
+            <%- include('../partials/contacto') %>	
+            <%- include('../partials/footer') %>	
+        </body>
+</html>
