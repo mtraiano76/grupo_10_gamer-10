@@ -134,7 +134,6 @@ let productsController = {
 
     list: function(req, res)
     {
-        console.log(products);
         res.render('products/listado',{products});
     },
 
@@ -170,8 +169,6 @@ let productsController = {
     {
         let id = req.query.id;
         let product = products.find(product => product.id == id);
-        console.log(id);
-        console.log(product);
         res.render('products/edicion', {'product':product});
     },
     
@@ -180,9 +177,8 @@ let productsController = {
         let request = req.body;
 
         let product = products.find(product => product.id == request.id);
-
         product.price = request.price;
-        product.url = request.url;
+        product.url = !!request.url ? request.url : product.url;
         product.category = request.category
         
         res.redirect("/products");
@@ -190,8 +186,7 @@ let productsController = {
 
     deatil: function(req, res)
     {
-        console.log("detalle");
-        let id = req.query.id;
+        let id = req.params.id;
         let product = products.find(product => product.id == id);
         res.render('products/detalle', {'product':product});
     },
