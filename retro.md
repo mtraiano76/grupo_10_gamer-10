@@ -10,3 +10,14 @@ La retrospectiva se centra en mejorar como equipo.
 3. Continuar haciendo: Apoyo entre nosotros como equipo, fundamental a la hora de resolver requisitos y seguir aprendiendo
 4. Hacer menos: 
 5. Dejar de hacer: Se estan creando hojas de estilo por pagina
+Las principales conclusiones de la retro del primer sprint:
+    Items a evaluar: 
+        Comunicación
+        Cumplimiento
+        Resolución de problemas
+        Elavoración del Sprint
+        Distribución de las tareas a realizar
+        Cooperación 
+        Escucha
+        Aceptación de opiniones
+        
