@@ -19,7 +19,9 @@ let productsController = {
         let jsonProducts = fs.readFileSync('games.json', 'utf-8');
         let products = JSON.parse(jsonProducts);
 
-        res.render('products/listado',{products});
+
+       
+        res.render('products/listado',{'products':req.query.search ? products.filter(game => game.name.toUpperCase().includes(req.query.search.toUpperCase())) : products});
     },
 
     create: function(req, res)
