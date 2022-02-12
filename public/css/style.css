@@ -1386,8 +1386,8 @@ transition-property: background-color;
       display: flex;
       font-size: 2em;
       flex-direction: row;
-      right: 25%;
-      top: 50%;
+      right: 60px;
+      top: 30px;
       transform: translate(25%, -50%);
       width: max-content;
   }
@@ -1478,7 +1478,7 @@ transition-property: background-color;
       display: flex;
       flex-direction: row;
       align-items: center;
-      justify-content: space-between;
+      justify-content: space-evenly;
   }
 
   .menus .menu ul{

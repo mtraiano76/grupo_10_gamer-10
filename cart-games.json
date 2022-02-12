@@ -1,0 +1,18 @@
+[
+    {
+        "id":1,
+        "url":"../images/Imágenes de Juegos PS4/Assassin’s Creed Valhalla.jpg",
+        "name":"Assassin’s Creed Valhalla",
+        "price":20000,
+        "category":"Acción",
+        "quantity":2
+    },
+    {
+        "id":2,
+        "url":"../images/Imágenes de Juegos PS4/Call of Duty Black Ops Cold War.jpg",
+        "name":"Black Ops Cold War",
+        "price":30000,
+        "category":"Guerra",
+        "quantity":1
+    }
+]
