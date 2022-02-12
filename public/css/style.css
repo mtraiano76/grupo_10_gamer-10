@@ -178,16 +178,33 @@ footer ul li a{
   text-decoration: none;
 }
 
-.fixed-wp {
+.contact {
   position: fixed;
   bottom: 15px;
   right: 15px;
-  padding: 15px;
-  background-color: #1d1d1d91;
-  border-radius: 100%;
 }
 
-.fixed-wp a i{
+.contact .fixed-mail {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1d1d1d91;
+  padding: 15px;
+  border-radius: 100%;
+  margin: 10px;
+}
+
+.contact .fixed-wp {
+  background-color: #1d1d1d91;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  border-radius: 100%;
+  margin: 10px;
+  text-align: center;
+}
+
+.contact a i{
   font-size: 50px;
   color: white;
 }
@@ -1219,11 +1236,11 @@ transition-property: background-color;
 }
 
 @media (max-width: 1024px){
-  .fixed-wp{
+  .contact{
       padding: 10px;
   }
 
-  .fixed-wp a i{
+  .contact a i{
       font-size: 30px;
   }
   
