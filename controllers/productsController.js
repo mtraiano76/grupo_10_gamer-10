@@ -21,7 +21,7 @@ let productsController = {
 
 
        
-        res.render('products/listado',{'products':req.query.search ? products.filter(game => game.name.toUpperCase().includes(req.query.search.toUpperCase())) : products});
+        res.render('products/listado',{'products':req.query.search ? products.filter(game => game.name.toUpperCase().includes(req.query.search.toUpperCase())) : products , "titulo" : req.query.search ? "Resultado de la busqueda":"Catalogo", "emptyMessage":req.query.search ? "No hay resultados para esta busqueda":"No hay nada en el catalogo para mostrar"});
     },
 
     create: function(req, res)

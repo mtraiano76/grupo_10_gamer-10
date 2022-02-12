@@ -7,6 +7,8 @@
         <div class="product-list-options">
             <a href="../products/create">Crear juego <i class="fas fa-shopping-cart"></i></a > 
         </div>
+        <h1><%=titulo%></h1>
+        <%if(products.length){%>
         <div class="games">
             <ul class="games-list">
 
@@ -37,6 +39,9 @@
                 <% } %> 
             </ul>
         </div>
+        <%}else{%>
+            <h2><%=emptyMessage%></h2>
+        <%}%>
     </div>
     <%- include('../partials/contacto') %>	 
     <%- include('../partials/footer') %>	
