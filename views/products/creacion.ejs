@@ -7,64 +7,90 @@
                 <h1 class="titulo">
                     Crear juego
                 </h1>
-                <div>
-                    <form method="post" action="../products">
+                    <form method="post" action="../products" enctype="multipart/form-data">
                         <div class="fields">
-                            <div>
-                                <div class="field">
-                                    <input type="text" id="name" name="name" placeholder="Nombre del juego">
-                                </div>
-                                
-                                <div class="field">
-                                    <input type="number" id="precio" name="price" placeholder="Precio">
-                                </div >
-                                
-                                <div class="field">
-                                    <input type="number" id="cantidad" name="quenatity" placeholder="Cantidad">
-                                </div>
-
-                                <div class="field">
-                                    <label for="category">Categoria:</label>
-                                    <select name="category" id="category">
-                                        <option value="Accion">Accion</option>
-                                        <option value="Rol">Rol</option>
-                                        <option value="Deporte">Deporte</option>
-                                        <option value="Carreras">Carreras</option>
-                                        <option value="Peleas">Peleas</option>
-                                        <option value="Guerra">Guerra</option>
-                                    </select>
-                                </div>
+                            <div class="field">
+                                <label for="category">Nombre:</label>
+                                <input type="text" id="name" name="name" placeholder="Nombre del juego" required>
+                            </div>
+                            
+                            <div class="field">
+                                <label for="category">Precio:</label>
+                                <input type="number" id="precio" name="price" placeholder="Precio" required>
+                            </div >
+                            
+                            <div class="field">
+                                <label for="category">Fecha de creación:</label>
+                                <input type="date" id="date" name="date" placeholder="Fecha de creacion" required min="2010-01-01" max="2021-12-31" required>
                             </div>
 
+                            <div class="field">
+                                <label for="category">Enlace del video:</label>
+                                <input type="text" id="videoUrl" name="videoUrl" placeholder="Url de video" >
+                            </div>
+
+                            <div class="field">
+                                <label for="category">Desarrolladora:</label>
+                                <input type="text" id="desarrolladora" name="desarrolladora" placeholder="Desarrolladora" required>
+                            </div>
+
+                            <div class="field">
+                                <label for="category">Productora:</label>
+                                <input type="text" id="productora" name="productora" placeholder="Productora" required>
+                            </div>
+
+                            <div class="field">
+                                <label for="category">Numero de jugadores:</label>
+                                <input type="number" id="juagdores" name="juagdores" placeholder="Numero de juagdores" required>
+                            </div >
+
+                            <div class="field">
+                                <label for="category">Idioma:</label>
+                                <input type="text" id="idioma" name="idioma" placeholder="Idioma" required>
+                            </div>
+
+                            <div class="field">
+                                <label for="category">Descuento:</label>
+                                <input type="number" id="discount" name="discount" placeholder="Descuento" value="0" min="0" max="100" required>
+                            </div>
+
+                            <div class="field">
+                                <label for="category">Categoria:</label>
+                                <select name="category" id="category">
+                                    <option value="Accion">Accion</option>
+                                    <option value="Rol">Rol</option>
+                                    <option value="Deporte">Deporte</option>
+                                    <option value="Carreras">Carreras</option>
+                                    <option value="Peleas">Peleas</option>
+                                    <option value="Guerra">Guerra</option>
+                                </select>
+                            </div>
+
+                            <div class="field-row">
+                                <label>Producto destacado:</label>
+                                <input type="checkbox" id="sugerido" name="sugerido" value="sugerido">
+                            </div>
+                        </div>
+
+                        <div class="fields">
+                            <div class="field-area">
+                                <label for="description">Descripción:</label>
+                                <textarea id="description" name="description" placeholder="Descripción..." required></textarea>
+                            </div>
+                        </div>
+
+                        <div class="fields">
                             <div class="field image">
-                                <input type="file" id="caratula" accept=".jpg" style="width: 50%">
+                                <label for="caratula">Portada:</label>
+
+                                <input type="file" id="caratula" name="caratula" accept="image/*" style="width: 50%">
                                 <img id="imgPreview">
-                                <input type="text" id="url" style="display: none;" name="url"/>
-                                <script>
-                                    const $caratula = document.querySelector("#caratula"),
-                                    $imgPreview = document.querySelector("#imgPreview"),
-                                    $inputUrl = document.querySelector("#url");
+                            </div>
+                            <div class="field image">
+                                <label for="gallery">Galeria:</label>
 
-                                    $caratula.addEventListener("change", () => {
-                                        const archivos = $caratula.files;
-                                        if (!archivos || !archivos.length) {
-                                            $imgPreview.src = "";
-                                            return;
-                                        }
-
-                                        $caratula.style.display = 'none';
-                                        const primerArchivo = archivos[0];
-                                        var reader = new FileReader();
-                                        reader.readAsDataURL(primerArchivo);
-                                        reader.onload = function (){
-                                            $imgPreview.src = reader.result;
-                                            $inputUrl.value = reader.result;
-                                        };
-                                        reader.onerror = function (error) {
-                                            console.log('Error convirtiendo imagen: ', error);
-                                        };
-                                    });
-                                </script>
+                                <input type="file" id="gallery" name="gallery" accept="image/*" style="width: 50%" multiple>
+                                
                             </div>
                         </div>
 
@@ -72,9 +98,6 @@
                             <button class="btn-submit" id="register-button" type="submit" >Crear juego</button> 
                         </div>
                     </form>
-
-                </div>
-
             </div>
             <%- include('../partials/contacto') %>	
             <%- include('../partials/footer') %>	

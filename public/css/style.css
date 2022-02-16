@@ -113,8 +113,8 @@ footer .principal{
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: space-evenly;
+  align-items: flex-start;
   width: 100%;
   max-width: 1900px;
 }
@@ -180,8 +180,8 @@ footer ul li a{
 
 .contact {
   position: fixed;
-  bottom: 15px;
-  right: 15px;
+  bottom: 5px;
+  right: 5px;
 }
 
 .contact .fixed-mail {
@@ -593,6 +593,7 @@ transition-property: background-color;
   justify-content: center;
   align-items: center;
   max-width: 1200px;
+  width: 100%;
 }
 
 .register-content form .fields {
@@ -601,7 +602,7 @@ transition-property: background-color;
     width: 100%;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
 }
 
 .register-content form .fields .field{
@@ -610,6 +611,36 @@ transition-property: background-color;
   width: 400px;
   margin: 15px;
   align-items: flex-start;
+}
+
+.register-content form .fields .field-row{
+  display: flex;
+  flex-direction: row;
+  width: 400px;
+  margin: 15px;
+  align-items: center;
+  justify-content: center;
+}
+
+.register-content form .fields .field-area{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.register-content form .fields .field-area textarea{
+  height: 400px;
+  width: 80%;
+  resize: none;
+  overflow: scroll;
+}
+
+.register-content form .fields .field-row input{
+  margin: 0px;
+  padding: 0px;
+  width: 50px;
 }
 
 .register-content form .fields .field img{
@@ -1236,10 +1267,6 @@ transition-property: background-color;
 }
 
 @media (max-width: 1024px){
-  .contact{
-      padding: 10px;
-  }
-
   .contact a i{
       font-size: 30px;
   }

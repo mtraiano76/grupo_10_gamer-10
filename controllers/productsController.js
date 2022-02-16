@@ -44,17 +44,36 @@ let productsController = {
             }
         });
 
+        let caratula = req.files.caratula[0];
+        let previews = req.files.gallery;
+
         let newProduct = {
             'id':id,
-            'url':request.url,
+            'url':'../images/Imágenes de Juegos PS4/'+caratula.filename,
             'name':request.name,
             'price': request.price,
-            'category':request.category
+            'date':request.date,
+            'videoUrl':request.videoUrl,
+            'desarrolladora':request.desarrolladora,
+            'productora':request.productora,
+            'juagdores':request.juagdores,
+            'idioma':request.idioma,
+            'discount':request.discount,
+            'sugerido':request.sugerido,
+            'gallery': [],
+            'category':request.category,
+            'description':request.description,
         }
-        products.push(newProduct);
 
-        let jsonProdctsSave = JSON.stringify(products);
-        fs.writeFileSync('games.json', jsonProdctsSave, 'utf-8'); 
+
+        previews.forEach(p=> newProduct.gallery.push('../images/Imágenes de Juegos PS4/'+p.filename)); 
+            
+        console.log(newProduct);
+
+        // product.push(newProduct);
+
+        // let jsonProdctsSave = JSON.stringify(products);
+        // fs.writeFileSync('games.json', jsonProdctsSave, 'utf-8'); 
 
         res.redirect("/products")
     },
