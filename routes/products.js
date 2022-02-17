@@ -8,13 +8,11 @@ let multerDiskStorage = multer.diskStorage({
     destination: (req, file, callback) =>
     {
         let  folder = path.join(__dirname, '../public/images/Imágenes de Juegos PS4');
-        console.log(folder);
         callback(null, folder);
     },
     filename: (req, file, callback) => 
     {
         let imageName = req.body.name.trim() + Date.now() + path.extname(file.originalname);
-        console.log(imageName);
 
         callback(null, imageName);
     }
@@ -23,13 +21,14 @@ let multerDiskStorage = multer.diskStorage({
 const upload = multer({storage:multerDiskStorage});
 
 router.get('/productCart', productsController.shoppingCart);
-router.get('/create', productsController.create);
 
-router.post('/',upload.fields([{    name: 'caratula', maxCount: 1  }, {    name: 'gallery', maxCount: 6  }]), productsController.save);
 router.get('/', productsController.list);
-
+router.get('/create', productsController.create);
+router.post('/',upload.fields([{    name: 'caratula', maxCount: 1  }, {    name: 'gallery', maxCount: 6  }]), productsController.save);
 router.get('/edit', productsController.edit);
-router.put('/', productsController.saveEdit);
 router.get('/:id', productsController.deatil);
+router.put('/', productsController.saveEdit);
+
+//TODO CREAR DELETE
 
 module.exports = router;

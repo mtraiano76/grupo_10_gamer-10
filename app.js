@@ -26,7 +26,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 let faviconPath = path.join(__dirname, 'public', 'images', 'logo', 'favicon.ico');
-console.log(faviconPath);
 app.use(favicon(faviconPath));
 
 app.use('/', indexRouter);
@@ -43,7 +42,6 @@ app.use(function(err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
-  console.log(err.field);
   // render the error page
   res.status(err.status || 500);
   res.render('error');

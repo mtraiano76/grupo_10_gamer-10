@@ -1,13 +1,17 @@
 const fs = require('fs');
+const path = require('path');
+
+let productsPath = path.join(__dirname, '../data/games.json');
+let productsCartPath = path.join(__dirname, '../data/cart-games.json');
 
 let productsController = {
-   
+    
     shoppingCart: function(req, res)
     {
-        let jsonCartProducts = fs.readFileSync('cart-games.json', 'utf-8');
+        let jsonCartProducts = fs.readFileSync(productsCartPath, 'utf-8');
         let cartProducts = JSON.parse(jsonCartProducts);
 
-        let jsonProducts = fs.readFileSync('games.json', 'utf-8');
+        let jsonProducts = fs.readFileSync(productsPath, 'utf-8');
         let suggestedProducts = JSON.parse(jsonProducts);
 
         let totalPrice = cartProducts.reduce((sum, value) => (typeof value.price == "number" && typeof value.quantity == "number" ? sum + (value.price*value.quantity) : sum), 0);
@@ -16,11 +20,9 @@ let productsController = {
 
     list: function(req, res)
     {
-        let jsonProducts = fs.readFileSync('games.json', 'utf-8');
+        let jsonProducts = fs.readFileSync(productsPath, 'utf-8');
         let products = JSON.parse(jsonProducts);
 
-
-       
         res.render('products/listado',{'products':req.query.search ? products.filter(game => game.name.toUpperCase().includes(req.query.search.toUpperCase())) : products , "titulo" : req.query.search ? "Resultado de la busqueda":"Catalogo", "emptyMessage":req.query.search ? "No hay resultados para esta busqueda":"No hay nada en el catalogo para mostrar"});
     },
 
@@ -34,7 +36,7 @@ let productsController = {
         let request = req.body;
         let id = 1
 
-        let jsonProducts = fs.readFileSync('games.json', 'utf-8');
+        let jsonProducts = fs.readFileSync(productsPath, 'utf-8');
         let products = JSON.parse(jsonProducts);
         
         products.forEach((product, index, array) => {
@@ -73,7 +75,7 @@ let productsController = {
         // product.push(newProduct);
 
         // let jsonProdctsSave = JSON.stringify(products);
-        // fs.writeFileSync('games.json', jsonProdctsSave, 'utf-8'); 
+        // fs.writeFileSync(productsPath, jsonProdctsSave, 'utf-8'); 
 
         res.redirect("/products")
     },
@@ -81,7 +83,7 @@ let productsController = {
     edit: function(req, res)
     {
         let id = req.query.id;
-        let jsonProducts = fs.readFileSync('games.json', 'utf-8');
+        let jsonProducts = fs.readFileSync(productsPath, 'utf-8');
         let products = JSON.parse(jsonProducts);
         let product = products.find(product => product.id == id);
         res.render('products/edicion', {'product':product});
@@ -91,7 +93,7 @@ let productsController = {
     {
         let request = req.body;
 
-        let jsonProducts = fs.readFileSync('games.json', 'utf-8');
+        let jsonProducts = fs.readFileSync(productsPath, 'utf-8');
         let products = JSON.parse(jsonProducts);
 
         let product = products.find(product => product.id == request.id);
@@ -101,7 +103,7 @@ let productsController = {
         product.category = request.category
 
         let jsonProdctsSave = JSON.stringify(products);
-        fs.writeFileSync('games.json', jsonProdctsSave, 'utf-8'); 
+        fs.writeFileSync(productsPath, jsonProdctsSave, 'utf-8'); 
         
         res.redirect("/products");
     },
@@ -109,7 +111,7 @@ let productsController = {
     deatil: function(req, res)
     {
         let id = req.params.id;
-        let jsonProducts = fs.readFileSync('games.json', 'utf-8');
+        let jsonProducts = fs.readFileSync(productsPath, 'utf-8');
         let products = JSON.parse(jsonProducts);
         let product = products.find(product => product.id == id);
         res.render('products/detalle', {'product':product});
