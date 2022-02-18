@@ -297,7 +297,12 @@ footer ul li a{
   flex-direction: column;
 }
 
+.games .games-list li .game-description .deatil-buttons i{
+  margin: 5px;
+}
+
 .games .games-list li .game-description .deatil-buttons a{
+  font-size: large;
   text-decoration: none;
   padding: 10px;
   color: white;
@@ -307,8 +312,28 @@ footer ul li a{
   border: 0px;
   text-align: center;
   margin: 5px;
-  
-transition-property: background-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+}
+
+.games .games-list li .game-description .deatil-buttons button{
+  font-size: large;
+  text-decoration: none;
+  padding: 20px;
+  color: white;
+  background-color: #0069d9;
+  border-radius: 4px;
+  height: 15px;
+  border: 0px;
+  text-align: center;
+  margin: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition-property: background-color;
   transition-duration: 0.5s;
 }
 
@@ -317,6 +342,13 @@ transition-property: background-color;
   color: #fff;
   cursor:pointer;
 }
+
+.games .games-list li .game-description .deatil-buttons button:hover {
+  background-color: #3c91ff;
+  color: #fff;
+  cursor:pointer;
+}
+
 
 /* LOGIN */
 
@@ -1023,6 +1055,11 @@ transition-property: background-color;
   justify-content: flex-end;
   width: 100%;
   max-width: 1800px;
+}
+
+.product-list-options i
+{
+  margin: 5px;
 }
 
 .product-list-options a{

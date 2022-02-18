@@ -5,7 +5,7 @@
     <%- include('../partials/header') %>	
     <div class="content">
         <div class="product-list-options">
-            <a href="../products/create">Crear juego <i class="fas fa-shopping-cart"></i></a > 
+            <a href="../products/create">Crear juego <i class="fas fa-plus"></i></a > 
         </div>
         <h1><%=titulo%></h1>
         <%if(products.length){%>
@@ -32,7 +32,10 @@
                         <div class="deatil-buttons">
                             <a href="../products/<%=product.id%>">Detalle</a > 
                             <a href="../products/productCart">Agregar <i class="fas fa-shopping-cart"></i></a > 
-                            <a href="../products/edit?id=<%=product.id%>">Editar</a > 
+                            <a href="../products/edit?id=<%=product.id%>">Editar <i class="fas fa-pencil"></i></a > 
+                            <form method="post" action="../products/<%=product.id%>?_method=DELETE">
+                                <button class="eliminar-producto">Eliminar <i class="far fa-trash-alt"></i></button>
+                            </form>
                         </div>
                     </div>  
                 </li>

@@ -139,6 +139,21 @@ let productsController = {
         res.render('products/detalle', {'product':product});
     },
 
+    delete: function(req, res)
+    {
+        let jsonProducts = fs.readFileSync(productsPath, 'utf-8');
+        let products = JSON.parse(jsonProducts);
+
+        let productIndex = products.findIndex(product => product.id == req.params.id);
+        
+        products.splice(productIndex[0], 1)
+        
+        let jsonProdctsSave = JSON.stringify(products);
+        fs.writeFileSync(productsPath, jsonProdctsSave, 'utf-8'); 
+        
+        res.redirect("/products");
+    },
+
  };
  
  module.exports = productsController
