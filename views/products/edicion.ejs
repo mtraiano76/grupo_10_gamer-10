@@ -10,89 +10,107 @@
                 <form method="post" action="../products?_method=PUT">
                     <div class="fields">
                         <div class="field">
-                            <label for="category">Nombre:</label>
-                            <input type="text" id="name" name="name" placeholder="Nombre del juego" required>
+                            <label for="name">Nombre:</label>
+                            <input type="text" id="name" name="name" placeholder="Nombre del juego" value="<%=product.name%>" required>
                         </div>
                         
                         <div class="field">
-                            <label for="category">Precio:</label>
-                            <input type="number" id="precio" name="price" placeholder="Precio" required>
+                            <label for="price">Precio:</label>
+                            <input type="number" id="precio" name="price" placeholder="Precio" value="<%=product.price%>" required>
                         </div >
                         
                         <div class="field">
-                            <label for="category">Fecha de creación:</label>
-                            <input type="date" id="date" name="date" placeholder="Fecha de creacion" required min="2010-01-01" max="2021-12-31" required>
+                            <label for="date">Fecha de creación:</label>
+                            <input type="date" id="date" name="date" placeholder="Fecha de creacion" required min="2010-01-01" max="2021-12-31" value="<%=product.date%>" required>
                         </div>
 
                         <div class="field">
-                            <label for="category">Enlace del video:</label>
-                            <input type="text" id="videoUrl" name="videoUrl" placeholder="Url de video" >
+                            <label for="videoUrl">Enlace del video:</label>
+                            <input type="text" id="videoUrl" name="videoUrl" value="<%=product.videoUrl%>" placeholder="Url de video" >
                         </div>
 
                         <div class="field">
-                            <label for="category">Desarrolladora:</label>
-                            <input type="text" id="desarrolladora" name="desarrolladora" placeholder="Desarrolladora" required>
+                            <label for="desarrolladora">Desarrolladora:</label>
+                            <input type="text" id="desarrolladora" name="desarrolladora" placeholder="desarrolladora" value="<%=product.name%>" required>
                         </div>
 
                         <div class="field">
-                            <label for="category">Productora:</label>
-                            <input type="text" id="productora" name="productora" placeholder="Productora" required>
+                            <label for="productora">Productora:</label>
+                            <input type="text" id="productora" name="productora" placeholder="Productora" value="<%=product.productora%>" required>
                         </div>
 
                         <div class="field">
-                            <label for="category">Numero de jugadores:</label>
-                            <input type="number" id="juagdores" name="juagdores" placeholder="Numero de juagdores" required>
+                            <label for="juagdores">Numero de jugadores:</label>
+                            <input type="number" id="juagdores" name="juagdores" placeholder="Numero de juagdores" value="1" min="1" max="4" value="<%=product.juagdores%>" required>
                         </div >
 
                         <div class="field">
-                            <label for="category">Idioma:</label>
-                            <input type="text" id="idioma" name="idioma" placeholder="Idioma" required>
+                            <label for="idioma">Idioma:</label>
+                            <input type="text" id="idioma" name="idioma" placeholder="Idioma" value="<%=product.idioma%>" required>
                         </div>
 
                         <div class="field">
-                            <label for="category">Descuento:</label>
-                            <input type="number" id="discount" name="discount" placeholder="Descuento" value="0" min="0" max="100" required>
+                            <label for="discount">Descuento:</label>
+                            <input type="number" id="discount" name="discount" placeholder="Descuento" value="0" min="0" max="100" value="<%=product.discount%>" required>
                         </div>
 
                         <div class="field">
+
                             <label for="category">Categoria:</label>
                             <select name="category" id="category">
-                                <option value="Accion">Accion</option>
-                                <option value="Rol">Rol</option>
-                                <option value="Deporte">Deporte</option>
-                                <option value="Carreras">Carreras</option>
-                                <option value="Peleas">Peleas</option>
-                                <option value="Guerra">Guerra</option>
+                                <option value="Acción" <%= product.category == "Acción" ? "selected": ""%>>Acción</option>
+                                <option value="Rol" <% product.category == "Rol" ? "selected": ""%>>Rol</option>
+                                <option value="Deporte" <%= product.category == "Deporte" ? "selected": ""%>>Deporte</option>
+                                <option value="Carreras" <%= product.category == "Carreras" ? "selected": ""%>>Carreras</option>
+                                <option value="Peleas" <%=product.category == "Pelea" ? "selected": ""%>>Pelea</option>
+                                <option value="Guerra" <%= product.category == "Guerra" ? "selected": ""%>>Guerra</option>
                             </select>
                         </div>
 
                         <div class="field-row">
-                            <label>Producto destacado:</label>
-                            <input type="checkbox" id="sugerido" name="sugerido" value="sugerido">
+                            <label for="sugerido">Producto destacado:</label>
+                            <input type="checkbox" id="sugerido" name="sugerido" value="sugerido" <%= product.sugerido ? "checked": ""%>>
                         </div>
                     </div>
 
                     <div class="fields">
                         <div class="field-area">
                             <label for="description">Descripción:</label>
-                            <textarea id="description" name="description" placeholder="Descripción..." required></textarea>
+                            <textarea id="description" name="descripcion" placeholder="Descripción..." required><%=product.descripcion%></textarea>
                         </div>
                     </div>
 
                     <div class="fields">
-                        <div class="field image">
+                        <div class="field-image">
                             <label for="caratula">Portada:</label>
                             <div class="image-preview">
-                                <input type="file" id="caratula" name="caratula" accept="image/*" style="width: 50%">
-                                <img id="imgPreview">
+                                <input type="file" id="caratula" name="caratula" accept="image/*" >
+                                <div class="select-image" id="imageSelect">
+                                    <i class="far fa-image"></i>
+                                </div>
+                                <img id="imgPreview" src="<%=product.url%>">
                             </div>
                         </div>
-                        <div class="field image">
+                        <div class="field-image">
                             <label for="gallery">Galeria:</label>
-
-                            <input type="file" id="gallery" name="gallery" accept="image/*" style="width: 50%" multiple>
                             
+                            <div class="image-preview">
+                                <input type="file" id="gallery" name="gallery" accept="image/*" multiple>
+                                <div for="gallery" class="select-image" id="gallerySelect">
+                                    <i class="fas fa-images"></i>
+                                </div>
+                                <div for="gallery" id="galleryDetails" class="galleryDetails">
+                                    <ul id="galleryList">
+                                        <% for(let preview of product.previews){ %>
+                                            <li >
+                                                <%= preview.split('/').pop() %> 
+                                            </li>
+                                        <% } %> 
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
+                        <script src="../js/script.js"></script>
                     </div>
 
                     <div class="register-button">

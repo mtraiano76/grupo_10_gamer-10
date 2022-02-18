@@ -1,10 +1,14 @@
 body{
-  font-family: 'Roboto', sans-serif;;
+  font-family: 'Roboto', sans-serif;
   background-color: #2c2c2c;
   display: flex;
   flex-direction: column;
   margin: 0px;
   color: white;
+}
+
+body *{
+  font-family: 'Roboto', sans-serif;
 }
 
 header{
@@ -182,6 +186,7 @@ footer ul li a{
   position: fixed;
   bottom: 5px;
   right: 5px;
+  z-index: 10;
 }
 
 .contact .fixed-mail {
@@ -492,6 +497,11 @@ transition-property: background-color;
   height: 20px;
 }
 
+.register-content .field-row input[type="checkbox"]{
+  width: 20px;
+  height: 20px;
+  margin: 10px;
+}
 
 .register-content input:focus{
   box-shadow: 0px 0px 5px 3px #0069d9;
@@ -635,19 +645,102 @@ transition-property: background-color;
   width: 60%;
   resize: none;
   overflow: scroll;
+  padding: 10px;
+  border-radius: 3px;
+  border: 0px;
 }
 
-.register-content form .fields .field-row input{
-  margin: 0px;
-  padding: 0px;
-  width: 50px;
+.register-content form .fields .field-area textarea:focus{
+  box-shadow: 0px 0px 5px 3px #0069d9;
+  border:none;
+  outline: none;
 }
 
-.register-content form .fields .field img{
+.register-content form .fields .image-preview img{
   height: 400px;
   margin: 10px;
+  width: 270px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  opacity: 0;
 }
 
+.register-content form .fields .image-preview{
+  height: 450px;
+  width: 300px;
+  position: relative;
+  z-index: 1;
+}
+
+.register-content form .fields .field-image{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.register-content form .fields .image-preview input{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 270px;
+  height: 400px;
+  padding: 0px;
+  margin: 10px;
+  z-index: 3;
+  opacity: 0;
+}
+
+.register-content form .fields .image-preview input:hover{
+  cursor: pointer;
+}
+
+.register-content form .fields .image-preview .select-image{
+  display: flex;
+  height: 400px;
+  margin: 10px;
+  width: 270px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  justify-content: center;
+  align-items: center;
+  background-color: #262626;
+}
+
+.register-content form .fields .image-preview .select-image i{
+  height: 80px;
+  font-size: 80px;
+}
+
+.register-content form .fields .image-preview .galleryDetails{
+  position: absolute;
+  font-size: 1em;
+  z-index: 2;
+  height: 400px;
+  margin: 10px;
+  width: 270px;
+  top: 0px;
+  left: 0px;
+  background-color: #262626;
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.register-content form .fields .image-preview ul{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+  padding: 0px;
+}
+
+.register-content form .fields .image-preview ul li{
+  margin: 10px;
+}
 
 .register-content form > *{
   margin: 10px;
