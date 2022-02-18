@@ -488,7 +488,7 @@ transition-property: background-color;
   padding: 10px;
   border-radius: 3px;
   border: 0px;
-  width: 400px;
+  width: 380px;
   height: 20px;
 }
 
@@ -508,7 +508,7 @@ transition-property: background-color;
   padding: 10px;
   border-radius: 3px;
   border: 0px;
-  width: 420px;
+  width: 400px;
   height: 40px;
 }
 
@@ -631,8 +631,8 @@ transition-property: background-color;
 }
 
 .register-content form .fields .field-area textarea{
-  height: 400px;
-  width: 80%;
+  height: 200px;
+  width: 60%;
   resize: none;
   overflow: scroll;
 }
@@ -644,7 +644,7 @@ transition-property: background-color;
 }
 
 .register-content form .fields .field img{
-  height: 200px;
+  height: 400px;
   margin: 10px;
 }
 
@@ -792,8 +792,8 @@ transition-property: background-color;
   color: black;
 }
 
-.content-carrito input[type=number]::-webkit-inner-spin-button, 
-.content-carrito input[type=number]::-webkit-outer-spin-button { 
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
 -webkit-appearance: none; 
 margin: 0; 
 }
@@ -1220,7 +1220,7 @@ transition-property: background-color;
 
   .register-content form .fields .field{
     
-      width: 200px;
+      width: 220px;
   }
 
   .register-content input{

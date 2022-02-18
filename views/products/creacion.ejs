@@ -82,18 +82,24 @@
                         <div class="fields">
                             <div class="field image">
                                 <label for="caratula">Portada:</label>
-
-                                <input type="file" id="caratula" name="caratula" accept="image/*" style="width: 50%">
-                                <img id="imgPreview">
+                                <div class="image-preview">
+                                    <input type="file" id="caratula" name="caratula" accept="image/*" style="width: 50%">
+                                    <img id="imgPreview">
+                                </div>
                             </div>
                             <div class="field image">
                                 <label for="gallery">Galeria:</label>
-
-                                <input type="file" id="gallery" name="gallery" accept="image/*" style="width: 50%" multiple>
                                 
+                                <div class="image-preview">
+                                    <input type="file" id="gallery" name="gallery" accept="image/*" style="width: 50%" multiple>
+                                    <div id="galleryDetails">
+                                        <ul id="galleryList"></ul>
+                                    </div>
+                                </div>
                             </div>
+                            <script src="../js/script.js"></script>
                         </div>
-
+                        
                         <div class="register-button">
                             <button class="btn-submit" id="register-button" type="submit" >Crear juego</button> 
                         </div>
