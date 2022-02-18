@@ -1035,8 +1035,10 @@ transition-property: background-color;
   border: 0px;
   text-align: center;
   margin: 5px;
-  
-transition-property: background-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition-property: background-color;
   transition-duration: 0.5s;
 }
 

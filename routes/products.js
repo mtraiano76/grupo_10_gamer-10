@@ -27,7 +27,7 @@ router.get('/create', productsController.create);
 router.post('/',upload.fields([{    name: 'caratula', maxCount: 1  }, {    name: 'gallery', maxCount: 6  }]), productsController.save);
 router.get('/edit', productsController.edit);
 router.get('/:id', productsController.deatil);
-router.put('/', productsController.saveEdit);
+router.put('/:id',upload.fields([{    name: 'caratula', maxCount: 1  }, {    name: 'gallery', maxCount: 6  }]), productsController.saveEdit);
 
 //TODO CREAR DELETE
 

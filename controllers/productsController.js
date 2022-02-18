@@ -53,29 +53,27 @@ let productsController = {
             'id':id,
             'url':'../images/Imágenes de Juegos PS4/'+caratula.filename,
             'name':request.name,
-            'price': request.price,
+            'price': Number(request.price),
             'date':request.date,
             'videoUrl':request.videoUrl,
             'desarrolladora':request.desarrolladora,
             'productora':request.productora,
             'juagdores':request.juagdores,
             'idioma':request.idioma,
-            'discount':request.discount,
-            'sugerido':request.sugerido,
-            'gallery': [],
+            'discount':Number(request.discount),
+            'sugerido':request.sugerido?true:false,
+            'previews': [],
             'category':request.category,
-            'description':request.description,
+            'descripcion':request.descripcion,
         }
 
 
         previews.forEach(p=> newProduct.gallery.push('../images/Imágenes de Juegos PS4/'+p.filename)); 
             
-        console.log(newProduct);
+        products.push(newProduct);
 
-        // product.push(newProduct);
-
-        // let jsonProdctsSave = JSON.stringify(products);
-        // fs.writeFileSync(productsPath, jsonProdctsSave, 'utf-8'); 
+        let jsonProdctsSave = JSON.stringify(products);
+        fs.writeFileSync(productsPath, jsonProdctsSave, 'utf-8'); 
 
         res.redirect("/products")
     },
@@ -92,15 +90,39 @@ let productsController = {
     saveEdit: function(req, res)
     {
         let request = req.body;
-
         let jsonProducts = fs.readFileSync(productsPath, 'utf-8');
+        
         let products = JSON.parse(jsonProducts);
 
-        let product = products.find(product => product.id == request.id);
+        let product = products.find(product => product.id == req.params.id);
         
-        product.price = request.price;
-        product.url = !!request.url ? request.url : product.url;
-        product.category = request.category
+        product.price = Number(request.price);
+        product.category = request.category;
+        product.date = request.date;
+        product.videoUrl=request.videoUrl;
+        product.desarrolladora=request.desarrolladora;
+        product.productora=request.productora;
+        product.juagdores=request.juagdores;
+        product.idioma=request.idioma;
+        product.discount=Number(request.discount);
+        product.sugerido= request.sugerido?true:false;
+        product.category=request.category;
+        product.descripcion=request.descripcion;
+
+        if(req.files.caratula || req.files.gallery)
+        {
+            if(req.files.caratula || req.files.caratula.length)
+            {
+                let caratula = req.files.caratula[0];
+                product.url = '../images/Imágenes de Juegos PS4/'+caratula.filename;
+            }
+
+            if(req.files.gallery || req.files.gallery.length)
+            {
+                let previews = req.files.gallery;
+                previews.forEach(p=> newProduct.previews.push('../images/Imágenes de Juegos PS4/'+p.filename)); 
+            }
+        }
 
         let jsonProdctsSave = JSON.stringify(products);
         fs.writeFileSync(productsPath, jsonProdctsSave, 'utf-8'); 

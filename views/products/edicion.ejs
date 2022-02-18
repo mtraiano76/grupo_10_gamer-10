@@ -7,7 +7,7 @@
                 <h1 class="titulo">
                     Editar juego
                 </h1>
-                <form method="post" action="../products?_method=PUT">
+                <form method="post" action="../products/<%=product.id%>?_method=PUT" enctype="multipart/form-data">
                     <div class="fields">
                         <div class="field">
                             <label for="name">Nombre:</label>
