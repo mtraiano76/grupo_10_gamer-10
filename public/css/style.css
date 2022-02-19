@@ -324,7 +324,7 @@ footer ul li a{
   text-decoration: none;
   padding: 20px;
   color: white;
-  background-color: #0069d9;
+  background-color: #d95000;
   border-radius: 4px;
   height: 15px;
   border: 0px;
@@ -344,7 +344,7 @@ footer ul li a{
 }
 
 .games .games-list li .game-description .deatil-buttons button:hover {
-  background-color: #3c91ff;
+  background-color: #b34100;
   color: #fff;
   cursor:pointer;
 }
