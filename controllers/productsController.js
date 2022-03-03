@@ -67,8 +67,7 @@ let productsController = {
             'descripcion':request.descripcion,
         }
 
-
-        previews.forEach(p=> newProduct.gallery.push('../images/Imágenes de Juegos PS4/'+p.filename)); 
+        previews.forEach(p=> newProduct.previews.push('../images/Imágenes de Juegos PS4/'+p.filename)); 
             
         products.push(newProduct);
 
@@ -144,9 +143,15 @@ let productsController = {
         let jsonProducts = fs.readFileSync(productsPath, 'utf-8');
         let products = JSON.parse(jsonProducts);
 
+        console.log(products)
+
+        console.log(req.params.id);
+
         let productIndex = products.findIndex(product => product.id == req.params.id);
         
-        products.splice(productIndex[0], 1)
+        console.log(productIndex);
+
+        products.splice(productIndex, 1)
         
         let jsonProdctsSave = JSON.stringify(products);
         fs.writeFileSync(productsPath, jsonProdctsSave, 'utf-8'); 
