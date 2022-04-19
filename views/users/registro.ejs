@@ -13,36 +13,55 @@
                     Registrate y accede a nuestro E-Commerce!
                 </p>                
                 <div>
-                    <form method="post">
+                    <form method="post" action="../users" enctype="multipart/form-data">
+                        
                         <div class="fields">
                             <div class="field">
                                 <i class="fas fa-id-card"></i>
-                                <input id="name" name="Nombre" placeholder="Nombre">
+                                <input id="name" name="nombre" placeholder="Nombre" value="<%= locals.old && old.nombre ? old.nombre : '' %>">
+                                <% if (locals.errors && errors.nombre) { %>
+                                    <p class="errors"><%= errors.nombre.msg %></p>
+                                <% } %>
                             </div>
                             
                             <div class="field">
                                 <i class="fas fa-id-card"></i>
-                                <input id="lastname" name="Apellido" placeholder="Apellido">
+                                <input id="lastname" name="apellido" placeholder="Apellido" value="<%= locals.old && old.Apellido ? old.Apellido : '' %>">
+                                <% if (locals.errors && errors.apellido) { %>
+                                    <p class="errors"><%= errors.apellido.msg %></p>
+                                <% } %>
                             </div>
                             
                             <div class="field">
                                 <i class="fas fa-user-alt"></i>
-                                <input id="email" name="Correo Electronico" type="email" placeholder="Correo electronico">
+                                <input id="email" name="email" value="<%= locals.old && old.email ? old.email : '' %>" placeholder="Correo electronico">
+                                <% if (locals.errors && errors.email) { %>
+                                    <p class="errors"><%= errors.email.msg %></p>
+                                <% } %>
                             </div>
                             
                             <div class="field">
                                 <i class="fas fa-user-alt"></i>
-                                <input id="emailconfirmation" name="Correo Electronico" type="email" placeholder="Confirmar correo electronico">
+                                <input id="emailconfirmation" name="emailConfirmation" value="<%= locals.old && old.emailConfirmation ? old.emailConfirmation : '' %>" placeholder="Confirmar correo electronico">
+                                <% if (locals.errors && errors.emailConfirmation) { %>
+                                    <p class="errors"><%= errors.emailConfirmation.msg %></p>
+                                <% } %>
                             </div>       
                             
                             <div class="field">
                                 <i class="fas fa-key"></i>
-                                <input id="password" name="Contraseña" type="password" placeholder="Contraseña">
+                                <input id="password" name="password" type="password" value="<%= locals.old && old.password ? old.password : '' %>" placeholder="Contraseña">
+                                <% if (locals.errors && errors.password) { %>
+                                    <p class="errors"><%= errors.password.msg %></p>
+                                <% } %>
                             </div>             
                             
                             <div class="field">
                                 <i class="fas fa-key"></i>
-                                <input id="passwordconfirm" name="Contraseña" type="password" placeholder="Confirmar contraseña">
+                                <input id="passwordconfirm" name="confirmPassword" type="password" value="<%= locals.old && old.confirmPassword ? old.confirmPassword : '' %>" placeholder="Confirmar contraseña">
+                                <% if (locals.errors && errors.confirmPassword) { %>
+                                    <p class="errors"><%= errors.confirmPassword.msg %></p>
+                                <% } %>
                             </div>    
                         </div>         
                         <div class="register-button">

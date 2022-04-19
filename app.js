@@ -9,6 +9,7 @@ var favicon = require('serve-favicon')
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var productsRouter = require('./routes/products');
+const session = require('express-session');
 
 var app = express();
 
@@ -24,6 +25,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session( {secret: "C66780CD-8E24-4EAC-9807-9A3DAB8807BC"}));
 
 let faviconPath = path.join(__dirname, 'public', 'images', 'logo', 'favicon.ico');
 app.use(favicon(faviconPath));
