@@ -26,7 +26,7 @@
                             
                             <div class="field">
                                 <i class="fas fa-id-card"></i>
-                                <input id="lastname" name="apellido" placeholder="Apellido" value="<%= locals.old && old.Apellido ? old.Apellido : '' %>">
+                                <input id="lastname" name="apellido" placeholder="Apellido" value="<%= locals.old && old.apellido ? old.apellido : '' %>">
                                 <% if (locals.errors && errors.apellido) { %>
                                     <p class="errors"><%= errors.apellido.msg %></p>
                                 <% } %>

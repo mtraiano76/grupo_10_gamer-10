@@ -20,7 +20,7 @@ let usersController = {
       if (errors.isEmpty()) {
          let request = req.body;
          let id = 1
-
+         
          let usersJson = fs.readFileSync(usersPath, 'utf-8');
          let users = JSON.parse(usersJson);
 
@@ -30,27 +30,23 @@ let usersController = {
             }
          });
 
-         let profileImage = req.files.caratula[0];
-
          let newUser = {
             'id': id,
-            'url': '../images/profiles/' + profileImage.filename,
             'name': request.nombre,
             'lastname': request.apellido,
             'email': request.email,
-            'password': bcrypt.hash(request.password, 10),
+            'password': bcrypt.hashSync(request.password, 10),
          }
-
          users.push(newUser);
-
+         console.log(newUser);
+         
+         console.log(users);
          let jsonUsersSave = JSON.stringify(users);
          fs.writeFileSync(usersPath, jsonUsersSave, 'utf-8');
 
-         res.redirect("/users")
+         res.redirect("/users/login")
       }
       else {
-         console.log(errors.mapped());
-         console.log(req.body);
          res.render('users/registro', { errors: errors.mapped(), old: req.body });
       }
 
