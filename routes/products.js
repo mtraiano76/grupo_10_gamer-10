@@ -3,6 +3,7 @@ var router = express.Router();
 var productsController = require("../controllers/productsController.js");
 const multer = require('multer');
 const path = require('path');
+let session = require("../middlewares/session_middleware");
 
 let multerDiskStorage = multer.diskStorage({
     destination: (req, file, callback) =>
@@ -20,15 +21,15 @@ let multerDiskStorage = multer.diskStorage({
 
 const upload = multer({storage:multerDiskStorage});
 
-router.get('/productCart', productsController.shoppingCart);
+router.get('/productCart', session.logged, productsController.shoppingCart);
 
 router.get('/', productsController.list);
-router.get('/create', productsController.create);
-router.post('/',upload.fields([{    name: 'caratula', maxCount: 1  }, {    name: 'gallery', maxCount: 6  }]), productsController.save);
-router.get('/edit', productsController.edit);
+router.get('/create', session.logged, productsController.create);
+router.post('/', session.logged,upload.fields([{    name: 'caratula', maxCount: 1  }, {    name: 'gallery', maxCount: 6  }]), productsController.save);
+router.get('/edit', session.logged, productsController.edit);
 router.get('/:id', productsController.deatil);
-router.put('/:id',upload.fields([{    name: 'caratula', maxCount: 1  }, {    name: 'gallery', maxCount: 6  }]), productsController.saveEdit);
-router.delete('/:id', productsController.delete);
+router.put('/:id', session.logged,upload.fields([{    name: 'caratula', maxCount: 1  }, {    name: 'gallery', maxCount: 6  }]), productsController.saveEdit);
+router.delete('/:id', session.logged, productsController.delete);
 
 //TODO CREAR DELETE
 

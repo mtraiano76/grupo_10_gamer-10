@@ -4,6 +4,7 @@ var usersController = require("../controllers/usersController");
 const multer = require('multer');
 const path = require('path');
 var userValidator = require("../middlewares/users_middleware");
+let session = require("../middlewares/session_middleware");
 
 let multerDiskStorage = multer.diskStorage({
     destination: (req, file, callback) =>
@@ -22,11 +23,11 @@ let multerDiskStorage = multer.diskStorage({
 const upload = multer({storage:multerDiskStorage});
 
 /* GET users listing. */
-router.get('/login', usersController.login);
+router.get('/login', session.not_logged, usersController.login);
 
-router.get('/register', usersController.register);
-router.post('/',userValidator.validateRegister, usersController.complete_register);
-router.post('/login',userValidator.validateLogin, usersController.complete_login);
-router.get('/logout', usersController.logout);
+router.get('/register', session.not_logged, usersController.register);
+router.post('/', session.not_logged,userValidator.validateRegister, usersController.complete_register);
+router.post('/login', session.not_logged,userValidator.validateLogin, usersController.complete_login);
+router.get('/logout', session.logged, usersController.logout);
 
 module.exports = router;

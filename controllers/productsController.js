@@ -8,20 +8,14 @@ let productsController = {
 
     shoppingCart: function (req, res) {
         var user = req.session.user;
+        let jsonCartProducts = fs.readFileSync(productsCartPath, 'utf-8');
+        let cartProducts = JSON.parse(jsonCartProducts);
 
-        if (user) {
-            let jsonCartProducts = fs.readFileSync(productsCartPath, 'utf-8');
-            let cartProducts = JSON.parse(jsonCartProducts);
+        let jsonProducts = fs.readFileSync(productsPath, 'utf-8');
+        let suggestedProducts = JSON.parse(jsonProducts);
 
-            let jsonProducts = fs.readFileSync(productsPath, 'utf-8');
-            let suggestedProducts = JSON.parse(jsonProducts);
-
-            let totalPrice = cartProducts.reduce((sum, value) => (typeof value.price == "number" && typeof value.quantity == "number" ? sum + (value.price * value.quantity) : sum), 0);
-            res.render('products/carrito', { cartProducts, 'suggestedProducts': suggestedProducts.filter(game => game.sugerido), 'totalPrice': totalPrice, 'user': user });
-        }
-        else {
-            res.render('users/login');
-        }
+        let totalPrice = cartProducts.reduce((sum, value) => (typeof value.price == "number" && typeof value.quantity == "number" ? sum + (value.price * value.quantity) : sum), 0);
+        res.render('products/carrito', { cartProducts, 'suggestedProducts': suggestedProducts.filter(game => game.sugerido), 'totalPrice': totalPrice, 'user': user });
     },
 
     list: function (req, res) {
@@ -34,12 +28,7 @@ let productsController = {
 
     create: function (req, res) {
         var user = req.session.user;
-        if (user) {
-            res.render('products/creacion', { 'user': user });
-        }
-        else {
-            res.render('users/login');
-        }
+        res.render('products/creacion', { 'user': user });
     },
 
     save: function (req, res) {
@@ -88,17 +77,11 @@ let productsController = {
 
     edit: function (req, res) {
         var user = req.session.user;
-        if (user) {
-            let id = req.query.id;
-            let jsonProducts = fs.readFileSync(productsPath, 'utf-8');
-            let products = JSON.parse(jsonProducts);
-            let product = products.find(product => product.id == id);
-            res.render('products/edicion', { 'product': product, 'user': user });
-        }
-
-        else {
-            res.render('users/login');
-        }
+        let id = req.query.id;
+        let jsonProducts = fs.readFileSync(productsPath, 'utf-8');
+        let products = JSON.parse(jsonProducts);
+        let product = products.find(product => product.id == id);
+        res.render('products/edicion', { 'product': product, 'user': user });
     },
 
     saveEdit: function (req, res) {
