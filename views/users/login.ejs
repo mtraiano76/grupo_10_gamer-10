@@ -2,7 +2,7 @@
 <html>
     <%- include('../partials/head') %>	
     <body>
-        <form method="post" action="../users/login" enctype="multipart/form-data">
+        <form method="post" action="../users/login">
             <div class="login-content">
                 <div class="logo"> 
                     <a href="/"><img href="index" class="img-logo" src="../images/logo/Logo.png" alt="G10-Games"></a>
@@ -14,7 +14,7 @@
                 </div>
                 <div class="email">
                     <i class="fas fa-user-alt"></i>
-                    <input id="email" name="email" placeholder="Ej: correo@gamer.com"/>
+                    <input id="email" name="email" placeholder="Ej: correo@gamer.com" value="<%= locals.old && old.email ? old.email : '' %>"/>
                     <% if (locals.errors && errors.email) { %>
                         <p class="errors"><%= errors.email.msg %></p>
                     <% } %>

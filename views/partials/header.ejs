@@ -36,9 +36,14 @@
                 <i class="far fa-user"></i>
                 <input type="checkbox">
                 <ul> 
-                    <li><a href="../users/login">Inciar sesión</a></li>
-                    <li><a href="../users/register">Registrarse</a></li>
-                    <li><a href="perfil">Perfil</a></li>
+                    <% if (locals.user) { %>
+                        <li><a href="perfil">Perfil</a></li>
+                        <li><a href="../users/logout">Salir</a></li>
+                    <% } else { %>
+                        <li><a href="../users/login">Inciar sesión</a></li>
+                        <li><a href="../users/register">Registrarse</a></li>
+                    <% } %>
+                    
                 </ul>
             </div>
         </div>
@@ -63,6 +68,9 @@
                 <button type="submit"><i class="fas fa-search"></i></button>
             </form>
             <div class="menu-icons">
+                <% if (locals.user) { %>
+                    <p class="logged-user"><%= user %></p>
+                <% } %>
                 <div class="shopping-cart">
                     <a href="../products/productCart">
                         <i class="fas fa-shopping-cart"></i>
@@ -73,9 +81,13 @@
                     <i class="far fa-user"></i>
                     <input type="checkbox">
                     <ul> 
-                        <li><a href="../users/login">Inciar sesión</a></li>
-                        <li><a href="../users/register">Registrarse</a></li>
-                        <li><a href="perfil">Perfil</a></li>
+                        <% if (locals.user) { %>
+                            <li><a href="perfil">Perfil</a></li>
+                            <li><a href="../users/logout">Salir</a></li>
+                        <% } else{ %>
+                            <li><a href="../users/login">Inciar sesión</a></li>
+                            <li><a href="../users/register">Registrarse</a></li>
+                        <% } %>
                     </ul>
                 </div>
             </div>

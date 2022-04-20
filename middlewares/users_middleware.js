@@ -36,7 +36,6 @@ let userValidator =
     ],
 
     validateLogin : [
-        
         body('email')
             .notEmpty().withMessage('Debes completar el email').bail()
             .isEmail().withMessage('Debes completar un email válido'),

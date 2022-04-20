@@ -1674,10 +1674,14 @@ input[type=number]::-webkit-outer-spin-button {
     display: flex;
     font-size: 2em;
     flex-direction: row;
-    right: 60px;
+    right: 150px;
     top: 30px;
     transform: translate(25%, -50%);
     width: max-content;
+  }
+
+  .logged-user{
+    font-size: x-large;
   }
 
   .desktop-menu .menu-icons>* {

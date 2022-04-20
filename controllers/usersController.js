@@ -10,6 +10,11 @@ let usersController = {
       res.render('users/login');
    },
 
+   logout: function (req, res) {
+      req.session.user = undefined;
+      res.redirect("/");
+   },
+
    register: function (req, res) {
       res.render('users/registro');
    },
@@ -20,7 +25,7 @@ let usersController = {
       if (errors.isEmpty()) {
          let request = req.body;
          let id = 1
-         
+
          let usersJson = fs.readFileSync(usersPath, 'utf-8');
          let users = JSON.parse(usersJson);
 
@@ -39,7 +44,7 @@ let usersController = {
          }
          users.push(newUser);
          console.log(newUser);
-         
+
          console.log(users);
          let jsonUsersSave = JSON.stringify(users);
          fs.writeFileSync(usersPath, jsonUsersSave, 'utf-8');
@@ -57,22 +62,25 @@ let usersController = {
 
       if (errors.isEmpty()) {
          let request = req.body;
-         let id = 1
-         
          let usersJson = fs.readFileSync(usersPath, 'utf-8');
          let users = JSON.parse(usersJson);
 
          let user = users.find(u => u.email == request.email);
 
-         let match = bcrypt.compareSync(request.password, user.password);
+         if (user) {
+            let match = bcrypt.compareSync(request.password, user.password);
 
-         if(match)
-         {
-            req.session.user = user.email;
-            res.redirect("/")
+            if (match) {
+               console.log("loggeado", user)
+               req.session.user = user.email;
+               console.log(req.session);
+               res.redirect("/")
+            }
+            else {
+               res.render('users/login', { passwordError: "Correo o constraseña incorrecto", old: req.body });
+            }
          }
-         else
-         {
+         else {
             res.render('users/login', { passwordError: "Correo o constraseña incorrecto", old: req.body });
          }
       }
