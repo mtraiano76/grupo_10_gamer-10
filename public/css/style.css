@@ -362,7 +362,7 @@ footer ul li a {
 }
 
 .login-content>* {
-  margin: 10px;
+  margin: 20px;
 }
 
 .login-content a {
@@ -390,7 +390,16 @@ footer ul li a {
   color: #626262;
   position: absolute;
   right: 10px;
-  bottom: 12px;
+  top: 22px;
+}
+
+.login-content .email .errors {
+  position: absolute;
+  top: 45px;
+  color: rgb(160, 82, 82);
+  width: 100%;
+  text-align: center;
+  font-size: medium;
 }
 
 .login-content #password {
@@ -405,7 +414,15 @@ footer ul li a {
   color: #626262;
   position: absolute;
   right: 10px;
-  bottom: 12px;
+  top: 22px;
+}
+.login-content .password .errors {
+  position: absolute;
+  top: 45px;
+  color: rgb(160, 82, 82);
+  width: 100%;
+  text-align: center;
+  font-size: medium;
 }
 
 .login-content .register {
@@ -454,6 +471,7 @@ footer ul li a {
   flex-direction: row-reverse;
   align-items: center;
   justify-content: center;
+  margin-top: 20px;
 }
 
 .login-content .check-remember>* {
@@ -1321,7 +1339,7 @@ input[type=number]::-webkit-outer-spin-button {
 
   /* LOGIN */
   .login-content div {
-    margin: 5px;
+    margin: 10px;
   }
 
   .login-content .register {
@@ -1330,6 +1348,15 @@ input[type=number]::-webkit-outer-spin-button {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+
+  .login-content .password .errors {
+    top: 40px;
+    font-size: small;
+  }
+  .login-content .email .errors {
+    top: 40px;
+    font-size: small;
   }
 
   .login-content .img-logo {

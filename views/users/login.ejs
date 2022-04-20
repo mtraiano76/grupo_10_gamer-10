@@ -2,18 +2,29 @@
 <html>
     <%- include('../partials/head') %>	
     <body>
-        <form >
+        <form method="post" action="../users/login" enctype="multipart/form-data">
             <div class="login-content">
                 <div class="logo"> 
                     <a href="/"><img href="index" class="img-logo" src="../images/logo/Logo.png" alt="G10-Games"></a>
                 </div>
+                <div class="credentials-error">
+                    <% if (locals.passwordError) { %>
+                        <p class="errors"><%= passwordError %></p>
+                    <% } %>
+                </div>
                 <div class="email">
                     <i class="fas fa-user-alt"></i>
-                    <input id="email" name="email" type="email" placeholder="Ej: correo@gamer.com" required/>
+                    <input id="email" name="email" placeholder="Ej: correo@gamer.com"/>
+                    <% if (locals.errors && errors.email) { %>
+                        <p class="errors"><%= errors.email.msg %></p>
+                    <% } %>
                 </div>
                 <div class="password">
                     <i class="fas fa-key"></i>
-                    <input id="password" name="password" type="password" placeholder="Contraseña" required/>
+                    <input id="password" name="password" type="password" placeholder="Contraseña"/>
+                    <% if (locals.errors && errors.password) { %>
+                        <p class="errors"><%= errors.password.msg %></p>
+                    <% } %>
                 </div>
                 <div class="check-remember">
                     <label for="terminos">Recuerdame</label>

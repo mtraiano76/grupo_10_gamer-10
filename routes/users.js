@@ -25,6 +25,7 @@ const upload = multer({storage:multerDiskStorage});
 router.get('/login', usersController.login);
 
 router.get('/register', usersController.register);
-router.post('/',upload.single('profile'), userValidator.validateRegister, usersController.complete_register);
+router.post('/',userValidator.validateRegister, usersController.complete_register);
+router.post('/login',userValidator.validateLogin, usersController.complete_login);
 
 module.exports = router;

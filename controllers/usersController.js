@@ -50,6 +50,36 @@ let usersController = {
          res.render('users/registro', { errors: errors.mapped(), old: req.body });
       }
 
+   },
+
+   complete_login: function (req, res) {
+      let errors = validationResult(req);
+
+      if (errors.isEmpty()) {
+         let request = req.body;
+         let id = 1
+         
+         let usersJson = fs.readFileSync(usersPath, 'utf-8');
+         let users = JSON.parse(usersJson);
+
+         let user = users.find(u => u.email == request.email);
+
+         let match = bcrypt.compareSync(request.password, user.password);
+
+         if(match)
+         {
+            req.session.user = user.email;
+            res.redirect("/")
+         }
+         else
+         {
+            res.render('users/login', { passwordError: "Correo o constraseña incorrecto", old: req.body });
+         }
+      }
+      else {
+         res.render('users/login', { errors: errors.mapped(), old: req.body });
+      }
+
    }
 
 };
