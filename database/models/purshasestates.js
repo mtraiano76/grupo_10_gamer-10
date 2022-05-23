@@ -6,17 +6,17 @@ module.exports = (sequelize, dataTypes) => {
     const purshasetype = sequelize.define('PurshaseTypes',
         {
             id: {
-                type: DataTypes.INTEGER,
+                type: dataTypes.INTEGER,
                 autoIncrement: true,
                 primaryKey: true
             },
             description: {
-                type: DataTypes.STRING
+                type: dataTypes.STRING
             },
         },
         {
             tableName: 'purshasetypes',
         });
 
-    return payer;
+    return purshasetype;
 }

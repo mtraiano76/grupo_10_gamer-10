@@ -6,17 +6,17 @@ module.exports = (sequelize, dataTypes) => {
     const procudercompany = sequelize.define('ProducerCompanies',
         {
             id: {
-                type: DataTypes.INTEGER,
+                type: dataTypes.INTEGER,
                 autoIncrement: true,
                 primaryKey: true
             },
             name: {
-                type: DataTypes.STRING
+                type: dataTypes.STRING
             }
         },
         {
             tableName: 'producercompanies',
         });
 
-    return payment;
+    return procudercompany;
 }

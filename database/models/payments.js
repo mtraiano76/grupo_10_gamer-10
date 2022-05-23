@@ -6,35 +6,35 @@ module.exports = (sequelize, dataTypes) => {
     const payment = sequelize.define('Payments',
         {
             id: {
-                type: DataTypes.INTEGER,
+                type: dataTypes.INTEGER,
                 autoIncrement: true,
                 primaryKey: true
             },
             externalreference: {
-                type: DataTypes.STRING
+                type: dataTypes.STRING
             },
             creationdate: {
-                type: DataTypes.DATETIME
+                type: dataTypes.DATE
             },
             expirationdate: {
-                type: DataTypes.DATETIME
+                type: dataTypes.DATE
             },
             approvaldate: {
-                type: DataTypes.DATETIME
+                type: dataTypes.DATE
             },
             status: {
-                type: DataTypes.STRING
+                type: dataTypes.STRING
             },
             ammount: {
-                type: DataTypes.DOUBLE
+                type: dataTypes.DOUBLE
             },
         },
         {
             tableName: 'paymets',
         });
 
-    payer.associate = function (models) {
-        payer.belongsTo(models.shoppingcarts, {
+    payment.associate = function (models) {
+        payment.belongsTo(models.shoppingcarts, {
 
             as: "shoppingcart",
 

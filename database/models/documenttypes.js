@@ -5,12 +5,12 @@ module.exports = (sequelize, dataTypes) => {
     const documenttype = sequelize.define('DocumentTypes',
         {
             id: {
-                type: DataTypes.INTEGER,
+                type: dataTypes.INTEGER,
                 autoIncrement: true,
                 primaryKey: true
             },
             description: {
-                type: DataTypes.STRING
+                type: dataTypes.STRING
             }
         },
         {

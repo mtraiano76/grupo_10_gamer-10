@@ -6,27 +6,27 @@ module.exports = (sequelize, dataTypes) => {
     const shoppingcart = sequelize.define('ShoppingCarts',
         {
             id: {
-                type: DataTypes.INTEGER,
+                type: dataTypes.INTEGER,
                 autoIncrement: true,
                 primaryKey: true
             },
             totalprice: {
-                type: DataTypes.DOUBLE
+                type: dataTypes.DOUBLE
             },
         },
         {
             tableName: 'shoppingcarts',
         });
 
-        payer.associate = function (models) {
-            payer.belongsTo(models.users, {
+        shoppingcart.associate = function (models) {
+            shoppingcart.belongsTo(models.users, {
     
                 as: "user",
     
                 foreignKey: "user_id"
             });
 
-            payer.belongsTo(models.purhsasestates, {
+            shoppingcart.belongsTo(models.purhsasestates, {
     
                 as: "purshasestatus",
     

@@ -5,12 +5,12 @@ module.exports = (sequelize, dataTypes) => {
     const idiom = sequelize.define('Idioms',
         {
             id: {
-                type: DataTypes.INTEGER,
+                type: dataTypes.INTEGER,
                 autoIncrement: true,
                 primaryKey: true
             },
             name: {
-                type: DataTypes.STRING
+                type: dataTypes.STRING
             }
         },
         {

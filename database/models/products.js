@@ -6,62 +6,62 @@ module.exports = (sequelize, dataTypes) => {
     const product = sequelize.define('Products',
         {
             id: {
-                type: DataTypes.INTEGER,
+                type: dataTypes.INTEGER,
                 autoIncrement: true,
                 primaryKey: true
             },
             name: {
-                type: DataTypes.STRING
+                type: dataTypes.STRING
             },
             coverageurl: {
-                type: DataTypes.STRING
+                type: dataTypes.STRING
             },
             price: {
-                type: DataTypes.STRING
+                type: dataTypes.STRING
             },
             relasedate: {
-                type: DataTypes.DATETIME
+                type: dataTypes.DATE
             },
             videourl: {
-                type: DataTypes.STRING
+                type: dataTypes.STRING
             },
             playersquantity: {
-                type: DataTypes.INTEGER
+                type: dataTypes.INTEGER
             },
             description: {
-                type: DataTypes.STRING
+                type: dataTypes.STRING
             },
             discount: {
-                type: DataTypes.DOUBLE
+                type: dataTypes.DOUBLE
             },
             issuggested: {
-                type: DataTypes.BOOLEAN
+                type: dataTypes.BOOLEAN
             },
         },
         {
             tableName: 'products',
         });
 
-    payer.associate = function (models) {
-        payer.belongsTo(models.producercompanies, {
+    product.associate = function (models) {
+        product.belongsTo(models.producercompanies, {
 
             as: "producer",
 
             foreignKey: "producer_id"
         });
-        payer.belongsTo(models.developercompanies, {
+        product.belongsTo(models.developercompanies, {
 
             as: "developer",
 
             foreignKey: "developer_id"
         });
-        payer.belongsTo(models.idioms, {
+        product.belongsTo(models.idioms, {
 
             as: "languaje",
 
             foreignKey: "languaje_id"
         });
-        payer.belongsTo(models.categories, {
+        product.belongsTo(models.categories, {
 
             as: "category",
 
@@ -69,5 +69,5 @@ module.exports = (sequelize, dataTypes) => {
         });
     }
 
-    return payer;
+    return product;
 }

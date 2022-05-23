@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const context = require('../database/models')
 
 let productsPath = path.join(__dirname, '../data/games.json');
 let productsCartPath = path.join(__dirname, '../data/cart-games.json');

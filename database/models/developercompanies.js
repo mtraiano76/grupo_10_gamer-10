@@ -5,17 +5,17 @@ module.exports = (sequelize, dataTypes) => {
     const developercompany = sequelize.define('DeveloperCompanies',
         {
             id: {
-                type: DataTypes.INTEGER,
+                type: dataTypes.INTEGER,
                 autoIncrement: true,
                 primaryKey: true
             },
             name: {
-                type: DataTypes.STRING
+                type: dataTypes.STRING
             },
         },
         {
             tableName: 'developercompanies',
         });
 
-    return user;
+    return developercompany;
 }

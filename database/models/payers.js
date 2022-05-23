@@ -6,24 +6,24 @@ module.exports = (sequelize, dataTypes) => {
     const payer = sequelize.define('Payers',
         {
             id: {
-                type: DataTypes.INTEGER,
+                type: dataTypes.INTEGER,
                 autoIncrement: true,
                 primaryKey: true
             },
             name: {
-                type: DataTypes.STRING
+                type: dataTypes.STRING
             },
             lastname: {
-                type: DataTypes.STRING
+                type: dataTypes.STRING
             },
             email: {
-                type: DataTypes.STRING
+                type: dataTypes.STRING
             },
             phonenumber: {
-                type: DataTypes.STRING
+                type: dataTypes.STRING
             },
             documentnumber: {
-                type: DataTypes.STRING
+                type: dataTypes.STRING
             },
         },
         {

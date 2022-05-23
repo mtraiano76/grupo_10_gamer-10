@@ -5,12 +5,12 @@ module.exports = (sequelize, dataTypes) => {
     const areacode = sequelize.define('AreaCodes',
         {
             id: {
-                type: DataTypes.INTEGER,
+                type: dataTypes.INTEGER,
                 autoIncrement: true,
                 primaryKey: true
             },
             description: {
-                type: DataTypes.STRING
+                type: dataTypes.STRING
             }
         },
         {

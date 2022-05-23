@@ -5,21 +5,21 @@ module.exports = (sequelize, dataTypes) => {
     const user = sequelize.define('Users',
         {
             id: {
-                type: DataTypes.INTEGER,
+                type: dataTypes.INTEGER,
                 autoIncrement: true,
                 primaryKey: true
             },
             name: {
-                type: DataTypes.STRING
+                type: dataTypes.STRING
             },
             lastName: {
-                type: DataTypes.STRING
+                type: dataTypes.STRING
             },
             email: {
-                type: DataTypes.STRING
+                type: dataTypes.STRING
             },
             password: {
-                type: DataTypes.STRING
+                type: dataTypes.STRING
             }
         },
         {
