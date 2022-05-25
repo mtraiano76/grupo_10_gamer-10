@@ -7,7 +7,7 @@ let indexController = {
     onGet: function (req, res) {
         var user = req.session.user;
 
-        db.products.findAll()
+        context.Product.findAll()
             .then((resultados) => {
                 res.render('index', { 'products': resultados, 'user': user });
             }).catch(function (err) {

@@ -1,0 +1,23 @@
+npx sequelize model:generate --name Product --attributes Name:STRING,CoverageUrl:STRING,Price:DOUBLE,ReleaseDate:DATE,VideoUrl:STRING,PlayersQuantity:INTEGER,Description:STRING,Discount:DOUBLE,IsSuggested:BOOLEAN
+
+npx sequelize model:generate --name Languages --attributes Name:STRING
+
+npx sequelize model:generate --name Producer --attributes Name:STRING
+
+npx sequelize model:generate --name Developer --attributes Name:STRING
+
+npx sequelize model:generate --name Category --attributes Name:STRING
+
+npx sequelize model:generate --name PurchaseState --attributes Name:STRING
+
+npx sequelize model:generate --name DocumentType --attributes Name:STRING
+
+npx sequelize model:generate --name AreCode --attributes Name:STRING
+
+npx sequelize model:generate --name ShoppingCart --attributes TotalPrice:DOUBLE
+
+npx sequelize model:generate --name ShoppingCartItem --attributes UnitPrice:DOUBLE,TotalPrice:DOUBLE,Quantity:INTEGER,Discount:DOUBLE
+
+npx sequelize model:generate --name Payer --attributes Name:STRING,LastName:STRING,Email:STRING,PhoneNumber:STRING,DocumentNumber:STRING
+
+npx sequelize model:generate --name Payment --attributes ExternalReference:STRING,ExpirationDate:DATE,ApprovalDate:DATE,Status:STRING,Amount:DOUBLE
