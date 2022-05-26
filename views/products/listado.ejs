@@ -27,15 +27,15 @@
                             <!-- <li ><img src="images/Imágenes de Juegos PS4/Resident Evil 7 Biohazard.jpg" alt="Resident Evil 7"></li> -->
                             <% for(let product of products){ %>
                                 <li>
-                                    <img src="<%= product.url %> " alt="Assassin’s Creed Valhalla">
+                                    <img src="<%= product.CoverageUrl %> " alt="<%= product.Name %>">
 
                                     <div class="game-description">
                                         <div class="game-descrition-items">
                                             <h2 class="game-name">
-                                                <%= product.name %>
+                                                <%= product.Name %>
                                             </h2>
                                             <p class="game-price">
-                                                <%= product.price %>
+                                                <%= product.Price %>
                                             </p>
                                         </div>
                                         <div class="deatil-buttons">

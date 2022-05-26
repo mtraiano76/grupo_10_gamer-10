@@ -21,3 +21,5 @@ npx sequelize model:generate --name ShoppingCartItem --attributes UnitPrice:DOUB
 npx sequelize model:generate --name Payer --attributes Name:STRING,LastName:STRING,Email:STRING,PhoneNumber:STRING,DocumentNumber:STRING
 
 npx sequelize model:generate --name Payment --attributes ExternalReference:STRING,ExpirationDate:DATE,ApprovalDate:DATE,Status:STRING,Amount:DOUBLE
+
+npx sequelize model:generate --name ProductGalleryImage --attributes ImageUrl:STRING

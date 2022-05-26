@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const context = require('../database/models')
+const { Op } = require("sequelize");
 
 let productsPath = path.join(__dirname, '../data/games.json');
 let productsCartPath = path.join(__dirname, '../data/cart-games.json');
@@ -21,10 +22,32 @@ let productsController = {
 
     list: function (req, res) {
         var user = req.session.user;
-        let jsonProducts = fs.readFileSync(productsPath, 'utf-8');
-        let products = JSON.parse(jsonProducts);
 
-        res.render('products/listado', { 'products': req.query.search ? products.filter(game => game.name.toUpperCase().includes(req.query.search.toUpperCase())) : products, "titulo": req.query.search ? "Resultado de la busqueda" : "Catalogo", "emptyMessage": req.query.search ? "No hay resultados para esta busqueda" : "No hay nada en el catalogo para mostrar", 'user': user });
+        if (req.query.search) {
+            context.Product.findAll({
+                raw: true,
+                where: {
+                    Name: {
+                        [Op.like]: '%' + req.query.search + '%'
+                    }
+                }
+            }).then((resultados) => {
+                console.log(resultados);
+                res.render('products/listado', { 'products': resultados, "titulo": "Resultado de la busqueda", "emptyMessage": "No hay resultados para esta busqueda", 'user': user });
+            }).catch(function (err) {
+                res.redirect('/index');
+            });
+        }
+        else {
+            context.Product.findAll({ raw: true, })
+                .then((resultados) => {
+                    console.log(resultados);
+                    res.render('products/listado', { 'products': resultados, "titulo": "Catalogo", "emptyMessage": "No hay nada en el catalogo para mostrar", 'user': user });
+                }).catch(function (err) {
+                    res.redirect('/index');
+                });
+        }
+
     },
 
     create: function (req, res) {
@@ -127,10 +150,25 @@ let productsController = {
     deatil: function (req, res) {
         var user = req.session.user;
         let id = req.params.id;
-        let jsonProducts = fs.readFileSync(productsPath, 'utf-8');
-        let products = JSON.parse(jsonProducts);
-        let product = products.find(product => product.id == id);
-        res.render('products/detalle', { 'product': product, 'user': user });
+        context.Product.findByPk(id, {
+            include: [
+                { association: "GalleryImages" },
+                { association: "developer" },
+                { association: "category" },
+                { association: "language" },
+                { association: "producer" },
+            ]
+        }).then((resultado) => {
+            resultado.dataValues.GalleryImages = resultado.GalleryImages.map(r => r.dataValues);
+            resultado.dataValues.developer = resultado.developer.dataValues
+            resultado.dataValues.category = resultado.category.dataValues
+            resultado.dataValues.language = resultado.language.dataValues
+            resultado.dataValues.producer = resultado.producer.dataValues
+            console.log(resultado.dataValues);
+            res.render('products/detalle', { 'product': resultado.dataValues, 'user': user });
+        }).catch(function (err) {
+            console.log(err);
+        });
     },
 
     delete: function (req, res) {
