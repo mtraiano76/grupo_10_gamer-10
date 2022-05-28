@@ -12,8 +12,13 @@ let indexController = {
                 console.log(resultados);
                 res.render('index', { 'products': resultados, 'user': user });
             }).catch(function (err) {
-                res.redirect('/index');
+                res.redirect('/');
             });
+    },
+
+    onGet404: function (req, res) {
+        var user = req.session.user;
+        res.render('404');
     }
 
 };

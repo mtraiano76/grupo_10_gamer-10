@@ -52,6 +52,7 @@ let productsController = {
 
     create: function (req, res) {
         var user = req.session.user;
+
         res.render('products/creacion', { 'user': user });
     },
 
@@ -150,6 +151,8 @@ let productsController = {
     deatil: function (req, res) {
         var user = req.session.user;
         let id = req.params.id;
+        console.log('------------------------------------------obtendiendo detalle-----------------------------------------------------------')
+
         context.Product.findByPk(id, {
             include: [
                 { association: "GalleryImages" },

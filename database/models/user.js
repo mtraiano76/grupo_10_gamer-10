@@ -47,7 +47,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     userType: {
       type: DataTypes.STRING,
-      defaultValue: 'common',
+      defaultValue: 'COMMON',
     }
   }, {
     sequelize,

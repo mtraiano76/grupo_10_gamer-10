@@ -39,24 +39,27 @@ let usersController = {
                console.log('------------------------------------------usuario existente-----------------------------------------------------------')
                res.render('users/registro', { error: 'Ya existe un usuario con este correo', old: req.body });
             }
+            else
+            {
+               console.log('------------------------------------------creando usuario-----------------------------------------------------------')
+               context.User.create(
+                  {
+                     name: request.nombre,
+                     lastName: request.apellido,
+                     email: request.email,
+                     password: bcrypt.hashSync(request.password, 10),
+                  }).then((resultado) => {
+                     console.log(resultado);
+                     res.redirect("/users/login")
+                  }).catch(function (err) {
+                     console.log(err);
+                     res.render('users/registro', { errors: errors.mapped(), old: req.body });
+                  });
+            }
          }).catch(function (err) {
             console.log(err);
             res.render('users/registro', { error: 'Error creando la cuenta, por favor vuelva a intentarlo', old: req.body });
          });
-
-         context.User.create(
-            {
-               name: request.nombre,
-               lastName: request.apellido,
-               email: request.email,
-               password: bcrypt.hashSync(request.password, 10),
-            }).then((resultado) => {
-               console.log(resultado);
-               res.redirect("/users/login")
-            }).catch(function (err) {
-               console.log(err);
-               res.render('users/registro', { errors: errors.mapped(), old: req.body });
-            });
       }
       else {
          res.render('users/registro', { errors: errors.mapped(), old: req.body });

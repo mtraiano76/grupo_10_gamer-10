@@ -42,7 +42,7 @@
                                             <a href="../products/<%=product.id%>">Detalle</a>
                                             <a href="../products/productCart">Agregar <i
                                                     class="fas fa-shopping-cart"></i></a>
-                                            <% if (locals.user) { %>
+                                            <% if (locals.user && locals.rol && locals.rol == 'ADMIN') { %>
                                                 <a href="../products/edit?id=<%=product.id%>">Editar 
                                                     <i class="fas fa-pencil"></i></a>
                                                 <form method="post" action="../products/<%=product.id%>?_method=DELETE">
