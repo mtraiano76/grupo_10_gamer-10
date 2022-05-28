@@ -11,10 +11,15 @@
                 </h1>
                 <p>
                     Registrate y accede a nuestro E-Commerce!
-                </p>                
+                </p>    
                 <div>
-                    <form method="post" action="../users" enctype="multipart/form-data">
+                    <form method="post" action="../users">
                         
+                        <div class="register-error">
+                            <% if (locals.error) { %>
+                                <p><%= error %></p>
+                            <% } %>
+                        </div>            
                         <div class="fields">
                             <div class="field">
                                 <i class="fas fa-id-card"></i>

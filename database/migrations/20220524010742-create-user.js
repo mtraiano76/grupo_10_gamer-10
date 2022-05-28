@@ -15,10 +15,27 @@ module.exports = {
         type: Sequelize.STRING
       },
       email: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false,
+        unique: {
+          msg: 'Ya existe un usuario con esta dirección de correo'
+        },
+        validate: {
+          isEmail: {
+            msg: 'Email no valido'
+          },
+          notEmpty: {
+            msg: 'Ingrese un email'
+          }
+        }
       },
       password: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        validate: {
+          notEmpty: {
+            msg: 'Ingrese una contraseña'
+          }
+        }
       },
       createdAt: {
         allowNull: false,

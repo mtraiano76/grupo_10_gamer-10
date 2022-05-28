@@ -22,11 +22,32 @@ module.exports = (sequelize, DataTypes) => {
   User.init({
     name: DataTypes.STRING,
     lastName: DataTypes.STRING,
-    email: DataTypes.STRING,
-    password: DataTypes.STRING,
-    userType:{
-      type:DataTypes.INTEGER,
-      defaultValue:0,
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: {
+        msg: 'Ya existe un usuario con esta dirección de correo'
+      },
+      validate: {
+        isEmail: {
+          msg: 'Email no valido'
+        },
+        notEmpty: {
+          msg: 'Ingrese un email'
+        }
+      }
+    },
+    password:{
+      type: DataTypes.STRING,
+      validate: {
+        notEmpty: {
+          msg: 'Ingrese una contraseña'
+        }
+      }
+    },
+    userType: {
+      type: DataTypes.STRING,
+      defaultValue: 'common',
     }
   }, {
     sequelize,

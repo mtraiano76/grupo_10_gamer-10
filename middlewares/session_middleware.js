@@ -5,7 +5,7 @@ let sessionVerify =
             next();
         }
         else {
-            res.redirect("../users/login")
+            res.redirect("../users/login?returnUrl="+req.originalUrl)
         }
     },
 

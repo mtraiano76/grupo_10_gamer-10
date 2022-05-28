@@ -40,6 +40,7 @@
                     <label for="register">¿Aun no tienes una cuenta?</label> 
                     <a href="register" id="register">Regístrate</a>    
                 </div>
+                <input style="display:none" name="returnUrl" value="<%= locals.returnUrl ? returnUrl : '' %>"/>
             </div>
         </form>
         <%- include('../partials/contacto') %>	

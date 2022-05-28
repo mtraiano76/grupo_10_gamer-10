@@ -4,10 +4,13 @@ const path = require('path');
 let usersPath = path.join(__dirname, '../data/users.json');
 let bcrypt = require('bcryptjs');
 
+const context = require('../database/models')
+const { Op } = require("sequelize");
+
 let usersController = {
 
    login: function (req, res) {
-      res.render('users/login');
+      res.render('users/login', { 'returnUrl': req.query.returnUrl });
    },
 
    logout: function (req, res) {
@@ -22,39 +25,42 @@ let usersController = {
    complete_register: function (req, res) {
       let errors = validationResult(req);
 
+      console.log(req);
+      console.log(req.body);
+
       if (errors.isEmpty()) {
          let request = req.body;
-         let id = 1
+         console.log(request);
 
-         let usersJson = fs.readFileSync(usersPath, 'utf-8');
-         let users = JSON.parse(usersJson);
-
-         users.forEach((user, index, array) => {
-            if (user.id >= id) {
-               id = user.id + 1
+         context.User.findOne({
+            where: { email: request.email }
+         }).then((resultado) => {
+            if (resultado) {
+               console.log('------------------------------------------usuario existente-----------------------------------------------------------')
+               res.render('users/registro', { error: 'Ya existe un usuario con este correo', old: req.body });
             }
+         }).catch(function (err) {
+            console.log(err);
+            res.render('users/registro', { error: 'Error creando la cuenta, por favor vuelva a intentarlo', old: req.body });
          });
 
-         let newUser = {
-            'id': id,
-            'name': request.nombre,
-            'lastname': request.apellido,
-            'email': request.email,
-            'password': bcrypt.hashSync(request.password, 10),
-         }
-         users.push(newUser);
-         console.log(newUser);
-
-         console.log(users);
-         let jsonUsersSave = JSON.stringify(users);
-         fs.writeFileSync(usersPath, jsonUsersSave, 'utf-8');
-
-         res.redirect("/users/login")
+         context.User.create(
+            {
+               name: request.nombre,
+               lastName: request.apellido,
+               email: request.email,
+               password: bcrypt.hashSync(request.password, 10),
+            }).then((resultado) => {
+               console.log(resultado);
+               res.redirect("/users/login")
+            }).catch(function (err) {
+               console.log(err);
+               res.render('users/registro', { errors: errors.mapped(), old: req.body });
+            });
       }
       else {
          res.render('users/registro', { errors: errors.mapped(), old: req.body });
       }
-
    },
 
    complete_login: function (req, res) {
@@ -62,27 +68,32 @@ let usersController = {
 
       if (errors.isEmpty()) {
          let request = req.body;
-         let usersJson = fs.readFileSync(usersPath, 'utf-8');
-         let users = JSON.parse(usersJson);
-
-         let user = users.find(u => u.email == request.email);
-
-         if (user) {
-            let match = bcrypt.compareSync(request.password, user.password);
-
-            if (match) {
-               console.log("loggeado", user)
-               req.session.user = user.email;
-               console.log(req.session);
-               res.redirect("/")
+         console.log(request);
+         context.User.findOne({
+            where: { email: request.email }
+         }).then((resultado) => {
+            if (resultado) {
+               console.log(resultado);
+               let match = bcrypt.compareSync(request.password, resultado.dataValues.password);
+               if (match) {
+                  console.log("loggeado", resultado.dataValues)
+                  req.session.user = resultado.dataValues.email;
+                  req.session.rol = resultado.dataValues.userType;
+                  console.log(req.params);
+                  res.redirect('..'+request.returnUrl)
+               }
+               else {
+                  res.render('users/login', { passwordError: "Correo o constraseña incorrecto", old: req.body });
+               }
             }
             else {
                res.render('users/login', { passwordError: "Correo o constraseña incorrecto", old: req.body });
             }
-         }
-         else {
+
+         }).catch(function (err) {
+            console.log(err);
             res.render('users/login', { passwordError: "Correo o constraseña incorrecto", old: req.body });
-         }
+         });
       }
       else {
          res.render('users/login', { errors: errors.mapped(), old: req.body });
