@@ -1,70 +1,88 @@
 <!DOCTYPE html>
 <html>
-    <%- include('../partials/head') %>
+<%- include('../partials/head') %>
+
     <body>
-        <%- include('../partials/header') %>	
-        <div class="contenedor-detalle">
-            <main>
+        <%- include('../partials/header') %>
+            <div class="contenedor-detalle">
+                <main>
 
-            <div class="caja-1"><img src="<%= product.CoverageUrl %> " alt="<%= product.Name %>"></div>
-            
-            
-                
-            <div class="caja-3">
-                <div>
-                    <h2><%= product.Name %></h2>
-                    <ul>
-                        <li>Fecha de lanzamiento: <%= product.ReleaseDate.toLocaleDateString('en-US', {
-                            year: 'numeric',
-                            month: '2-digit',
-                            day: '2-digit',
-                          }) %></li>
-                        <li>Desarrollo: <%= product.developer.Name %></li>
-                        <li>Producción: <%= product.producer.Name %></li>
-                        <li>Distribución: <%= product.producer.Name %></li>
-                        <li>Jugadores: <%= product.PlayersQuantity %></li>
-                        <li>Formato: Digital</li>
-                        <li>Textos: <%= product.language.Name %></li>
-                        <li>Voces: <%= product.language.Name %></li>
+                    <div class="caja-1"><img src="<%= product.CoverageUrl %> " alt="<%= product.Name %>"></div>
 
-                        <li><h3><%= product.Price %></h3></li>
-                    </ul>
-                   
+
+
+                    <div class="caja-3">
+                        <div>
+                            <h2>
+                                <%= product.Name %>
+                            </h2>
+                            <ul>
+                                <li>Fecha de lanzamiento: <%= product.ReleaseDate.toLocaleDateString('en-US', {
+                                        year: 'numeric' , month: '2-digit' , day: '2-digit' , }) %>
+                                </li>
+                                <li>Desarrollo: <%= product.developer.Name %>
+                                </li>
+                                <li>Producción: <%= product.producer.Name %>
+                                </li>
+                                <li>Distribución: <%= product.producer.Name %>
+                                </li>
+                                <li>Jugadores: <%= product.PlayersQuantity %>
+                                </li>
+                                <li>Formato: Digital</li>
+                                <li>Textos: <%= product.language.Name %>
+                                </li>
+                                <li>Voces: <%= product.language.Name %>
+                                </li>
+
+                                <li>
+                                    <h3>
+                                        <%= product.Price %>
+                                    </h3>
+                                </li>
+                            </ul>
+
+                        </div>
+                        <div class="caja3-boton">
+                            <button type="submit" name="add-to-cart" value="55281"
+                                class="single_add_to_cart_button button alt">
+                                <h3><a href="productCart">COMPRAR <i class="fas fa-shopping-cart"></i></a> </h3>
+                            </button>
+
+                        </div>
+
+
+                </main>
+                <div class="slider-container">
+                    <%if(product.GalleryImages && product.GalleryImages.length> 0){%>
+                        <ul class="slider">
+                            <%for(let i=0; i<product.GalleryImages.length; i++ ){%>
+                                <li id="slide<%=i+1%>"><img src="<%=product.GalleryImages[i].ImageUrl%>"></li>
+                                <%}%>
+                        </ul>
+                        <ul class="slider-menu">
+                            <%for(let i=0; i<product.GalleryImages.length; i++ ){%>
+                                <li><a id="slide<%=i+1%>" href="#slide<%=i+1%>>"><i class="fas fa-circle"></i></a></li>
+                                <%}%>
+                        </ul>
+                        <%}%>
                 </div>
-                    <div class="caja3-boton">
-                        <button type="submit" name="add-to-cart" value="55281" class="single_add_to_cart_button button alt"><h3><a href="productCart">COMPRAR <i class="fas fa-shopping-cart"></i></a > </h3</button>
-                                      
+                <main>
+                    <div class="caja-2">
+                        <%= product.Description %>
                     </div>
-                
-                
-        </main>
-            <div class="slider-container">
-                <ul class="slider">
-                    <%for(let i=0; i<product.GalleryImages.length; i++ ){%>
-                        <li id="slide<%=i+1%>"><img src="<%=product.GalleryImages[i].ImageUrl%>"></li>
-                    <%}%>
-                </ul>
-                <ul class="slider-menu">
-
-                    <li ><a id="slide1" href="#slide1"><i class="fas fa-circle"></i></a></li>
-                    <li ><a id="slide2" href="#slide2"><i class="fas fa-circle"></i></a></li>
-                    <li ><a id="slide3" href="#slide3"><i class="fas fa-circle"></i></a></li>
-                    <li ><a id="slide4" href="#slide4"><i class="fas fa-circle"></i></a></li>
-                    <li ><a id="slide5" href="#slide5"><i class="fas fa-circle"></i></a></li>
-                    <li ><a id="slide6" href="#slide6"><i class="fas fa-circle"></i></a></li>
-                </ul>
-            </div>
-        <main>
-            <div class="caja-2">
-                <%= product.Description %>
-            </div>
-            <div class="caja-video">
-                <div class="video">
-                    <iframe width="960" height="715" src="<%= product.VideoUrl %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-            </div>
-        </main>
-        <%- include('../partials/contacto') %>	
-        <%- include('../partials/footer') %>
+                    <%if(product.VideoUrl && product.VideoUrl!='' ){%>
+                        <div class="caja-video">
+                            <div class="video">
+                                <iframe width="960" height="715" src="<%= product.VideoUrl %>"
+                                    title="YouTube video player" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <%}%>
+                </main>
+                <%- include('../partials/contacto') %>
+                    <%- include('../partials/footer') %>
     </body>
-    </html>
+
+</html>

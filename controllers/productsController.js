@@ -1,3 +1,4 @@
+const { validationResult } = require('express-validator');
 const fs = require('fs');
 const path = require('path');
 const context = require('../database/models')
@@ -21,8 +22,10 @@ let productsController = {
     },
 
     list: function (req, res) {
+        console.log(req.session);
         var user = req.session.user;
-
+        var rol = req.session.rol;
+        console.log(rol);
         if (req.query.search) {
             context.Product.findAll({
                 raw: true,
@@ -33,18 +36,18 @@ let productsController = {
                 }
             }).then((resultados) => {
                 console.log(resultados);
-                res.render('products/listado', { 'products': resultados, "titulo": "Resultado de la busqueda", "emptyMessage": "No hay resultados para esta busqueda", 'user': user });
+                res.render('products/listado', { 'products': resultados, "titulo": "Resultado de la busqueda", "emptyMessage": "No hay resultados para esta busqueda", 'user': user, 'rol': rol });
             }).catch(function (err) {
-                res.redirect('/index');
+                res.redirect('/');
             });
         }
         else {
             context.Product.findAll({ raw: true, })
                 .then((resultados) => {
                     console.log(resultados);
-                    res.render('products/listado', { 'products': resultados, "titulo": "Catalogo", "emptyMessage": "No hay nada en el catalogo para mostrar", 'user': user });
+                    res.render('products/listado', { 'products': resultados, "titulo": "Catalogo", "emptyMessage": "No hay nada en el catalogo para mostrar", 'user': user, 'rol': rol });
                 }).catch(function (err) {
-                    res.redirect('/index');
+                    res.redirect('/');
                 });
         }
 
@@ -53,51 +56,167 @@ let productsController = {
     create: function (req, res) {
         var user = req.session.user;
 
-        res.render('products/creacion', { 'user': user });
+        context.Developer.findAll({ raw: true, })
+            .then((developerResults) => {
+                context.Producer.findAll({ raw: true, })
+                    .then((producerResults) => {
+                        context.Category.findAll({ raw: true, })
+                            .then((categoryResults) => {
+                                context.Languages.findAll({ raw: true, })
+                                    .then((lenguageResults) => {
+                                        console.log('-------------------------------------Cargo----------------------------------------------')
+
+                                        res.render('products/creacion', {
+                                            'user': user, 'desarrolladoras': developerResults,
+                                            'productoras': producerResults,
+                                            'idiomas': lenguageResults,
+                                            'categories': categoryResults
+                                        });
+                                    }).catch(function (err) {
+                                        console.log('-------------------------------------failed-search-languajes----------------------------------------------')
+                                        console.log(err);
+                                        res.redirect('/');
+                                    });
+                            }).catch(function (err) {
+                                console.log('-------------------------------------failed-search-Category----------------------------------------------')
+                                console.log(err); res.redirect('/');
+                            });
+                    }).catch(function (err) {
+                        console.log('-------------------------------------failed-search-Producer----------------------------------------------')
+                        console.log(err); res.redirect('/');
+                    });
+            }).catch(function (err) {
+                console.log('-------------------------------------failed-search-Developer----------------------------------------------')
+                console.log(err); res.redirect('/');
+            });
     },
 
     save: function (req, res) {
-        let request = req.body;
-        let id = 1
+        let errors = validationResult(req);
+        var user = req.session.user;
 
-        let jsonProducts = fs.readFileSync(productsPath, 'utf-8');
-        let products = JSON.parse(jsonProducts);
+        console.log(errors);
+        if (errors.isEmpty()) {
 
-        products.forEach((product, index, array) => {
-            if (product.id >= id) {
-                id = product.id + 1
-            }
-        });
+            let request = req.body;
+            let id = 1
 
-        let caratula = req.files.caratula[0];
-        let previews = req.files.gallery;
+            let caratula = req.files.caratula[0];
+            let previews = req.files.gallery;
+            console.log('-----------------------------------------------Crear Producto---------------------------------------------------')
+            context.Product.create({
+                Name: request.name,
+                CoverageUrl: '../images/Imágenes de Juegos PS4/' + ((caratula && caratula.filename) ? caratula.filename : 'Preview.png'),
+                Price: Number(request.price),
+                ReleaseDate: new Date(request.date),
+                VideoUrl: request.videoUrl,
+                developerId: request.desarrolladora,
+                producerId: request.productora,
+                PlayersQuantity: request.juagdores,
+                languageId: request.idioma,
+                Discount: Number(request.discount),
+                IsSuggested: request.sugerido ? true : false,
+                categoryId: request.category,
+                Description: request.descripcion,
+                createdAt: new Date(),
+                updateAt: new Date(),
+            }).then((result) => {
+                console.log('-----------------------------------------------Creado Producto---------------------------------------------------')
+                console.log(result)
+                previews.forEach(p => {
+                    context.ProductGalleryImage.create({
+                        productId: result.dataValues.id,
+                        ImageUrl: '../images/Imágenes de Juegos PS4/' + p.filename,
+                        createdAt: new Date(),
+                        updateAt: new Date(),
+                    }).then((galleryResult) => {
+                        console.log('-------------------------------------Imagen galeria creado----------------------------------------------')
+                    }).catch(function (err) {
+                        console.log('-------------------------------------Imagen galeria creado ERROR----------------------------------------------');
+                        console.log(err);
+                        res.redirect("/products")
+                    })
+                });
 
-        let newProduct = {
-            'id': id,
-            'url': '../images/Imágenes de Juegos PS4/' + caratula.filename,
-            'name': request.name,
-            'price': Number(request.price),
-            'date': request.date,
-            'videoUrl': request.videoUrl,
-            'desarrolladora': request.desarrolladora,
-            'productora': request.productora,
-            'juagdores': request.juagdores,
-            'idioma': request.idioma,
-            'discount': Number(request.discount),
-            'sugerido': request.sugerido ? true : false,
-            'previews': [],
-            'category': request.category,
-            'descripcion': request.descripcion,
+                res.redirect("/products")
+            }).catch(function (err) {
+                console.log('-------------------------------------ErrorCreando----------------------------------------------')
+                console.log(err);
+                context.Developer.findAll({ raw: true, })
+                    .then((developerResults) => {
+                        context.Producer.findAll({ raw: true, })
+                            .then((producerResults) => {
+                                context.Category.findAll({ raw: true, })
+                                    .then((categoryResults) => {
+                                        context.Languages.findAll({ raw: true, })
+                                            .then((lenguageResults) => {
+                                                console.log('-------------------------------------CargandiSitioTrasErrorCreando----------------------------------------------')
+                                                console.log(req.body);
+                                                res.render('products/creacion', {
+                                                    'user': user,
+                                                    'desarrolladoras': developerResults,
+                                                    'productoras': producerResults,
+                                                    'idiomas': lenguageResults,
+                                                    'categories': categoryResults,
+                                                    old: req.body
+                                                });
+                                            }).catch(function (err) {
+                                                console.log('-------------------------------------CargandiSitioTrasErrorCreando-failed-search-languajes----------------------------------------------')
+                                                console.log(err);
+                                                res.redirect('/products');
+                                            });
+                                    }).catch(function (err) {
+                                        console.log('-------------------------------------CargandiSitioTrasErrorCreando-failed-search-Category----------------------------------------------')
+                                        console.log(err); res.redirect('/products');
+                                    });
+                            }).catch(function (err) {
+                                console.log('-------------------------------------CargandiSitioTrasErrorCreando-failed-search-Producer----------------------------------------------')
+                                console.log(err); res.redirect('/products');
+                            });
+                    }).catch(function (err) {
+                        console.log('-------------------------------------CargandiSitioTrasErrorCreando-failed-search-Developer----------------------------------------------')
+                        console.log(err); res.redirect('/products');
+                    });
+            });
         }
-
-        previews.forEach(p => newProduct.previews.push('../images/Imágenes de Juegos PS4/' + p.filename));
-
-        products.push(newProduct);
-
-        let jsonProdctsSave = JSON.stringify(products);
-        fs.writeFileSync(productsPath, jsonProdctsSave, 'utf-8');
-
-        res.redirect("/products")
+        else {
+            context.Developer.findAll({ raw: true, })
+                .then((developerResults) => {
+                    context.Producer.findAll({ raw: true, })
+                        .then((producerResults) => {
+                            context.Category.findAll({ raw: true, })
+                                .then((categoryResults) => {
+                                    context.Languages.findAll({ raw: true, })
+                                        .then((lenguageResults) => {
+                                            console.log('-------------------------------------Cargo----------------------------------------------')
+                                            console.log(req.body);
+                                            res.render('products/creacion', {
+                                                'user': user,
+                                                'desarrolladoras': developerResults,
+                                                'productoras': producerResults,
+                                                'idiomas': lenguageResults,
+                                                'categories': categoryResults,
+                                                errors: errors.mapped(),
+                                                old: req.body
+                                            });
+                                        }).catch(function (err) {
+                                            console.log('-------------------------------------failed-search-languajes----------------------------------------------')
+                                            console.log(err);
+                                            res.redirect('/products');
+                                        });
+                                }).catch(function (err) {
+                                    console.log('-------------------------------------failed-search-Category----------------------------------------------')
+                                    console.log(err); res.redirect('/products');
+                                });
+                        }).catch(function (err) {
+                            console.log('-------------------------------------failed-search-Producer----------------------------------------------')
+                            console.log(err); res.redirect('/products');
+                        });
+                }).catch(function (err) {
+                    console.log('-------------------------------------failed-search-Developer----------------------------------------------')
+                    console.log(err); res.redirect('/products');
+                });
+        }
     },
 
     edit: function (req, res) {
@@ -162,13 +281,19 @@ let productsController = {
                 { association: "producer" },
             ]
         }).then((resultado) => {
-            resultado.dataValues.GalleryImages = resultado.GalleryImages.map(r => r.dataValues);
-            resultado.dataValues.developer = resultado.developer.dataValues
-            resultado.dataValues.category = resultado.category.dataValues
-            resultado.dataValues.language = resultado.language.dataValues
-            resultado.dataValues.producer = resultado.producer.dataValues
-            console.log(resultado.dataValues);
-            res.render('products/detalle', { 'product': resultado.dataValues, 'user': user });
+            if (resultado && resultado.dataValues) {
+                resultado.dataValues.GalleryImages = resultado.GalleryImages.map(r => r.dataValues);
+                resultado.dataValues.developer = resultado.developer.dataValues
+                resultado.dataValues.category = resultado.category.dataValues
+                resultado.dataValues.language = resultado.language.dataValues
+                resultado.dataValues.producer = resultado.producer.dataValues
+                console.log(resultado.dataValues);
+                res.render('products/detalle', { 'product': resultado.dataValues, 'user': user });
+            }
+            else
+            {
+                res.redirect('../404');
+            }
         }).catch(function (err) {
             console.log(err);
         });

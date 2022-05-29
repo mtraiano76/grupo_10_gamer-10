@@ -82,7 +82,7 @@ let usersController = {
                   console.log("loggeado", resultado.dataValues)
                   req.session.user = resultado.dataValues.email;
                   req.session.rol = resultado.dataValues.userType;
-                  console.log(req.params);
+                  console.log(req.session);
                   res.redirect('..'+request.returnUrl)
                }
                else {
