@@ -2,7 +2,7 @@ const { validationResult } = require('express-validator');
 const fs = require('fs');
 const path = require('path');
 const context = require('../database/models')
-const { Op } = require("sequelize");
+const { Op, where } = require("sequelize");
 
 let productsPath = path.join(__dirname, '../data/games.json');
 let productsCartPath = path.join(__dirname, '../data/cart-games.json');
@@ -290,8 +290,7 @@ let productsController = {
                 console.log(resultado.dataValues);
                 res.render('products/detalle', { 'product': resultado.dataValues, 'user': user });
             }
-            else
-            {
+            else {
                 res.redirect('../404');
             }
         }).catch(function (err) {
@@ -300,23 +299,41 @@ let productsController = {
     },
 
     delete: function (req, res) {
-        let jsonProducts = fs.readFileSync(productsPath, 'utf-8');
-        let products = JSON.parse(jsonProducts);
-
-        console.log(products)
-
         console.log(req.params.id);
 
-        let productIndex = products.findIndex(product => product.id == req.params.id);
+        context.Product.findByPk(req.params.id).then((resultado) => {
+            if (resultado && resultado.dataValues) {
+                console.log("--------------------------------------------------------------Producto encontrado----------------------------------------------------------");
+                console.log(resultado.dataValues);
+                context.ProductGalleryImage.destroy({
+                    where: { productId: resultado.dataValues.id }
+                }).then((galleryRemoveResult) => {
+                    console.log("--------------------------------------------------------------Gellria Removida----------------------------------------------------------");
+                    context.Product.destroy({
+                        where: { id: resultado.dataValues.id }
+                    }).then((productRemoveResult) => {
+                        console.log("--------------------------------------------------------------Producto Removido----------------------------------------------------------");
+                        console.log(productRemoveResult);
+                        console.log("--------------------------------------------------------------Intento de navegacion----------------------------------------------------------");
+                        res.redirect("/products");
+                    }).catch(function (err) {
+                        console.log("--------------------------------------------------------------Producto Removido Error----------------------------------------------------------");
+                        console.log(err);
+                    });
+                }).catch(function (err) {
+                    console.log("--------------------------------------------------------------Gellria Removida Error----------------------------------------------------------");
+                    console.log(err);
+                    console.log(resultado.dataValues.productId);
+                });
 
-        console.log(productIndex);
-
-        products.splice(productIndex, 1)
-
-        let jsonProdctsSave = JSON.stringify(products);
-        fs.writeFileSync(productsPath, jsonProdctsSave, 'utf-8');
-
-        res.redirect("/products");
+            }
+            else {
+                res.redirect('/products');
+            }
+        }).catch(function (err) {
+            console.log(err);
+            res.redirect("/products");
+        });
     },
 
 };
