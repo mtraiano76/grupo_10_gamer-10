@@ -222,7 +222,7 @@ let productsController = {
     edit: function (req, res) {
         var user = req.session.user;
         let id = req.query.id;
-        
+
         context.Product.findByPk(id, {
             include: [
                 { association: "GalleryImages" },
@@ -239,8 +239,40 @@ let productsController = {
                 resultado.dataValues.language = resultado.language.dataValues
                 resultado.dataValues.producer = resultado.producer.dataValues
                 console.log(resultado.dataValues);
-                res.render('products/edicion', { 'product': product, 'user': user });
+                context.Developer.findAll({ raw: true, })
+                    .then((developerResults) => {
+                        context.Producer.findAll({ raw: true, })
+                            .then((producerResults) => {
+                                context.Category.findAll({ raw: true, })
+                                    .then((categoryResults) => {
+                                        context.Languages.findAll({ raw: true, })
+                                            .then((lenguageResults) => {
+                                                console.log('-------------------------------------Cargo----------------------------------------------')
 
+                                                res.render('products/edicion', {
+                                                    'product': resultado.dataValues,
+                                                    'user': user, 'desarrolladoras': developerResults,
+                                                    'productoras': producerResults,
+                                                    'idiomas': lenguageResults,
+                                                    'categories': categoryResults
+                                                });
+                                            }).catch(function (err) {
+                                                console.log('-------------------------------------failed-search-languajes----------------------------------------------')
+                                                console.log(err);
+                                                res.redirect('/');
+                                            });
+                                    }).catch(function (err) {
+                                        console.log('-------------------------------------failed-search-Category----------------------------------------------')
+                                        console.log(err); res.redirect('/');
+                                    });
+                            }).catch(function (err) {
+                                console.log('-------------------------------------failed-search-Producer----------------------------------------------')
+                                console.log(err); res.redirect('/');
+                            });
+                    }).catch(function (err) {
+                        console.log('-------------------------------------failed-search-Developer----------------------------------------------')
+                        console.log(err); res.redirect('/');
+                    });
             }
             else {
                 res.redirect('../404');
@@ -251,42 +283,147 @@ let productsController = {
     },
 
     saveEdit: function (req, res) {
-        let request = req.body;
-        let jsonProducts = fs.readFileSync(productsPath, 'utf-8');
+        let errors = validationResult(req);
+        var user = req.session.user;
 
-        let products = JSON.parse(jsonProducts);
+        console.log(errors);
+        if (errors.isEmpty()) {
+            let request = req.body;
+            let caratula;
+            let previews = [];
+            if (req.files.caratula || req.files.gallery) {
+                if (req.files.caratula || req.files.caratula.length) {
+                    caratula = '../images/Imágenes de Juegos PS4/' + req.files.caratula[0].filename;
+                }
 
-        let product = products.find(product => product.id == req.params.id);
-
-        product.price = Number(request.price);
-        product.category = request.category;
-        product.date = request.date;
-        product.videoUrl = request.videoUrl;
-        product.desarrolladora = request.desarrolladora;
-        product.productora = request.productora;
-        product.juagdores = request.juagdores;
-        product.idioma = request.idioma;
-        product.discount = Number(request.discount);
-        product.sugerido = request.sugerido ? true : false;
-        product.category = request.category;
-        product.descripcion = request.descripcion;
-
-        if (req.files.caratula || req.files.gallery) {
-            if (req.files.caratula || req.files.caratula.length) {
-                let caratula = req.files.caratula[0];
-                product.url = '../images/Imágenes de Juegos PS4/' + caratula.filename;
+                if (req.files.gallery || req.files.gallery.length) {
+                    req.files.gallery.forEach(p => previews.push('../images/Imágenes de Juegos PS4/' + p.filename));
+                }
             }
+console.log(caratula);
+console.log(previews);
 
-            if (req.files.gallery || req.files.gallery.length) {
-                let previews = req.files.gallery;
-                previews.forEach(p => newProduct.previews.push('../images/Imágenes de Juegos PS4/' + p.filename));
-            }
+            let existingProduct;
+            context.Product.findByPk(req.params.id).then((existingProductResultado) => {
+                existingProduct = existingProductResultado.dataValues
+
+                console.log(existingProduct);
+                context.Product.update(
+                    {
+                        Name: request.name,
+                        CoverageUrl: (caratula ? caratula : existingProduct.CoverageUrl),
+                        Price: Number(request.price),
+                        ReleaseDate: new Date(request.date),
+                        VideoUrl: request.videoUrl,
+                        developerId: request.desarrolladora,
+                        producerId: request.productora,
+                        PlayersQuantity: request.juagdores,
+                        languageId: request.idioma,
+                        Discount: Number(request.discount),
+                        IsSuggested: request.sugerido ? true : false,
+                        categoryId: request.category,
+                        Description: request.descripcion,
+                        updateAt: new Date(),
+                    },
+                    {
+                        where: { id: req.params.id }
+                    }).then((productResult) => {
+                        if (previews && previews.length > 0) {
+                            context.ProductGalleryImage.destroy({
+                                where: { productId: req.params.id }
+                            }).then((galleryRemoveResult) => {
+                                console.log("--------------------------------------------------------------Gellria Removida----------------------------------------------------------");
+                                previews.forEach(p => {
+                                    context.ProductGalleryImage.create({
+                                        productId: req.params.id,
+                                        ImageUrl: previews.pop(),
+                                        createdAt: new Date(),
+                                        updateAt: new Date(),
+                                    }).then((galleryResult) => {
+                                        console.log('-------------------------------------Imagen galeria creado----------------------------------------------')
+
+                                    }).catch(function (err) {
+                                        console.log('-------------------------------------Imagen galeria creado ERROR----------------------------------------------');
+                                        console.log(err);
+                                    })
+                                })
+                                res.redirect("/products")
+                            }).catch(function (err) {
+                                console.log("--------------------------------------------------------------Gellria Removida Error----------------------------------------------------------");
+                                console.log(err);
+                                console.log(resultado.dataValues.productId);
+                            });
+                        }
+                        else {
+                            res.redirect("/products")
+                        }
+
+                    }).catch(function (err) {
+                        console.log(err);
+                    });
+            }).catch(function (err) { console.log(err); });
         }
+        else {
+            context.Product.findByPk(id, {
+                include: [
+                    { association: "GalleryImages" },
+                    { association: "developer" },
+                    { association: "category" },
+                    { association: "language" },
+                    { association: "producer" },
+                ]
+            }).then((resultado) => {
+                if (resultado && resultado.dataValues) {
+                    resultado.dataValues.GalleryImages = resultado.GalleryImages.map(r => r.dataValues);
+                    resultado.dataValues.developer = resultado.developer.dataValues
+                    resultado.dataValues.category = resultado.category.dataValues
+                    resultado.dataValues.language = resultado.language.dataValues
+                    resultado.dataValues.producer = resultado.producer.dataValues
+                    console.log(resultado.dataValues);
+                    context.Developer.findAll({ raw: true, })
+                        .then((developerResults) => {
+                            context.Producer.findAll({ raw: true, })
+                                .then((producerResults) => {
+                                    context.Category.findAll({ raw: true, })
+                                        .then((categoryResults) => {
+                                            context.Languages.findAll({ raw: true, })
+                                                .then((lenguageResults) => {
+                                                    console.log('-------------------------------------Cargo----------------------------------------------')
 
-        let jsonProdctsSave = JSON.stringify(products);
-        fs.writeFileSync(productsPath, jsonProdctsSave, 'utf-8');
-
-        res.redirect("/products");
+                                                    res.render('products/edicion', {
+                                                        'product': resultado.dataValues,
+                                                        'user': user, 'desarrolladoras': developerResults,
+                                                        'productoras': producerResults,
+                                                        'idiomas': lenguageResults,
+                                                        'categories': categoryResults,
+                                                        errors: errors.mapped(),
+                                                        old: req.body
+                                                    });
+                                                }).catch(function (err) {
+                                                    console.log('-------------------------------------failed-search-languajes----------------------------------------------')
+                                                    console.log(err);
+                                                    res.redirect('/');
+                                                });
+                                        }).catch(function (err) {
+                                            console.log('-------------------------------------failed-search-Category----------------------------------------------')
+                                            console.log(err); res.redirect('/');
+                                        });
+                                }).catch(function (err) {
+                                    console.log('-------------------------------------failed-search-Producer----------------------------------------------')
+                                    console.log(err); res.redirect('/');
+                                });
+                        }).catch(function (err) {
+                            console.log('-------------------------------------failed-search-Developer----------------------------------------------')
+                            console.log(err); res.redirect('/');
+                        });
+                }
+                else {
+                    res.redirect('../404');
+                }
+            }).catch(function (err) {
+                console.log(err);
+            });
+        }
     },
 
     deatil: function (req, res) {

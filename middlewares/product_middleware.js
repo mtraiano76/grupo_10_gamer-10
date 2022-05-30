@@ -29,8 +29,8 @@ let productValidator =
         body('videoUrl')
             .notEmpty().withMessage('Debes completar la url del video').bail(),
         body('descripcion')
-            .notEmpty().withMessage('Debes completar la descripción').bail()
-            .isLength({ min: 10 }).withMessage('La contraseña debe ser más larga'),
+            .notEmpty().withMessage('Debes- completar la descripción').bail()
+            .isLength({ min: 5 }).withMessage('La descripción debe ser más larga'),
     ],
 }
 

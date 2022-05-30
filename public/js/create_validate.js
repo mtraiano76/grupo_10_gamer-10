@@ -222,6 +222,22 @@ const numberValidation = (input, value) => {
     }
 }
 
+const discountValidation = (input, value) => {
+    console.log("discount");
+    console.log(input);
+    if (value >= 0 && value < 100) {
+        input.classList.remove("input-error");
+        input.classList.add("input-succes");
+        fields[input.id] = true;
+    }
+    else {
+        input.classList.add("input-error");
+        input.classList.remove("input-succes");
+        fields[input.id] = false;
+    }
+}
+
+
 const priceValidation = (input, value) => {
     if (value >= 1000 && value <= 100000) {
         input.classList.remove("input-error");
@@ -269,7 +285,7 @@ const validation = (e) => {
             numberValidation(element, e.target.value)
             break;
         case "discount":
-            numberValidation(element, e.target.value)
+            discountValidation(element, e.target.value)
             break;
         case "description":
             fieldValidation(expressions.description, element, e.target.value)
@@ -299,10 +315,10 @@ selects.forEach((s) => {
     s.addEventListener('change', validation)
 });
 
+textArea.addEventListener('change', validation)
+
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-
-    descriptionValidation(textArea);
 
     if(!fields.image) {
         $imgPreview.classList.remove("input-succes");
@@ -334,6 +350,8 @@ form.addEventListener('submit', (e) => {
         form.submit();
     }
     else {
+        fieldValidation(expressions.name, textArea, textArea.value)
+
         inputs.forEach((i) => {
             switch (i.id) {
                 case "name":
@@ -352,7 +370,7 @@ form.addEventListener('submit', (e) => {
                     numberValidation(i, i.value)
                     break;
                 case "discount":
-                    numberValidation(i, i.value)
+                    discountValidation(i, i.value)
                     break;
             }
         })
