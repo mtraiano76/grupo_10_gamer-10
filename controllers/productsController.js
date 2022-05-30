@@ -222,10 +222,32 @@ let productsController = {
     edit: function (req, res) {
         var user = req.session.user;
         let id = req.query.id;
-        let jsonProducts = fs.readFileSync(productsPath, 'utf-8');
-        let products = JSON.parse(jsonProducts);
-        let product = products.find(product => product.id == id);
-        res.render('products/edicion', { 'product': product, 'user': user });
+        
+        context.Product.findByPk(id, {
+            include: [
+                { association: "GalleryImages" },
+                { association: "developer" },
+                { association: "category" },
+                { association: "language" },
+                { association: "producer" },
+            ]
+        }).then((resultado) => {
+            if (resultado && resultado.dataValues) {
+                resultado.dataValues.GalleryImages = resultado.GalleryImages.map(r => r.dataValues);
+                resultado.dataValues.developer = resultado.developer.dataValues
+                resultado.dataValues.category = resultado.category.dataValues
+                resultado.dataValues.language = resultado.language.dataValues
+                resultado.dataValues.producer = resultado.producer.dataValues
+                console.log(resultado.dataValues);
+                res.render('products/edicion', { 'product': product, 'user': user });
+
+            }
+            else {
+                res.redirect('../404');
+            }
+        }).catch(function (err) {
+            console.log(err);
+        });
     },
 
     saveEdit: function (req, res) {

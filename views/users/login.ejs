@@ -40,10 +40,11 @@
                     <label for="register">¿Aun no tienes una cuenta?</label> 
                     <a href="register" id="register">Regístrate</a>    
                 </div>
-                <input style="display:none" name="returnUrl" value="<%= locals.returnUrl ? returnUrl : '' %>"/>
+                <input style="display:none" visbility="hidden" name="returnUrl" value="<%= locals.returnUrl ? returnUrl : '' %>"/>
             </div>
         </form>
         <%- include('../partials/contacto') %>	
         <%- include('../partials/footer') %>	
+        <script src="../js/login_validate.js"></script>
     </body>
 </html>

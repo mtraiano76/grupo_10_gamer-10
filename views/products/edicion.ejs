@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
-    <%- include('../partials/head') %>
+<%- include('../partials/head') %>
+
     <body>
-        <%- include('../partials/header') %>	
-         <div class="register-content"> 
+        <%- include('../partials/header') %>
+            <div class="register-content">
                 <h1 class="titulo">
                     Editar juego
                 </h1>
@@ -11,72 +12,159 @@
                     <div class="fields">
                         <div class="field">
                             <label for="name">Nombre:</label>
-                            <input type="text" id="name" name="name" placeholder="Nombre del juego" value="<%=product.name%>" required>
+                            <input type="text" id="name" name="name" placeholder="Nombre del juego"
+                                value="<%=product.Name%>">
+                            <% if (locals.errors && errors.name) { %>
+                                <p class="errors">
+                                    <%= errors.name.msg %>
+                                </p>
+                                <% } %>
                         </div>
-                        
+
                         <div class="field">
                             <label for="price">Precio:</label>
-                            <input type="number" id="precio" name="price" placeholder="Precio" value="<%=product.price%>" required>
-                        </div >
-                        
+                            <input type="number" id="precio" name="price" placeholder="Precio"
+                                value="<%=product.Price%>">
+                            <% if (locals.errors && errors.price) { %>
+                                <p class="errors">
+                                    <%= errors.price.msg %>
+                                </p>
+                                <% } %>
+                        </div>
+
                         <div class="field">
                             <label for="date">Fecha de creación:</label>
-                            <input type="date" id="date" name="date" placeholder="Fecha de creacion" required min="2010-01-01" max="2021-12-31" value="<%=product.date%>" required>
+                            <input type="date" id="date" name="date" placeholder="Fecha de creacion"
+                                value="<%=product.ReleasedDate%>">
+                            <% if (locals.errors && errors.date) { %>
+                                <p class="errors">
+                                    <%= errors.idatedioma.msg %>
+                                </p>
+                                <% } %>
                         </div>
 
                         <div class="field">
                             <label for="videoUrl">Enlace del video:</label>
-                            <input type="text" id="videoUrl" name="videoUrl" value="<%=product.videoUrl%>" placeholder="Url de video" >
+                            <input type="text" id="videoUrl" name="videoUrl" value="<%=product.VideoUrl%>"
+                                placeholder="Url de video">
+                            <% if (locals.errors && errors.videoUrl) { %>
+                                <p class="errors">
+                                    <%= errors.videoUrl.msg %>
+                                </p>
+                                <% } %>
                         </div>
 
                         <div class="field">
                             <label for="desarrolladora">Desarrolladora:</label>
-                            <input type="text" id="desarrolladora" name="desarrolladora" placeholder="desarrolladora" value="<%=product.name%>" required>
+                            <select name="desarrolladora" id="desarrolladora">
+                                <option value="0" <%=!(locals && locals.product.desarrolladoraId) ||
+                                    !locals.errors.desarrolladora.value ? "selected" : '' %> disabled>Seleccione una
+                                    desarrolladora</option>
+                                <% for(let desarrolladora of locals.desarrolladoras){ %>
+                                    <option value="<%= desarrolladora.id %>" <%=locals.old && locals.old.desarrolladora
+                                        && locals.old.desarrolladora==desarrolladora.id ? "selected" : '' %> ><%=
+                                            desarrolladora.Name %>
+                                    </option>
+                                    <% } %>
+                            </select>
+                            <% if (locals.errors && errors.desarrolladora) { %>
+                                <p class="errors">
+                                    <%= errors.desarrolladora.msg %>
+                                </p>
+                                <% } %>
                         </div>
 
                         <div class="field">
                             <label for="productora">Productora:</label>
-                            <input type="text" id="productora" name="productora" placeholder="Productora" value="<%=product.productora%>" required>
+                            <select name="productora" id="productora">
+                                <option value="0" <%=!(locals.old && locals.errors.productora) ||
+                                    !locals.errors.productora.value ? "selected" : '' %> disabled>Seleccione una
+                                    productora</option>
+                                <% for(let productora of locals.productoras){ %>
+                                    <option value="<%= productora.id %>" <%=locals.old && locals.old.productora &&
+                                        locals.old.productora==productora.id ? "selected" : '' %>><%= productora.Name %>
+                                    </option>
+                                    <% } %>
+                            </select>
+                            <% if (locals.errors && errors.productora) { %>
+                                <p class="errors">
+                                    <%= errors.productora.msg %>
+                                </p>
+                                <% } %>
                         </div>
 
                         <div class="field">
                             <label for="juagdores">Numero de jugadores:</label>
-                            <input type="number" id="juagdores" name="juagdores" placeholder="Numero de juagdores" value="1" min="1" max="4" value="<%=product.juagdores%>" required>
-                        </div >
+                            <input type="number" id="juagdores" name="juagdores" placeholder="Numero de juagdores"
+                                value="1" min="1" max="4" value="<%=product.juagdores%>" required>
+                            <% if (locals.errors && errors.idioma) { %>
+                                <p class="errors">
+                                    <%= errors.idioma.msg %>
+                                </p>
+                                <% } %>
+                        </div>
 
                         <div class="field">
                             <label for="idioma">Idioma:</label>
-                            <input type="text" id="idioma" name="idioma" placeholder="Idioma" value="<%=product.idioma%>" required>
+                            <select name="idioma" id="idioma">
+                                <option value="0" <%=!(locals.old && locals.errors.idioma) ||
+                                    !locals.errors.idioma.value ? "selected" : '' %> disabled>Seleccione un idioma
+                                </option>
+                                <% for(let idioma of locals.idiomas){ %>
+                                    <option value="<%= idioma.id %>" <%=locals.old && locals.old.idioma &&
+                                        locals.old.idioma==idioma.id ? "selected" : '' %>><%= idioma.Name %>
+                                    </option>
+                                    <% } %>
+                            </select>
+                            <% if (locals.errors && errors.idioma) { %>
+                                <p class="errors">
+                                    <%= errors.idioma.msg %>
+                                </p>
+                                <% } %>
                         </div>
 
                         <div class="field">
                             <label for="discount">Descuento:</label>
-                            <input type="number" id="discount" name="discount" placeholder="Descuento" value="0" min="0" max="100" value="<%=product.discount%>" required>
+                            <input type="number" id="discount" name="discount" placeholder="Descuento" value="0" min="0"
+                                max="100" value="<%=product.discount%>" required>
+                            <% if (locals.errors && errors.idioma) { %>
+                                <p class="errors">
+                                    <%= errors.idioma.msg %>
+                                </p>
+                                <% } %>
                         </div>
 
                         <div class="field">
-
                             <label for="category">Categoria:</label>
                             <select name="category" id="category">
-                                <option value="Acción" <%= product.category == "Acción" ? "selected": ""%>>Acción</option>
-                                <option value="Rol" <% product.category == "Rol" ? "selected": ""%>>Rol</option>
-                                <option value="Deporte" <%= product.category == "Deporte" ? "selected": ""%>>Deporte</option>
-                                <option value="Carreras" <%= product.category == "Carreras" ? "selected": ""%>>Carreras</option>
-                                <option value="Peleas" <%=product.category == "Pelea" ? "selected": ""%>>Pelea</option>
-                                <option value="Guerra" <%= product.category == "Guerra" ? "selected": ""%>>Guerra</option>
+                                <option value="0" <%=!(locals.old && locals.errors.category) ||
+                                    !locals.errors.category.value ? "selected" : '' %> disabled>Seleccione una categoria
+                                </option>
+                                <% for(let category of locals.categories){ %>
+                                    <option value="<%= category.id %>" <%=product.categoryId==category.id ? "selected"
+                                        : '' %>><%= category.Name %>
+                                    </option>
+                                    <% } %>
                             </select>
+                            <% if (locals.errors && errors.category) { %>
+                                <p class="errors">
+                                    <%= errors.category.msg %>
+                                </p>
+                                <% } %>
                         </div>
 
                         <div class="field-row">
                             <label for="sugerido">Producto destacado:</label>
-                            <input type="checkbox" id="sugerido" name="sugerido" value="sugerido" <%= product.sugerido ? "checked": ""%>>
+                            <input type="checkbox" id="sugerido" name="sugerido" value="sugerido" <%=product.sugerido
+                                ? "checked" : "" %>>
                         </div>
                     </div>
 
                     <div class="fields">
                         <div class="field-area">
                             <label for="description">Descripción:</label>
-                            <textarea id="description" name="descripcion" placeholder="Descripción..." required><%=product.descripcion%></textarea>
+                            <textarea id="description" name="descripcion" placeholder="Descripción..."
+                                required><%=product.descripcion%></textarea>
                         </div>
                     </div>
 
@@ -84,7 +172,7 @@
                         <div class="field-image">
                             <label for="caratula">Portada:</label>
                             <div class="image-preview">
-                                <input type="file" id="caratula" name="caratula" accept="image/*" >
+                                <input type="file" id="caratula" name="caratula" accept="image/*">
                                 <div class="select-image" id="imageSelect">
                                     <i class="far fa-image"></i>
                                 </div>
@@ -93,7 +181,7 @@
                         </div>
                         <div class="field-image">
                             <label for="gallery">Galeria:</label>
-                            
+
                             <div class="image-preview">
                                 <input type="file" id="gallery" name="gallery" accept="image/*" multiple>
                                 <div for="gallery" class="select-image" id="gallerySelect">
@@ -102,10 +190,10 @@
                                 <div for="gallery" id="galleryDetails" class="galleryDetails">
                                     <ul id="galleryList">
                                         <% for(let preview of product.previews){ %>
-                                            <li >
-                                                <%= preview.split('/').pop() %> 
+                                            <li>
+                                                <%= preview.split('/').pop() %>
                                             </li>
-                                        <% } %> 
+                                            <% } %>
                                     </ul>
                                 </div>
                             </div>
@@ -114,11 +202,12 @@
                     </div>
 
                     <div class="register-button">
-                        <button class="btn-submit" id="register-button" type="submit" >Editar juego</button> 
+                        <button class="btn-submit" id="register-button" type="submit">Editar juego</button>
                     </div>
                 </form>
             </div>
-            <%- include('../partials/contacto') %>	
-            <%- include('../partials/footer') %>	
-        </body>
+            <%- include('../partials/contacto') %>
+                <%- include('../partials/footer') %>
+    </body>
+
 </html>
