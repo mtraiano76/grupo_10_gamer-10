@@ -29,5 +29,8 @@ router.get('/register', session.not_logged, usersController.register);
 router.post('/', session.not_logged,userValidator.validateRegister, usersController.complete_register);
 router.post('/login', session.not_logged,userValidator.validateLogin, usersController.complete_login);
 router.get('/logout', session.logged, usersController.logout);
+router.get('/all-users', usersController.api_users);
+router.get('/count', usersController.api_count);
+router.get('/user/:id', usersController.detail);
 
 module.exports = router;

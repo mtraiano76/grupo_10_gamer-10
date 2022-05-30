@@ -31,6 +31,4 @@ router.get('/:id', productsController.deatil);
 router.put('/:id', session.logged, role.admin, upload.fields([{ name: 'caratula', maxCount: 1 }, { name: 'gallery', maxCount: 6 }]),  productValidator.validateRegister, productsController.saveEdit);
 router.delete('/:id', session.logged, role.admin, productsController.delete);
 
-//TODO CREAR DELETE
-
 module.exports = router;

@@ -300,8 +300,8 @@ let productsController = {
                     req.files.gallery.forEach(p => previews.push('../images/Imágenes de Juegos PS4/' + p.filename));
                 }
             }
-console.log(caratula);
-console.log(previews);
+            console.log(caratula);
+            console.log(previews);
 
             let existingProduct;
             context.Product.findByPk(req.params.id).then((existingProductResultado) => {
@@ -494,7 +494,6 @@ console.log(previews);
             res.redirect("/products");
         });
     },
-
 };
 
 module.exports = productsController

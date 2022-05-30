@@ -102,7 +102,57 @@ let usersController = {
          res.render('users/login', { errors: errors.mapped(), old: req.body });
       }
 
-   }
+   },
+
+   api_users: function (req, res) {
+      console.log('entra');
+      context.User.findAll().then((result)=>{
+         let users = [];
+         let results = result.map(r=>r.dataValues);
+         console.log(results);
+         for(let user of results){
+            users.push({
+               id:user.id,
+               name:user.name,
+               email:user.email,
+               detalle:'http://localhost:3000/users/user/'+user.id
+            })
+         };
+         console.log(users);
+         return res.json(users);
+      }).catch(function (err) {
+         console.log(err);
+         return res.json(err);
+      })
+   },
+
+   api_count: function (req, res) {
+      context.User.findAll().then((result)=>{
+         console.log(result);
+         return res.json(result.length);
+      }).catch(function (err) {
+         console.log(err);
+         return res.json(err);
+      })
+   },
+
+   detail: function (req, res) {
+      context.User.findByPk(req.params.id).then((result)=>{
+         let user = {
+            id:result.dataValues.id,
+            name:result.dataValues.name,
+            lastName:result.dataValues.lastName,
+            email:result.dataValues.email,
+            createdAt:result.dataValues.createdAt,
+            userType:result.dataValues.userType,
+         };
+
+         return res.json(user);
+      }).catch(function (err) {
+         console.log(err);
+         return res.json(err);
+      })
+   },
 
 };
 
