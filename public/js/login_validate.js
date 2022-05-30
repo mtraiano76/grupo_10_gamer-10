@@ -33,6 +33,7 @@ const validation = (e) => {
             break;
         case "password":
             expression = expressions.password;
+            break;
     }
     fieldValidation(expression, input, e.target.value)
 };

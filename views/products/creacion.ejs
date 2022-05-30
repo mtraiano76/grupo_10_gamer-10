@@ -8,7 +8,7 @@
                 <h1 class="titulo">
                     Crear juego
                 </h1>
-                <form method="post" action="../products" enctype="multipart/form-data">
+                <form id="form-create" method="post" action="../products" enctype="multipart/form-data">
                     <div class="fields">
                         <div class="field">
                             <label for="name">Nombre:</label>
@@ -28,7 +28,7 @@
 
                         <div class="field">
                             <label for="date">Fecha de creación:</label>
-                            <input type="date" id="date" name="date" placeholder="Fecha de creacion"  value="<%= locals.old && old.date ? old.date : '' %>">
+                            <input type="date" id="date" name="date" placeholder="Fecha de creacion" min="1900-01-01" max="<%= new Date(new Date().getFullYear(), 31, 12) %>"  value="<%= locals.old && old.date ? old.date : '' %>">
                             <% if (locals.errors && errors.date) { %>
                                 <p class="errors"><%= errors.date.msg %></p>
                             <% } %>

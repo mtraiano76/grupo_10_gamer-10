@@ -623,7 +623,6 @@ footer ul li a {
 }
 
 .register-content select:focus {
-  box-shadow: 0px 0px 5px 3px #0069d9;
   border: none;
   outline: none;
 }
