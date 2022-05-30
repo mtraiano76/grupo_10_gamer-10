@@ -481,6 +481,18 @@ footer ul li a {
   outline: none;
 }
 
+.register-content .input-error {
+  box-shadow: 0px 0px 5px 3px #dd3b00;
+  border: none;
+  outline: none;
+}
+
+.register-content .input-succes {
+  box-shadow: 0px 0px 5px 3px #0fb700;
+  border: none;
+  outline: none;
+}
+
 .login-content input:focus {
   border: none;
   outline: none;
@@ -572,7 +584,7 @@ footer ul li a {
   color: rgb(160, 82, 82);
 }
 
-.register-content .register-error {
+.register-content .register-error, .login-content .credentials-error {
   text-align: center;
   color: rgb(160, 82, 82);
 }
@@ -593,7 +605,6 @@ footer ul li a {
 }
 
 .register-content input:focus {
-  box-shadow: 0px 0px 5px 3px #0069d9;
   border: none;
   outline: none;
 }

@@ -12,7 +12,7 @@ const form = document.querySelector('form');
 const inputs = document.querySelectorAll('form input');
 
 const fieldValidation = (expression, input, value) => {
-    if (expression.test(value)) {
+    if (value && expression.test(value)) {
         input.classList.remove("input-error");
         input.classList.add("input-succes");
         fields[input.id] = true;
@@ -20,7 +20,7 @@ const fieldValidation = (expression, input, value) => {
     else {
         input.classList.add("input-error");
         input.classList.remove("input-succes");
-        fields[input.id] = true;
+        fields[input.id] = false;
     }
 }
 
