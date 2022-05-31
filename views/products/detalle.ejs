@@ -52,7 +52,7 @@
 
 
                 </main>
-                <div class="slider-container">
+                <main class="slider-container">
                     <%if(product.GalleryImages && product.GalleryImages.length> 0){%>
                         <ul class="slider">
                             <%for(let i=0; i<product.GalleryImages.length; i++ ){%>
@@ -61,12 +61,13 @@
                         </ul>
                         <ul class="slider-menu">
                             <%for(let i=0; i<product.GalleryImages.length; i++ ){%>
-                                <li><a id="slide<%=i+1%>" href="#slide<%=i+1%>>"><i class="fas fa-circle"></i></a></li>
+                                <li><a id="slide<%=i+1%>" href="#slide<%=i+1%>"><i class="fas fa-circle"></i></a>
+                                </li>
                                 <%}%>
                         </ul>
                         <%}%>
-                </div>
-                <main>
+                </main>
+                <main class="scondary-container">
                     <div class="caja-2">
                         <%= product.Description %>
                     </div>
@@ -81,8 +82,9 @@
                         </div>
                         <%}%>
                 </main>
-                <%- include('../partials/contacto') %>
-                    <%- include('../partials/footer') %>
+            </div>
+            <%- include('../partials/contacto') %>
+                <%- include('../partials/footer') %>
     </body>
 
 </html>

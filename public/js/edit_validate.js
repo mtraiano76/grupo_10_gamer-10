@@ -225,7 +225,7 @@ const numberValidation = (input, value) => {
 const discountValidation = (input, value) => {
     console.log("discount");
     console.log(input);
-    if (value >= 0 && value < 100) {
+    if (value && value >= 0 && value < 100) {
         input.classList.remove("input-error");
         input.classList.add("input-succes");
         fields[input.id] = true;
@@ -254,7 +254,7 @@ const priceValidation = (input, value) => {
 const descriptionValidation = (input) => {
     console.log(input)
     console.log(input.value)
-    if (input.value && input.value.length >= 5 && input.value.length <= 500) {
+    if (input.value && input.value.length >= 5 && input.value.length <= 5000) {
         input.classList.remove("input-error");
         input.classList.add("input-succes");
         fields[input.id] = true;

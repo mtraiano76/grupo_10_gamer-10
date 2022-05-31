@@ -251,18 +251,20 @@ const priceValidation = (input, value) => {
     }
 }
 
-const descriptionValidation = (input) => {
+const validateDescription = (input) => {
     console.log(input)
     console.log(input.value)
-    if (input.value && input.value.length >= 5 && input.value.length <= 500) {
+    if (input.value && input.value.length >= 5 && input.value.length <= 5000) {
+        console.log('-----------true--------------')
         input.classList.remove("input-error");
         input.classList.add("input-succes");
-        fields[input.id] = true;
+        fields.description = true;
     }
     else {
+        console.log('-----------false--------------')
         input.classList.add("input-error");
         input.classList.remove("input-succes");
-        fields[input.id] = false;
+        fields.description = false;
     }
 }
 
@@ -288,7 +290,7 @@ const validation = (e) => {
             discountValidation(element, e.target.value)
             break;
         case "description":
-            fieldValidation(expressions.description, element, e.target.value)
+            validateDescription(expressions.description, element, e.target.value)
             break;
         case "desarrolladora":
             selectValidation(element, e.target.value)
@@ -315,12 +317,12 @@ selects.forEach((s) => {
     s.addEventListener('change', validation)
 });
 
-textArea.addEventListener('change', validation)
-
 form.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    if(!fields.image) {
+    validateDescription(textArea);
+
+    if (!fields.image) {
         $imgPreview.classList.remove("input-succes");
         $imgPreview.classList.add("input-error");
         $selectImage.classList.remove("input-succes");
@@ -333,7 +335,7 @@ form.addEventListener('submit', (e) => {
         $selectImage.classList.add("input-succes");
     }
 
-    if(!fields.previews) {
+    if (!fields.previews) {
         $selectGallery.classList.remove("input-succes");
         $selectGallery.classList.add("input-error");
         $galleryDetails.classList.remove("input-succes");
@@ -345,12 +347,14 @@ form.addEventListener('submit', (e) => {
         $galleryDetails.classList.remove("input-error");
         $galleryDetails.classList.add("input-succes");
     }
+    
+
+    console.log(fields);
 
     if (fields.category && fields.date && fields.desarrolladora && fields.description && fields.description && fields.discount && fields.idioma && fields.image && fields.juagdores && fields.name && fields.precio && fields.previews && fields.productora) {
         form.submit();
     }
     else {
-        fieldValidation(expressions.name, textArea, textArea.value)
 
         inputs.forEach((i) => {
             switch (i.id) {
